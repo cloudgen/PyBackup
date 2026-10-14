@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-bootstrap-chain.md  
-**Status**: Active (Version 2.3.0)  
+**Status**: Active (Version 2.4.0)  
 **Area**: architecture  
 **Key**: `requirement-bootstrap-chain`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -90,7 +90,7 @@ B **MUST** inherit A’s structural contracts:
 | Online channel (`SCRIPT_URL`, `REPO_*`) | **Keep** | Composed for this product. Help lists the URL. `install` does not download. |
 | Non-interactive zero-cli-verb | **Take as CLI self-install** | `inst_self_install` (copy or download). Not local `install`. Interactive line stays the boards |
 | `self-install` / `version-check` / `self-update` / `self-uninstall` | **Keep** | Explicit verbs. `self-install` is `inst_self_install` (script copy or download). |
-| `self-management` | **Keep** | TTY opens the self board (front row **8**, rows **81**–**87**). Off-TTY help. |
+| `self-management` | **Keep** | TTY opens the self board (front row **6**, rows **61**–**67**). Off-TTY help. |
 | Companion `CHECKSUM` | **Keep code path** | Optional env. Not a second requirement file. |
 | Local `install` / `uninstall` / `where-is-me` | **Keep** | `install` stays `inst_local_install` (mode **0755**). Do not alias it to `self-install`. |
 | Domain backup + sudoers fragment | **Add** | Domain SSOT |
@@ -113,7 +113,7 @@ B **MUST** inherit A’s structural contracts:
 | **A (bootstrap)** | `selfmanaged` at `{{PROJECTS_ROOT}}/selfmanaged` (do not reverse-copy; do not edit A from this tree) |
 | **B (this product)** | folder-backup |
 | **Specialize intent** | A’s architecture and channel verbs, plus folder-backup domain and the folder-backup main menu |
-| **Install mode** | **Dual.** `install` copies the running file (mode 0755) and is self-board row **81**. `self-install` is the channel verb (row **87**) and the non-interactive zero-cli-verb. A terminal with no command is the numbered boards. |
+| **Install mode** | **Dual.** `install` copies the running file (mode 0755) and is self-board row **61**. `self-install` is the channel verb (row **67**) and the non-interactive zero-cli-verb. A terminal with no command is the numbered boards. |
 | **Cache host knob** | `SELFMANAGED_CACHE_HOST` stays that name (inherited). Do not rename it. |
 | **Domain after specialize** | Active `requirement-domain-folder-backup` |
 | **Historical origin** | 2026-08-03 first named `selfmanaged` then trimmed online. 2026-08-13 retargeted A to `cli-template` and dropped the channel. 2026-09-30 user ordered A=`selfmanaged` again and **kept** the channel. |
@@ -189,19 +189,40 @@ B **MUST** inherit A’s structural contracts:
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
 
+## Terminologies
+
+Copied substance for the words this requirement uses.
+
+### CLI main menu numbering
+
+**Definition:** CLI main menu numbering is the portable rule set for integers on a claimed CLI default interaction tree. A command number is unique in the whole tree: a child list must not reuse 1, 2, or 6, or any other parent token. A child command number must start with its parent's number as prefix: 11… under 1, 21… under 2, 51… under 5 when a sudoers family is claimed, 61… under 6, 71… under 7 when a language board is claimed, and 111… under 11. The front board uses small category integers plus Exit 9. Every submenu and data picker uses 0 to go back to the parent list. This term owns which integers, not ink and not the catalog of rows.
+
+**Human daily-life explanation:** CLI main menu numbering is how the café numbers dishes so 11 always means the same plate, even after you walk into a side room. The side-room specials do not start again at 1. They keep the front number as a prefix (11, 111). 0 is the door back to the previous board. 9 on the front board is leaving the café.
+
+**Daily-life example:** Front board 1, client side, opens a second board whose first dish is 11, not another 1. If the kitchen reused 1, nobody would know whether you meant the front door or the first side dish.
+
+### Well-known menu
+
+**Definition:** A well-known menu is the portable numbered TTY membership of well-known CLI verbs, plus the category front rows and front Exit, shared across self-managed products that claim a CLI default interaction. It is the portable subset of a CLI main menu hierarchy table: front board 1 / 2 / 5 / 6 / 7 / 9 and self-management 61…67 under 6. Those integers stay reserved. Which rows a product prints follows the language consider table (shell column versus Python / pip column). Domain numbered rows belong on the full hierarchy table, not this catalog.
+
+**Human daily-life explanation:** A well-known menu is the shared café numbering every similar kitchen agrees on. The front chalkboard has rooms 1, 2, 5 when a sudoers family is claimed, 6 for self-care, and 7 when a language board is claimed, plus 9 to leave. The back-office list under 6 keeps the same dish numbers.
+
+**Daily-life example:** You walk into a shell shop in the family. 6 is self-care. 67 files this tool in the drawer. 61 stocks the pantry when that shop sells extra kits. You walk into a pip shop: 6 is still self-care, 64 and 65 ask the package counter to compare and refresh, and 61 is not "pip install this program."
+
 ## 7. Status history
 
 | Date | Status | Note |
 |------|--------|------|
+| 2026-10-14 | Active 2.4.0 | Self board is front row **6**, rows **61**–**67**. `install` is row **61**. `self-install` is row **67**. | Terminologies section added.
 | 2026-08-03 | Active 1.0.0 | Declared A=selfmanaged → B=folder-backup (trim online) |
 | 2026-08-13 | Active 2.0.0 | Re-specialize: A=cli-template → B=folder-backup (domain extend). selfmanaged retired. |
 | 2026-08-28 | Active 2.1.0 | Empty argv **extend**: case 2 TTY menu; Type O still absent |
 | 2026-09-30 | Active 2.2.0 | User ordered A=`selfmanaged` again. Channel verbs kept. Empty argv stays case 2. `install` stays the local copy. |
 | 2026-09-30 | Active 2.2.1 | Self board is front row **8**. Empty argv wording is numbered boards. Version cell and AC-3 point at the ship unit. |
-| 2026-09-30 | Active 2.3.0 | Non-interactive zero-cli-verb is `inst_self_install`. Interactive line stays the boards. Local `install` stays the 0755 copy. |
+| 2026-09-30 | Active 2.4.0 | Non-interactive zero-cli-verb is `inst_self_install`. Interactive line stays the boards. Local `install` stays the 0755 copy. |
 
 ---
 
-**Last Updated**: 2026-09-30  
+**Last Updated**: 2026-10-14  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

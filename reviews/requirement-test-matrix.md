@@ -1,8 +1,8 @@
 # Requirement ↔ test matrix — folder-backup
 
-**Updated:** 2026-10-10 (1.25.0)  
-**Product VERSION:** 1.25.0  
-**Suite:** `tests/run.sh` (1.25.0: PASS=610 FAIL=0 SKIP=2)
+**Updated:** 2026-10-14 (1.26.0)  
+**Product VERSION:** 1.26.0  
+**Suite:** `tests/run.sh` (1.26.0: PASS=610 FAIL=0 SKIP=2)
 
 | Requirement key | Area | TP families | Coverage notes |
 |-----------------|------|-------------|----------------|
@@ -18,9 +18,9 @@
 | requirement-shell-script-coding | shell | (indirect) | Specialize-in home; own-or-point |
 | requirement-shell-sudo-command | shell | TP-FOLDER-BACKUP-01, 01c, 26; **27 todo** | Studied allow table; wrap Gap |
 | requirement-shell-cli-zero-arguments | shell | TP-CLI-07, **23** | **Active 1.2.1** — interactive boards; non-interactive `inst_self_install`; `--quiet` / `--json` / non-TTY `--debug` place; TTY `--debug` does not; named menu stop is default-interaction |
-| requirement-shell-cli-default-interaction | shell | TP-CLI-07, **13**, **14**, **15**, **16**, **18**, **19**, **21**, **23**, **24** | **Active 1.12.0** — interactive zero-cli-verb = numbered boards; non-interactive place is zero-arguments; named `menu` / `self-management` off a terminal stop; empty front line leaves; row **82** and typed `version` run `about`; front **1**/**6**/**7**/**8**/**9**; front hide sentence says server-side is not available; client **11**/**12**; self **81**–**87**; sudoers body on sudoers-submenu REQ; language body on language REQ; bold short name; finished leaf redisplays the front |
-| requirement-shell-cli-language | shell | TP-CLI-**24**, **04**, **13** | **Active 1.1.1** — eight codes; file mode 0600; env does not rewrite; human help and about follow the code; JSON about and argv version stay English; English front row **6**; front hide sentence says not available |
-| requirement-shell-cli-sudoers-submenu | shell | TP-CLI-**13**, **16**, **18** | **Active 1.3.0** — front **7**; printed **72**/**75**; **71**/**73**/**74** reserved; hide sentence matches the front not-available shape; `sudoers` not dispatched; header follows `APP_LANG`; Back **0** returns to the front |
+| requirement-shell-cli-default-interaction | shell | TP-CLI-07, **13**, **14**, **15**, **16**, **18**, **19**, **21**, **23**, **24** | **Active 1.13.0** — interactive zero-cli-verb = numbered boards; non-interactive place is zero-arguments; named `menu` / `self-management` off a terminal stop; empty front line leaves; row **62** and typed `version` run `about`; front **1**/**5**/**6**/**7**/**9**; front hide sentence says server-side is not available; client **11**/**12**; self **61**–**67**; sudoers body on sudoers-submenu REQ; language body on language REQ; bold short name; finished leaf redisplays the front |
+| requirement-shell-cli-language | shell | TP-CLI-**24**, **04**, **13** | **Active 1.2.0** — eight codes **71**–**78**; file mode 0600; env does not rewrite; human help and about follow the code; JSON about and argv version stay English; English front row **7**; front hide sentence says not available |
+| requirement-shell-cli-sudoers-submenu | shell | TP-CLI-**13**, **16**, **18** | **Active 1.5.0** — front **5**; printed **52**/**55**; **51**/**53**/**54** reserved; hide sentence matches the front not-available shape; `sudoers` not dispatched; header follows `APP_LANG`; Back **0** returns to the front |
 | requirement-shell-local-self-management | shell | TP-LC-* (incl. **09/10** mode) | install/uninstall/where-is-me; **0755** multi-user; global preferred for elev |
 | requirement-shell-output-requirements | shell | TP-CLI-03,05,08,09, **18** | JSON / quiet / errors; identity token + numbered-row ink |
 | requirement-operator-readable-error | shell | TP-FOLDER-BACKUP-**25**, **25b**, **25c** | Operator-facing `[ERROR]` wording (what happened / next step / no jargon-only) |
@@ -29,6 +29,14 @@
 | requirement-shell-interactive-vs-noninteractive | shell | TP-LC-05 · TP-FOLDER-BACKUP-15 · **15b** | Uninstall / remove-project-sudoers confirm; multi-draft non-interactive path required |
 | requirement-shell-cli-storage | shell | TP-CLI-06 · TP-CLI-12 · TP-CLI-**24** · domain staging | Per-login per-process cache (law **1.5.1**); silent tier miss; leaf mode 0700; persistence `${HOME}/.local/folder-backup/`; language leaf mode 0600; human cache labels follow the code; JSON names stay English |
 | requirement-domain-folder-backup | domain | TP-FOLDER-BACKUP-01,02,09,14,15,19,20,**21**,**21b**,**23**,**23b**,**24** · TP-CLI-04,06 | Surface verbs/help/about; submit public inbound; generate-sudoer-request; host-probe add/update |
+| requirement-windows-git-bash | shell | TP-CLI-**12** | **Active 1.0.0** — cache kind `gitbash` have. Sibling `OSTYPE` pair and a privilege skip are law only |
+| requirement-debian | shell | TP-CLI-**12** | **Active 1.0.0** — Debian 12/13 label. Cache kind `linux` have. os-release branch is law only |
+| requirement-ubuntu | shell | TP-CLI-**12** | **Active 1.0.0** — Ubuntu 22.04/24.04/26.04 label. Cache kind `linux` have. os-release branch is law only |
+| requirement-other-linux | shell | TP-CLI-**12** | **Active 1.0.0** — remainder label. Cache kind `linux` is not proof of this remainder. No platform-list refusal |
+| requirement-alpine | shell | TP-CLI-**12** | **Active 1.0.0** — `ID=alpine` label. Cache kind `linux` have. os-release branch is law only |
+| requirement-fedora-redhat | shell | TP-CLI-**12** | **Active 1.0.0** — `ID=fedora` or `ID=rhel`. Cache kind `linux` have. os-release branch is law only |
+| requirement-termux | shell | TP-CLI-**12** | **Active 1.0.0** — `TERMUX_VERSION` label. Ship unit cache kind stays `linux`. No `pkg`. Privilege skip is law only |
+| requirement-macos | shell | TP-CLI-**12** | **Active 1.0.0** — Darwin cache kind `mac` have. No `brew`. Deposit is not branched on Darwin |
 
 **Checklist / mold (harness, not product suite):** **S11–S12** elev tables (when claimed); **S13** trust tier; **S14** emit; **S15** convert/inbound; **S16** independent generate dest — agent path `SK-CREATE-SUDOERS-FILE` / `CL-CREATE-SUDOERS-SECURITY`. Operator errors: `SK-OPERATOR-READABLE-ERROR` / `CL-OPERATOR-READABLE-ERROR`.
 

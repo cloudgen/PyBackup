@@ -3,9 +3,9 @@
 Maps **TP-*** coverage to `tests/`.  
 **Suite entry:** `./tests/run.sh`  
 **Ship unit:** `src/folder-backup`  
-**Product VERSION:** 1.25.0  
-**Last plan update:** 2026-10-10  
-**Last suite run:** `sh tests/run.sh` (1.25.0: PASS=610 FAIL=0 SKIP=2)
+**Product VERSION:** 1.26.0  
+**Last plan update:** 2026-10-14  
+**Last suite run:** `sh tests/run.sh` (1.26.0: PASS=610 FAIL=0 SKIP=2)
 
 Status: **have** = automated today · **todo** = needed · **optional** · **n/a** · **skip** (environment)
 
@@ -19,7 +19,7 @@ Status: **have** = automated today · **todo** = needed · **optional** · **n/a
 | version / help / about human + JSON | have | TP-CLI-02..06 |
 | Non-interactive zero-cli-verb = CLI self-install (copy, mode 0700, second run already installed) | have | TP-CLI-07 |
 | Switches with no verb: `--quiet` / `--json` / non-TTY `--debug` place; TTY `--debug` stays the boards; `--debug version` stays version | have | TP-CLI-23 |
-| TTY empty argv + `menu`/`main` boards / front **6** language / front **7** sudoers / self board; named `menu` off a terminal stops | have | TP-CLI-13..16 · **19** · **21** · **24** |
+| TTY empty argv + `menu`/`main` boards / front **7** language / front **5** sudoers / self board; named `menu` off a terminal stops | have | TP-CLI-13..16 · **19** · **21** · **24** |
 | TTY main-menu look (nametag + bold short name + gray italic explain) | have | TP-CLI-18 |
 | Unknown + quiet + set -u HOME | have | TP-CLI-08..11 |
 | Per-login per-process cache folder + persistence `${HOME}/.local/folder-backup/` | have | TP-CLI-06 · TP-CLI-12 |
@@ -62,17 +62,17 @@ Status: **have** = automated today · **todo** = needed · **optional** · **n/a
 | TP-CLI-10 | channel verbs routed; offline version-check / self-update fail closed (non-empty dead URL); self-uninstall with no binary exits 0 | test_cli | requirement-bootstrap-chain | **have** |
 | TP-CLI-11 | env -u HOME version | test_cli | class / defensive | **have** |
 | TP-CLI-12 | Linux / Git Bash / Mac cache chains; silent skip of preferred; leaf mode 0700 owned by this login; persistence `${HOME}/.local/folder-backup` exists | test_cli | requirement-shell-cli-storage | **have** |
-| TP-CLI-13 | interactive empty argv **and** `menu` print front **1**/**6**/**7**/**8**/**9**, hidden server sentence, client **11**/**12**, sudoers **72**/**75** + hide sentence + Back **0** to the front, self **81**/**87**; `sudoers` not dispatched; members live **without** enqueueing live inbound | test_cli | **shell-cli-default-interaction** AC-3 / AC-10 / AC-11 · **shell-cli-sudoers-submenu** AC-1–AC-5 | **have** |
+| TP-CLI-13 | interactive empty argv **and** `menu` print front **1**/**5**/**6**/**7**/**9**, hidden server sentence, client **11**/**12**, sudoers **52**/**55** + hide sentence + Back **0** to the front, self **61**/**67**; `sudoers` not dispatched; members live **without** enqueueing live inbound | test_cli | **shell-cli-default-interaction** AC-3 / AC-10 / AC-11 · **shell-cli-sudoers-submenu** AC-1–AC-5 | **have** |
 | TP-CLI-14 | interactive `menu --json` still prints the list | test_cli | **shell-cli-default-interaction** AC-4 | **have** |
 | TP-CLI-15 | non-interactive `menu` / `main` / `self-management` exit 1 (`needs a terminal`); `menu --json` off a terminal is a JSON error. Flags-only `--json` is **TP-CLI-23** (self-install), not this row | test_cli | **shell-cli-default-interaction** AC-5 | **have** |
-| TP-CLI-16 | front board shows **8** self-management and omits help / verb rows that belong on a child board (backup, grant verbs, test-purpose) | test_cli | **shell-cli-default-interaction** AC-6 · **shell-cli-sudoers-submenu** AC-5 | **have** |
+| TP-CLI-16 | front board shows **6** self-management and omits help / verb rows that belong on a child board (backup, grant verbs, test-purpose) | test_cli | **shell-cli-default-interaction** AC-6 · **shell-cli-sudoers-submenu** AC-5 | **have** |
 | TP-CLI-17 | help lists test-purpose grant-emit verbs under a heading apart from operational | test_cli | **shell-cli-interface** AC-9 | **have** |
 | TP-CLI-18 | default CLI main menu style: header `APP_NAME(VERSION)` bold/italic; short name bold; numbered explain italic + light gray; Exit unstyled; no CSI off-TTY; sudoers title (portable **TP-CLI-17** alias) | test_cli | **shell-cli-default-interaction** AC-8 · **shell-cli-sudoers-submenu** AC-6 · **shell-output-requirements** AC-5 | **have** |
 | TP-CLI-19 | child number **12** on the front is invalid and the front reprints | test_cli | **shell-cli-default-interaction** AC-12 | **have** |
 | TP-CLI-20 | ship unit has no `$()` of `prompt_*` helpers | test_cli | **shell-script-coding** · **shell-interactive-vs-noninteractive** AC-4 | **have** |
-| TP-CLI-21 | empty Enter on the front leaves; row **82** and a typed `version` run `about` and the front reprints. Argv `version` stays the thin line | test_cli | **shell-cli-default-interaction** AC-12 / AC-13 | **have** |
+| TP-CLI-21 | empty Enter on the front leaves; row **62** and a typed `version` run `about` and the front reprints. Argv `version` stays the thin line | test_cli | **shell-cli-default-interaction** AC-12 / AC-13 | **have** |
 | TP-CLI-23 | `--quiet`, `--json`, and non-TTY `--debug` with no command place the CLI; TTY `--json` places and is not the boards; TTY `--debug` shows the front and does not place; `--debug version` stays version | test_cli | **shell-cli-zero-arguments** AC-3 / AC-4 | **have** |
-| TP-CLI-24 | front **6** stores one of eight codes (mode 0600); Back does not write; next run keeps the file when `FOLDER_BACKUP_LANG` is unset; a bad first line stays English; the env overrides without rewriting; human help and about follow the code; JSON about keeps `cache_used`; argv version stays English | test_cli | **shell-cli-language** AC-1–AC-7 · **shell-cli-storage** | **have** |
+| TP-CLI-24 | front **7** stores one of eight codes (mode 0600); Back does not write; next run keeps the file when `FOLDER_BACKUP_LANG` is unset; a bad first line stays English; the env overrides without rewriting; human help and about follow the code; JSON about keeps `cache_used`; argv version stays English | test_cli | **shell-cli-language** AC-1–AC-7 · **shell-cli-storage** | **have** |
 
 ### TP-LC (local lifecycle)
 

@@ -1,6 +1,6 @@
 # folder-backup - Local folder archive backup and restore with narrow sudo deposit
 
-![Version](https://img.shields.io/badge/Version-1.25.0-blue?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.26.0-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 [![CIAO](https://img.shields.io/badge/Philosophy-CIAO%20(Caution%20%E2%80%A2%20Intentional%20%E2%80%A2%20Anti--fragile%20%E2%80%A2%20Over--engineered)-purple.svg)](https://github.com/cloudgen/ciao)
 [![Stars](https://img.shields.io/github/stars/cloudgen/folder-backup?style=flat-square)](https://github.com/cloudgen/folder-backup)
@@ -19,7 +19,7 @@
 | You do… | What it means | What you type |
 |---------|---------------|---------------|
 | Install from the internet | No root. Places the program in `~/.local/bin` (mode `0700`). | `curl -fsSL https://raw.githubusercontent.com/cloudgen/folder-backup/main/src/folder-backup \| sh` |
-| Open the boards | On a real terminal, a bare run shows client-side, language, sudoers, self-management, and Exit. Server-side is not available. | `folder-backup` |
+| Open the boards | On a real terminal, a bare run shows client-side, sudoers, self-management, language, and Exit. Server-side is not available. | `folder-backup` |
 | Write a grant you can read | JSON under your config folder. An admin still installs it. | `folder-backup generate-sudoer-request` |
 | Pack a folder after the grant exists | Copies the archive into `/var/backup/folder-backup/`. | `folder-backup backup /path/to/project` |
 
@@ -28,7 +28,7 @@
 - **Install for yourself**: copy this program into `~/.local/bin` (`install`); remove it (`uninstall`); ask where it lives (`where-is-me`)
 - **Pipe install**: `curl … \| sh` places this program (`self-install`). A checkout file copies; a pipe downloads. Your login gets mode `0700`. Root gets `/usr/local/bin` at mode `0755`. `version-check` and `self-update` use the same GitHub raw URL. `self-uninstall` removes that placed binary. A terminal with no command does not do this.
 - **Scratch stays with this login and this run**: temporary files live in a private folder named for you and this process. `about` prints the folder in use, the preferred folder, and the fallbacks. A folder that cannot be used is skipped quietly. Notes that must survive a reboot stay in `~/.local/folder-backup`
-- **Numbered boards**: on a real terminal, a bare `folder-backup` (or `menu` / `main`) shows client-side, language, sudoers, self-management, and Exit. Server-side is not available, and number 2 stays reserved. **1** then **11** packs a folder. **6** chooses the display language. **7** opens grant and drafts (submit and remove). **8** opens install, version, and update. A finished command returns to the front. **0** steps back.
+- **Numbered boards**: on a real terminal, a bare `folder-backup` (or `menu` / `main`) shows client-side, sudoers, self-management, language, and Exit. Server-side is not available, and number 2 stays reserved. **1** then **11** packs a folder. **5** opens grant and drafts (submit and remove). **6** opens install, version, and update. **7** chooses the display language. A finished command returns to the front. **0** steps back.
 - **Backup a folder**: pack it to a dated gzip under `/var/backup/folder-backup/`, check counts, then keep at most **5** same-day and **30** total copies per project name
 - **Restore**: put an archive back onto the hard-disk projects tree (or a path you name)
 - **Restore dest guard**: allow `/etc/<your-login>`; refuse `/etc/passwd` and other system paths
@@ -140,81 +140,71 @@ After install, on a terminal:
 
 ```text
 $ folder-backup
-[INFO] **folder-backup**(*1.25.0*) — numbered list
+[INFO] **folder-backup**(*1.26.0*) — numbered list
 [INFO] server-side is not available: this program does not run a host service. Number 2 stays reserved.
 1. **client-side**: *this login's folders: pack and restore*
-6. **language**: *display language for this menu*
-7. **sudoers**: *Grant and drafts*
-8. **self-management**: *this CLI install, version, update, uninstall*
+5. **sudoers**: *Grant and drafts*
+6. **self-management**: *this CLI install, version, update, uninstall*
+7. **language**: *display language for this menu*
 9. Exit
-Choose a number, or type the command name: 6
-[INFO] **folder-backup**(*1.25.0*) — language
-61. **English**: *use English for this menu*
-62. **繁體中文**: *use Traditional Chinese for this menu*
-63. **Español**: *use Spanish for this menu*
-64. **Français**: *use French for this menu*
-65. **Deutsch**: *use German for this menu*
-66. **简体中文**: *use Simplified Chinese for this menu*
-67. **日本語**: *use Japanese for this menu*
-68. **한국어**: *use Korean for this menu*
-0. Back
-Choose a number, or type the command name: 0
-[INFO] **folder-backup**(*1.25.0*) — numbered list
-[INFO] server-side is not available: this program does not run a host service. Number 2 stays reserved.
-1. **client-side**: *this login's folders: pack and restore*
-6. **language**: *display language for this menu*
-7. **sudoers**: *Grant and drafts*
-8. **self-management**: *this CLI install, version, update, uninstall*
-9. Exit
-Choose a number, or type the command name: 7
-[INFO] **folder-backup**(*1.25.0*) — sudoers (grant and drafts)
-[INFO] test commands are not available: type generate-sudoer-request, print-sudoers, or print-sudoers-install-script. Numbers 71, 73, and 74 stay reserved.
-72. **submit-sudoer-request**: *Hand the JSON grant to the approval queue*
-75. **remove-project-sudoers**: *Remove the local grant draft only*
-0. Back
-Choose a number, or type the command name: 0
-[INFO] **folder-backup**(*1.25.0*) — numbered list
-[INFO] server-side is not available: this program does not run a host service. Number 2 stays reserved.
-1. **client-side**: *this login's folders: pack and restore*
-6. **language**: *display language for this menu*
-7. **sudoers**: *Grant and drafts*
-8. **self-management**: *this CLI install, version, update, uninstall*
-9. Exit
-Choose a number, or type the command name: 1
-[INFO] **folder-backup**(*1.25.0*) — client-side
+Choose a number, or type the command name:
+```
+
+![Front board](images/menu-front.png)
+
+```text
+[INFO] **folder-backup**(*1.26.0*) — client-side
 11. **backup**: *Pack a named folder into a dated gzip archive under /var/backup/folder-backup*
 12. **restore**: *Put an archive back onto the hard-disk projects tree*
 0. Back
-Choose a number, or type the command name: 0
-[INFO] **folder-backup**(*1.25.0*) — numbered list
-[INFO] server-side is not available: this program does not run a host service. Number 2 stays reserved.
-1. **client-side**: *this login's folders: pack and restore*
-6. **language**: *display language for this menu*
-7. **sudoers**: *Grant and drafts*
-8. **self-management**: *this CLI install, version, update, uninstall*
-9. Exit
-Choose a number, or type the command name: 8
-[INFO] **folder-backup**(*1.25.0*) — self-management
-81. **install**: *Copy this program into your bin or /usr/local/bin*
-82. **version**: *Show version and detailed diagnostics (about)*
-83. **about**: *Show diagnostics including sudoers trust tier*
-84. **version-check**: *Compare this version with the channel*
-85. **self-update**: *Replace the placed binary from the channel*
-86. **self-uninstall**: *Remove the channel-placed binary*
-87. **self-install**: *Copy this file, or download it when the shell is a pipe*
-0. Back
-Choose a number, or type the command name: 0
-[INFO] **folder-backup**(*1.25.0*) — numbered list
-[INFO] server-side is not available: this program does not run a host service. Number 2 stays reserved.
-1. **client-side**: *this login's folders: pack and restore*
-6. **language**: *display language for this menu*
-7. **sudoers**: *Grant and drafts*
-8. **self-management**: *this CLI install, version, update, uninstall*
-9. Exit
-Choose a number, or type the command name: 9
+Choose a number, or type the command name:
 ```
 
-Choose a number, or type a command name. **6** chooses the display language (English, Traditional Chinese, Spanish, French, German, Simplified Chinese, Japanese, Korean). Human `help` and human `about` use that language. JSON `about` and `folder-backup version` stay English. **0** on that board returns without saving. **1** opens this login’s folders. **7** opens grant and drafts: queue a JSON grant, or remove the local draft. `generate-sudoer-request`, `print-sudoers`, and `print-sudoers-install-script` stay typed commands. **8** opens install, version, and update. Row **82** shows the diagnostics (`about`). **0** steps back. An empty line on the front leaves. **9** leaves. A finished command shows the front board again. `folder-backup sudoers` is not a command. `folder-backup language` is not a command. In a script or pipe, `folder-backup` with no arguments places this program. Naming `menu` or `self-management` in a script stops: menu needs a terminal.
+![Client-side](images/menu-client.png)
+
+```text
+[INFO] **folder-backup**(*1.26.0*) — sudoers (grant and drafts)
+[INFO] test commands are not available: type generate-sudoer-request, print-sudoers, or print-sudoers-install-script. Numbers 51, 53, and 54 stay reserved.
+52. **submit-sudoer-request**: *Hand the JSON grant to the approval queue*
+55. **remove-project-sudoers**: *Remove the local grant draft only*
+0. Back
+Choose a number, or type the command name:
+```
+
+![Sudoers](images/menu-sudoers.png)
+
+```text
+[INFO] **folder-backup**(*1.26.0*) — self-management
+61. **install**: *Copy this program into your bin or /usr/local/bin*
+62. **version**: *Show version and detailed diagnostics (about)*
+63. **about**: *Show diagnostics including sudoers trust tier*
+64. **version-check**: *Compare this version with the channel*
+65. **self-update**: *Replace the placed binary from the channel*
+66. **self-uninstall**: *Remove the channel-placed binary*
+67. **self-install**: *Copy this file, or download it when the shell is a pipe*
+0. Back
+Choose a number, or type the command name:
+```
+
+![Self-management](images/menu-self.png)
+
+```text
+[INFO] **folder-backup**(*1.26.0*) — language
+71. **English**: *use English for this menu*
+72. **繁體中文**: *use Traditional Chinese for this menu*
+73. **Español**: *use Spanish for this menu*
+74. **Français**: *use French for this menu*
+75. **Deutsch**: *use German for this menu*
+76. **简体中文**: *use Simplified Chinese for this menu*
+77. **日本語**: *use Japanese for this menu*
+78. **한국어**: *use Korean for this menu*
+0. Back
+Choose a number, or type the command name:
+```
+
+![Language](images/menu-language.png)
+
+Human `help` and human `about` follow the display language. JSON `about` and `folder-backup version` stay English. `generate-sudoer-request`, `print-sudoers`, and `print-sudoers-install-script` stay typed commands. `folder-backup sudoers` is not a command. `folder-backup language` is not a command. In a script or pipe, `folder-backup` with no arguments places this program. Naming `menu` or `self-management` in a script stops: menu needs a terminal.
 
 ## Usage
 
@@ -271,12 +261,18 @@ folder-backup restore genesis-template-20260803-3.tar.gz /tmp/genesis-restore
 
 ## Platform Compatibility
 
-| Platform | Status |
-|----------|--------|
-| Linux, `/bin/sh` (dash/bash) | Supported |
-| `tar`, `find`, `date` | Required |
-| `sudo` + narrow sudoers | Required for non-root deposit/restore of root-owned archives |
-| macOS / BSD | Not primary; GNU `stat`/`sed -E` assumptions may differ |
+| Platform | Cache | What this program does |
+|----------|--------|------------------------|
+| Debian 12 (bookworm), Debian 13 (trixie) | Linux chain | Backup and restore. Narrow deposit into `/var/backup/folder-backup` when an admin has installed the grant. No package install |
+| Ubuntu 22.04 (jammy), 24.04 (noble), 26.04 (resolute) | Linux chain | Same backup and deposit behavior as Debian. No package install |
+| Other Linux (including Debian 11, Ubuntu 20.04, CentOS, Rocky, Alma, Amazon Linux, Oracle Linux) | Linux chain | Same backup and deposit behavior. Cache kind `linux` is not by itself this label |
+| Alpine | Linux chain | Same backup and deposit behavior. No `apk` |
+| Fedora and Red Hat Enterprise Linux | Linux chain | Same backup and deposit behavior. No `dnf` |
+| Termux | Linux chain (this build does not read `TERMUX_VERSION`) | Your own login only. No sudoers fragment, no in-tool sudo, no `pkg` |
+| Windows Git Bash | Git Bash chain | Your own login only. No sudoers fragment, no in-tool sudo, no `pkg`. Windows Command Prompt is the same privilege class and is not Git Bash |
+| macOS | Mac chain | Cache fallbacks under your home. Not the primary host for `/var/backup/folder-backup`. No `brew` |
+| `tar`, `find`, `date` | — | Required |
+| `sudo` + narrow sudoers | — | Required for non-root deposit of root-owned archives on a Linux host |
 
 ## Related Projects
 
@@ -294,6 +290,8 @@ Keep changes surgical. Honor **CIAO-Lite Protection Zones** in `src/folder-backu
 MIT License — see [`LICENSE.md`](./LICENSE.md).
 
 ## Last Update
+
+2026-10-14 — version **1.26.0** (front row **5** is sudoers, **6** is self-management, **7** is languages; the terminal boards in Quick Installation are the live capture; eight OS family requirements follow sibling tn5250-cli).
 
 2026-10-10 — version **1.25.0** (the front board and the sudoers board say what is not available, in the same sentence shape).
 2026-10-08 — version **1.24.0** (archive file count is regular files; symlinks stay in the archive).

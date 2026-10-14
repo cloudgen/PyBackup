@@ -4,9 +4,9 @@
 **Class:** software-development · domain SSOT present · channel verbs kept from selfmanaged · a terminal with no command is the numbered boards; a pipe or `--quiet` / `--json` with no command is CLI self-install.  
 **Always load first:** `reviews/lessons.md`
 
-**Last plan update:** 2026-10-10  
-**Ship unit VERSION:** 1.25.0  
-**Suite baseline:** see `reviews/test-plan.md` (1.25.0: PASS=610 FAIL=0 SKIP=2; front and sudoers hide sentences say not available; archive files are regular-file members, **TP-FOLDER-BACKUP-28**; numbered boards on a terminal; front **1**/**6**/**7**/**8**/**9**; human help and about follow the display language; language file is not cache; non-interactive zero-cli-verb is self-install; named menu off a terminal stops; compact JSON `--json` twins still todo)
+**Last plan update:** 2026-10-14  
+**Ship unit VERSION:** 1.26.0  
+**Suite baseline:** see `reviews/test-plan.md` (1.26.0: PASS=610 FAIL=0 SKIP=2; front **1**/**5** sudoers/**6** self-management/**7** language/**9** Exit; language children **71**–**78**; sudoers **52**/**55**; self **61**–**67**; eight OS family labels cite sibling tn5250-cli and do not add a compiler install; archive files are regular-file members, **TP-FOLDER-BACKUP-28**; compact JSON `--json` twins still todo)
 
 ---
 
@@ -18,7 +18,7 @@
 | P2 | Confirm ship unit `src/folder-backup` | `APP_NAME` / `VERSION` hard-assign (**1.9.0+**) |
 | P3 | Load `reviews/lessons.md` and re-check every open L-* | Mandatory (esp. **L-SUDOERS-01/02** · **L-SUDOERS-06** · **L-OUTPUT-01** · **L-TEST-REVIEW-01**) |
 | P4 | Run `./tests/run.sh` | Record PASS/FAIL/SKIP in report; **must include TP-22e/22f** (not emit-only 22) **and TP-24*/25*** when generate/submit copy is in scope |
-| P5 | Confirm the zero-cli-verb split and that channel verbs stay explicit | A terminal with no command is the numbered boards (front **1**/**6**/**7**/**8**/**9**). A pipe, `--quiet`, or `--json` with no command calls `inst_self_install`. Named `menu` and `self-management` off a terminal stop. `install` is the local copy and self row **81**. |
+| P5 | Confirm the zero-cli-verb split and that channel verbs stay explicit | A terminal with no command is the numbered boards (front **1**/**5**/**6**/**7**/**9**). A pipe, `--quiet`, or `--json` with no command calls `inst_self_install`. Named `menu` and `self-management` off a terminal stop. `install` is the local copy and self row **61**. |
 | P6 | Privilege law version | three-layer **≥1.10.0** (S13 + AC-21/22 + **independent generate AC-23/24**) · sudoer-json **≥1.2.0** §2.7 item 5 · **operator-readable-error** 1.0.0 |
 | P7 | Host elev posture (if reviewing runtime) | Global vs local binary; trust tier; `/etc/sudoers.d/` status |
 | P8 | **JSON re-encode / inbound fidelity** | Complete section below. **Revise/Block** if skipped when submit or JSON grant is in scope. |
@@ -39,7 +39,7 @@
 | **JSON sudoer file** | `requirement-sudoer-json-file.md` | `folder-backup` backup/**and** restore; §2.7a re-encode; pretty JSON legal; **independent generate dest AC-10** |
 | **Operator-readable error** | `requirement-operator-readable-error.md` | Blocking `[ERROR]` what-happened + next step; no jargon-only |
 | CLI interface | `requirement-shell-cli-interface.md` | Commands, flags, dispatch (incl. **generate-sudoer-request**); test-purpose grant-emit listed **apart** |
-| Default interaction | `requirement-shell-cli-default-interaction.md` | Interactive zero-cli-verb = numbered boards; front **1**/**7**/**8**/**9**; hidden **2**; client **11**/**12**; sudoers **72**/**75**; self **81**–**87**; test-purpose off every board; named `menu` off a terminal stops |
+| Default interaction | `requirement-shell-cli-default-interaction.md` | Interactive zero-cli-verb = numbered boards; front **1**/**5**/**6**/**7**/**9**; hidden **2**; client **11**/**12**; sudoers **52**/**55**; self **61**–**67**; test-purpose off every board; named `menu` off a terminal stops |
 | Zero-cli-verb | `requirement-shell-cli-zero-arguments.md` | **Active 1.2.0** — non-interactive zero-cli-verb is `inst_self_install` (not help, not local `install`) |
 | Local self-management | `requirement-shell-local-self-management.md` | install/uninstall; global preferred for elev |
 | Output SSOT | `requirement-shell-output-requirements.md` | `out_*`; JSON errors |

@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-shell-cli-language.md  
-**Status**: Active (Version 1.1.1)  
+**Status**: Active (Version 1.2.0)  
 **Area**: shell  
 **Key**: `requirement-shell-cli-language`  
 **Optional RQ-ID**: `RQ-SHELL-CLI-LANGUAGE`  
@@ -9,34 +9,34 @@
 
 This requirement is the **product Single Source of Truth** for the **display language** of folder-backup’s numbered boards and for human `help` and human `about`.
 
-The eight codes, the child numbers **61**–**68**, the saved-language lines, the failed-write lines, the choose-prompt, Back, Exit, and the language-board longs follow the sibling **sshd-cli** language law **1.3.1**, adapted to this menu. This product has no server board. Sudoers prints only **72** and **75**. English explains stay this product’s sentences (`requirement-shell-cli-default-interaction`, `requirement-shell-cli-sudoers-submenu`).
+The eight codes, the child numbers **71**–**78**, the saved-language lines, the failed-write lines, the choose-prompt, Back, Exit, and the language-board longs follow the sibling **sshd-cli** language law **1.3.1**, adapted to this menu. This product has no server board. Sudoers prints only **52** and **55**. English explains stay this product’s sentences (`requirement-shell-cli-default-interaction`, `requirement-shell-cli-sudoers-submenu`).
 
 ### 1.1 Human-facing
 
-**In one sentence:** On a real terminal, pick **6** and then **61**–**68** to choose the menu language; the choice is kept under this login and the front board comes back in that language.
+**In one sentence:** On a real terminal, pick **7** and then **71**–**78** to choose the menu language; the choice is kept under this login and the front board comes back in that language.
 
 | Box | Meaning | Example |
 |-----|---------|---------|
-| You / this login | Open language and pick a number | `folder-backup` then `6` then `62` |
+| You / this login | Open language and pick a number | `folder-backup` then `7` then `72` |
 | The other role | A script can force one run without writing the file | `FOLDER_BACKUP_LANG=ja folder-backup help` |
 | Not this file | Which front rows exist, and the English board text | `requirement-shell-cli-default-interaction` |
 
 | Includes | Excludes |
 |----------|----------|
-| Eight codes and front row **6** | A ninth code |
+| Eight codes and front row **7** | A ninth code |
 | File `${HOME}/.local/folder-backup/language` | Putting that file in the cache folder or under `/var/backup` |
 | `FOLDER_BACKUP_LANG` for this run only | `language` as an argv verb |
 
 | Surface | What you open | What for |
 |---------|---------------|----------|
-| Front row **6** | language board | store one code |
+| Front row **7** | language board | store one code |
 | `folder-backup help` | command | human help follows the code |
 | `folder-backup about` | command | human about follows the code |
 
 | You do… | What it means | What you type |
 |---------|---------------|---------------|
-| Keep Traditional Chinese | The file becomes `zh-Hant` and the front redraws | `6` then `62` |
-| Look without saving | Back does not write the file | `6` then `0` |
+| Keep Traditional Chinese | The file becomes `zh-Hant` and the front redraws | `7` then `72` |
+| Look without saving | Back does not write the file | `7` then `0` |
 | Force one run | The file stays as it was | `FOLDER_BACKUP_LANG=es folder-backup` |
 
 ---
@@ -47,14 +47,14 @@ The eight codes, the child numbers **61**–**68**, the saved-language lines, th
 
 | Code | Row | Short on every board |
 |------|-----|----------------------|
-| `en` | **61** | `English` |
-| `zh-Hant` | **62** | `繁體中文` |
-| `es` | **63** | `Español` |
-| `fr` | **64** | `Français` |
-| `de` | **65** | `Deutsch` |
-| `zh-Hans` | **66** | `简体中文` |
-| `ja` | **67** | `日本語` |
-| `ko` | **68** | `한국어` |
+| `en` | **71** | `English` |
+| `zh-Hant` | **72** | `繁體中文` |
+| `es` | **73** | `Español` |
+| `fr` | **74** | `Français` |
+| `de` | **75** | `Deutsch` |
+| `zh-Hans` | **76** | `简体中文` |
+| `ja` | **77** | `日本語` |
+| `ko` | **78** | `한국어` |
 
 `en` is the default. **MUST NOT** invent a ninth code. Shorts stay those endonyms in every UI language.
 
@@ -69,24 +69,24 @@ The eight codes, the child numbers **61**–**68**, the saved-language lines, th
 
 ### 2.3 Menu numbers
 
-Front **6** opens `app_cmd_menu_language`. **61** stores `en`. **62** stores `zh-Hant`. **63** stores `es`. **64** stores `fr`. **65** stores `de`. **66** stores `zh-Hans`. **67** stores `ja`. **68** stores `ko`. A successful pick prints the saved-language line, then the front board redisplays in that language. **0** / empty / EOF is Back and does not write the file. An invalid choice uses `out_error` and reprints this board.
+Front **7** opens `app_cmd_menu_language`. **71** stores `en`. **72** stores `zh-Hant`. **73** stores `es`. **74** stores `fr`. **75** stores `de`. **76** stores `zh-Hans`. **77** stores `ja`. **78** stores `ko`. A successful pick prints the saved-language line, then the front board redisplays in that language. **0** / empty / EOF is Back and does not write the file. An invalid choice uses `out_error` and reprints this board.
 
 Typed `language`, `語言`, `语言`, `idioma`, `langue`, `Sprache`, `sprache`, `言語`, and `언어` on the front open this board. The language board accepts:
 
 | Row | Typed tokens |
 |-----|----------------|
-| **61** | `english`, `en`, `English` |
-| **62** | `traditional-chinese`, `zh-hant`, `zh-Hant`, `繁體中文` |
-| **63** | `spanish`, `es`, `Español`, `español` |
-| **64** | `french`, `fr`, `Français`, `français` |
-| **65** | `german`, `de`, `Deutsch`, `deutsch` |
-| **66** | `simplified-chinese`, `zh-hans`, `zh-Hans`, `简体中文` |
-| **67** | `japanese`, `ja`, `日本語` |
-| **68** | `korean`, `ko`, `한국어` |
+| **71** | `english`, `en`, `English` |
+| **72** | `traditional-chinese`, `zh-hant`, `zh-Hant`, `繁體中文` |
+| **73** | `spanish`, `es`, `Español`, `español` |
+| **74** | `french`, `fr`, `Français`, `français` |
+| **75** | `german`, `de`, `Deutsch`, `deutsch` |
+| **76** | `simplified-chinese`, `zh-hans`, `zh-Hans`, `简体中文` |
+| **77** | `japanese`, `ja`, `日本語` |
+| **78** | `korean`, `ko`, `한국어` |
 
 `language` is **not** an argv verb. `folder-backup language` stays unknown.
 
-The front board also accepts the displayed category short: `client-side`, `用戶端`, `客户端`, `cliente`, `client`, `Client`, `クライアント`, `클라이언트` for row **1**; `self-management`, `自我管理`, `autogestión`, `autogestion`, `Selbstverwaltung`, `selbstverwaltung`, `自己管理`, `자기관리` for row **8**. The sudoers short stays `sudoers` in every language. Exit words `離開`, `离开`, `Salir`, `Quitter`, `Beenden`, `終了`, and `종료` leave the front. Back words `返回`, `Atrás`, `Retour`, `Zurück`, `戻る`, and `뒤로` are Back on a child board.
+The front board also accepts the displayed category short: `client-side`, `用戶端`, `客户端`, `cliente`, `client`, `Client`, `クライアント`, `클라이언트` for row **1**; `self-management`, `自我管理`, `autogestión`, `autogestion`, `Selbstverwaltung`, `selbstverwaltung`, `自己管理`, `자기관리` for row **6**. The sudoers short stays `sudoers` in every language. Exit words `離開`, `离开`, `Salir`, `Quitter`, `Beenden`, `終了`, and `종료` leave the front. Back words `返回`, `Atrás`, `Retour`, `Zurück`, `戻る`, and `뒤로` are Back on a child board.
 
 ### 2.4 What follows the language
 
@@ -130,7 +130,7 @@ Sentences kept as `case` arms because they contain those four letters:
 | Generate continuation | `you can read without sudo. Does not write /etc or inbound.` | `不必用 sudo 就能查看。不會寫入 /etc 或 inbound。` | `不必用 sudo 就能查看。不会写入 /etc 或 inbound。` | `se puede ver sin sudo. No escribe /etc ni inbound.` | `visible sans sudo. N'écrit pas /etc ni inbound.` | `ohne sudo sichtbar. Schreibt nicht nach /etc oder inbound.` | `sudo なしで内容を見られます。/etc と inbound には書きません。` | `sudo 없이 내용을 볼 수 있습니다. /etc 나 inbound 에는 쓰지 않습니다.` |
 | About `--json` blurb | `Machine-readable output` | `機器可處理的輸出` | `机器可处理的输出` | `salida para máquinas` | `sortie pour les machines` | `Ausgabe für Maschinen` | `機械向けの出力` | `기계용 출력` |
 
-English help **MUST** name `67 Japanese` and `68 Korean`.
+English help **MUST** name `77 Japanese` and `78 Korean`.
 
 Saved line (printed after a successful save, so it is in the new language):
 
@@ -190,70 +190,70 @@ Language-board longs:
 
 | UI | Row | Long |
 |----|-----|------|
-| `en` | **61** | `use English for this menu` |
-| `en` | **62** | `use Traditional Chinese for this menu` |
-| `en` | **63** | `use Spanish for this menu` |
-| `en` | **64** | `use French for this menu` |
-| `en` | **65** | `use German for this menu` |
-| `en` | **66** | `use Simplified Chinese for this menu` |
-| `en` | **67** | `use Japanese for this menu` |
-| `en` | **68** | `use Korean for this menu` |
-| `zh-Hant` | **61** | `這個選單改用英文` |
-| `zh-Hant` | **62** | `這個選單改用繁體中文` |
-| `zh-Hant` | **63** | `這個選單改用西班牙文` |
-| `zh-Hant` | **64** | `這個選單改用法文` |
-| `zh-Hant` | **65** | `這個選單改用德文` |
-| `zh-Hant` | **66** | `這個選單改用簡體中文` |
-| `zh-Hant` | **67** | `這個選單改用日文` |
-| `zh-Hant` | **68** | `這個選單改用韓文` |
-| `es` | **61** | `usar inglés en este menú` |
-| `es` | **62** | `usar chino tradicional en este menú` |
-| `es` | **63** | `usar español en este menú` |
-| `es` | **64** | `usar francés en este menú` |
-| `es` | **65** | `usar alemán en este menú` |
-| `es` | **66** | `usar chino simplificado en este menú` |
-| `es` | **67** | `usar japonés en este menú` |
-| `es` | **68** | `usar coreano en este menú` |
-| `fr` | **61** | `utiliser l'anglais pour ce menu` |
-| `fr` | **62** | `utiliser le chinois traditionnel pour ce menu` |
-| `fr` | **63** | `utiliser l'espagnol pour ce menu` |
-| `fr` | **64** | `utiliser le français pour ce menu` |
-| `fr` | **65** | `utiliser l'allemand pour ce menu` |
-| `fr` | **66** | `utiliser le chinois simplifié pour ce menu` |
-| `fr` | **67** | `utiliser le japonais pour ce menu` |
-| `fr` | **68** | `utiliser le coréen pour ce menu` |
-| `de` | **61** | `Englisch für dieses Menü verwenden` |
-| `de` | **62** | `Traditionelles Chinesisch für dieses Menü verwenden` |
-| `de` | **63** | `Spanisch für dieses Menü verwenden` |
-| `de` | **64** | `Französisch für dieses Menü verwenden` |
-| `de` | **65** | `Deutsch für dieses Menü verwenden` |
-| `de` | **66** | `Vereinfachtes Chinesisch für dieses Menü verwenden` |
-| `de` | **67** | `Japanisch für dieses Menü verwenden` |
-| `de` | **68** | `Koreanisch für dieses Menü verwenden` |
-| `zh-Hans` | **61** | `这个菜单改用英文` |
-| `zh-Hans` | **62** | `这个菜单改用繁体中文` |
-| `zh-Hans` | **63** | `这个菜单改用西班牙文` |
-| `zh-Hans` | **64** | `这个菜单改用法文` |
-| `zh-Hans` | **65** | `这个菜单改用德文` |
-| `zh-Hans` | **66** | `这个菜单改用简体中文` |
-| `zh-Hans` | **67** | `这个菜单改用日文` |
-| `zh-Hans` | **68** | `这个菜单改用韩文` |
-| `ja` | **61** | `このメニューを英語にする` |
-| `ja` | **62** | `このメニューを繁体字中国語にする` |
-| `ja` | **63** | `このメニューをスペイン語にする` |
-| `ja` | **64** | `このメニューをフランス語にする` |
-| `ja` | **65** | `このメニューをドイツ語にする` |
-| `ja` | **66** | `このメニューを簡体字中国語にする` |
-| `ja` | **67** | `このメニューを日本語にする` |
-| `ja` | **68** | `このメニューを韓国語にする` |
-| `ko` | **61** | `이 메뉴를 영어로` |
-| `ko` | **62** | `이 메뉴를 번체 중국어로` |
-| `ko` | **63** | `이 메뉴를 스페인어로` |
-| `ko` | **64** | `이 메뉴를 프랑스어로` |
-| `ko` | **65** | `이 메뉴를 독일어로` |
-| `ko` | **66** | `이 메뉴를 간체 중국어로` |
-| `ko` | **67** | `이 메뉴를 일본어로` |
-| `ko` | **68** | `이 메뉴를 한국어로` |
+| `en` | **71** | `use English for this menu` |
+| `en` | **72** | `use Traditional Chinese for this menu` |
+| `en` | **73** | `use Spanish for this menu` |
+| `en` | **74** | `use French for this menu` |
+| `en` | **75** | `use German for this menu` |
+| `en` | **76** | `use Simplified Chinese for this menu` |
+| `en` | **77** | `use Japanese for this menu` |
+| `en` | **78** | `use Korean for this menu` |
+| `zh-Hant` | **71** | `這個選單改用英文` |
+| `zh-Hant` | **72** | `這個選單改用繁體中文` |
+| `zh-Hant` | **73** | `這個選單改用西班牙文` |
+| `zh-Hant` | **74** | `這個選單改用法文` |
+| `zh-Hant` | **75** | `這個選單改用德文` |
+| `zh-Hant` | **76** | `這個選單改用簡體中文` |
+| `zh-Hant` | **77** | `這個選單改用日文` |
+| `zh-Hant` | **78** | `這個選單改用韓文` |
+| `es` | **71** | `usar inglés en este menú` |
+| `es` | **72** | `usar chino tradicional en este menú` |
+| `es` | **73** | `usar español en este menú` |
+| `es` | **74** | `usar francés en este menú` |
+| `es` | **75** | `usar alemán en este menú` |
+| `es` | **76** | `usar chino simplificado en este menú` |
+| `es` | **77** | `usar japonés en este menú` |
+| `es` | **78** | `usar coreano en este menú` |
+| `fr` | **71** | `utiliser l'anglais pour ce menu` |
+| `fr` | **72** | `utiliser le chinois traditionnel pour ce menu` |
+| `fr` | **73** | `utiliser l'espagnol pour ce menu` |
+| `fr` | **74** | `utiliser le français pour ce menu` |
+| `fr` | **75** | `utiliser l'allemand pour ce menu` |
+| `fr` | **76** | `utiliser le chinois simplifié pour ce menu` |
+| `fr` | **77** | `utiliser le japonais pour ce menu` |
+| `fr` | **78** | `utiliser le coréen pour ce menu` |
+| `de` | **71** | `Englisch für dieses Menü verwenden` |
+| `de` | **72** | `Traditionelles Chinesisch für dieses Menü verwenden` |
+| `de` | **73** | `Spanisch für dieses Menü verwenden` |
+| `de` | **74** | `Französisch für dieses Menü verwenden` |
+| `de` | **75** | `Deutsch für dieses Menü verwenden` |
+| `de` | **76** | `Vereinfachtes Chinesisch für dieses Menü verwenden` |
+| `de` | **77** | `Japanisch für dieses Menü verwenden` |
+| `de` | **78** | `Koreanisch für dieses Menü verwenden` |
+| `zh-Hans` | **71** | `这个菜单改用英文` |
+| `zh-Hans` | **72** | `这个菜单改用繁体中文` |
+| `zh-Hans` | **73** | `这个菜单改用西班牙文` |
+| `zh-Hans` | **74** | `这个菜单改用法文` |
+| `zh-Hans` | **75** | `这个菜单改用德文` |
+| `zh-Hans` | **76** | `这个菜单改用简体中文` |
+| `zh-Hans` | **77** | `这个菜单改用日文` |
+| `zh-Hans` | **78** | `这个菜单改用韩文` |
+| `ja` | **71** | `このメニューを英語にする` |
+| `ja` | **72** | `このメニューを繁体字中国語にする` |
+| `ja` | **73** | `このメニューをスペイン語にする` |
+| `ja` | **74** | `このメニューをフランス語にする` |
+| `ja` | **75** | `このメニューをドイツ語にする` |
+| `ja` | **76** | `このメニューを簡体字中国語にする` |
+| `ja` | **77** | `このメニューを日本語にする` |
+| `ja` | **78** | `このメニューを韓国語にする` |
+| `ko` | **71** | `이 메뉴를 영어로` |
+| `ko` | **72** | `이 메뉴를 번체 중국어로` |
+| `ko` | **73** | `이 메뉴를 스페인어로` |
+| `ko` | **74** | `이 메뉴를 프랑스어로` |
+| `ko` | **75** | `이 메뉴를 독일어로` |
+| `ko` | **76** | `이 메뉴를 간체 중국어로` |
+| `ko` | **77** | `이 메뉴를 일본어로` |
+| `ko` | **78** | `이 메뉴를 한국어로` |
 
 Front language long: `display language for this menu` (en), `這個選單的顯示語言`, `idioma de este menú`, `langue d'affichage de ce menu`, `Anzeigesprache dieses Menüs`, `这个菜单的显示语言`, `このメニューの表示言語`, `이 메뉴의 표시 언어`. Category short: `language` / `語言` / `idioma` / `langue` / `Sprache` / `语言` / `言語` / `언어`.
 
@@ -271,22 +271,22 @@ English front (markdown emphasis stands in for TTY ink; the choose-prompt’s tr
 [INFO] **folder-backup**(*VERSION*) — numbered list
 [INFO] server-side is not available: this program does not run a host service. Number 2 stays reserved.
 1. **client-side**: *this login's folders: pack and restore*
-6. **language**: *display language for this menu*
-7. **sudoers**: *Grant and drafts*
-8. **self-management**: *this CLI install, version, update, uninstall*
+5. **sudoers**: *Grant and drafts*
+6. **self-management**: *this CLI install, version, update, uninstall*
+7. **language**: *display language for this menu*
 9. Exit
 Choose a number, or type the command name:
 ```
 
-Traditional Chinese front after **62**:
+Traditional Chinese front after **72**:
 
 ```text
 [INFO] **folder-backup**(*VERSION*) — 編號清單
 [INFO] 伺服器端無法使用：這個程式不執行主機服務。編號 2 保留。
 1. **用戶端**: *這個登入的資料夾：打包與還原*
-6. **語言**: *這個選單的顯示語言*
-7. **sudoers**: *授權與草稿*
-8. **自我管理**: *這個 CLI 的安裝、版本、更新、移除*
+5. **sudoers**: *授權與草稿*
+6. **自我管理**: *這個 CLI 的安裝、版本、更新、移除*
+7. **語言**: *這個選單的顯示語言*
 9. 離開
 請輸入編號，或輸入指令名稱：
 ```
@@ -327,13 +327,13 @@ Japanese help opens with `使い方:` and the work heading `作業コマンド:`
 
 | ID | Criterion |
 |----|-----------|
-| AC-1 | Front row **6** opens **61**–**68** and **0** Back. **0** does not write the file |
-| AC-2 | **62** writes `zh-Hant`, mode **0600**, prints the saved line, and the front redraws with `用戶端` and `9. 離開`. The next run stays that language when `FOLDER_BACKUP_LANG` is unset |
-| AC-3 | **61** restores `en`. **63**–**68** store `es`, `fr`, `de`, `zh-Hans`, `ja`, `ko` and print that code’s saved line and Exit word |
+| AC-1 | Front row **7** opens **71**–**78** and **0** Back. **0** does not write the file |
+| AC-2 | **72** writes `zh-Hant`, mode **0600**, prints the saved line, and the front redraws with `用戶端` and `9. 離開`. The next run stays that language when `FOLDER_BACKUP_LANG` is unset |
+| AC-3 | **71** restores `en`. **73**–**78** store `es`, `fr`, `de`, `zh-Hans`, `ja`, `ko` and print that code’s saved line and Exit word |
 | AC-4 | A first line other than the eight codes stays English and is left as written |
 | AC-5 | `FOLDER_BACKUP_LANG` overrides the file for that process and does not rewrite the file |
-| AC-6 | Human `help` and human `about` follow `APP_LANG`. Japanese help uses `使い方:` and `作業コマンド:`. Korean about uses `개요 / 診断` and `유용한 명령:`. English help still says `Usage:`, `Work commands:`, and `Grant and draft setup (tests and review):`, and names **67** and **68**. JSON about keeps `cache_used`. Argv `version` stays `folder-backup version` |
-| AC-7 | `folder-backup language` is unknown. English front text stays the default-interaction table, plus row **6** |
+| AC-6 | Human `help` and human `about` follow `APP_LANG`. Japanese help uses `使い方:` and `作業コマンド:`. Korean about uses `개요 / 診断` and `유용한 명령:`. English help still says `Usage:`, `Work commands:`, and `Grant and draft setup (tests and review):`, and names **77** and **78**. JSON about keeps `cache_used`. Argv `version` stays `folder-backup version` |
+| AC-7 | `folder-backup language` is unknown. English front text stays the default-interaction table, plus row **7** |
 
 ---
 
@@ -341,7 +341,7 @@ Japanese help opens with `使い方:` and the work heading `作業コマンド:`
 
 | Key | Relationship |
 |-----|--------------|
-| `requirement-shell-cli-default-interaction` | Front row **6**; English board text; choice read |
+| `requirement-shell-cli-default-interaction` | Front row **7**; English board text; choice read |
 | `requirement-shell-cli-sudoers-submenu` | English sudoers header and rows; copy follows `APP_LANG` |
 | `requirement-shell-cli-storage` | Persistence leaf `language`; not cache |
 | `requirement-shell-cli-interface` | `language` is not dispatched |
@@ -355,22 +355,43 @@ Japanese help opens with `使い方:` and the work heading `作業コマンド:`
 | TP family / ID | Suite | Status |
 |----------------|-------|--------|
 | **TP-CLI-24** | `tests/test_cli.sh` | **have** — eight codes, file mode, env override, human help and about in each code (AC-1–AC-7) |
-| **TP-CLI-04** / **TP-CLI-15** | same | **have** — English help names language and **67** / **68** |
-| **TP-CLI-13** | same | **have** — English front includes row **6** and no server row |
+| **TP-CLI-04** / **TP-CLI-15** | same | **have** — English help names language and **77** / **78** |
+| **TP-CLI-13** | same | **have** — English front includes row **7** and no server row |
 
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
+
+## Terminologies
+
+Copied substance for the words this requirement uses.
+
+### CLI main menu numbering
+
+**Definition:** CLI main menu numbering is the portable rule set for integers on a claimed CLI default interaction tree. A command number is unique in the whole tree: a child list must not reuse 1, 2, or 6, or any other parent token. A child command number must start with its parent's number as prefix: 11… under 1, 21… under 2, 51… under 5 when a sudoers family is claimed, 61… under 6, 71… under 7 when a language board is claimed, and 111… under 11. The front board uses small category integers plus Exit 9. Every submenu and data picker uses 0 to go back to the parent list. This term owns which integers, not ink and not the catalog of rows.
+
+**Human daily-life explanation:** CLI main menu numbering is how the café numbers dishes so 11 always means the same plate, even after you walk into a side room. The side-room specials do not start again at 1. They keep the front number as a prefix (11, 111). 0 is the door back to the previous board. 9 on the front board is leaving the café.
+
+**Daily-life example:** Front board 1, client side, opens a second board whose first dish is 11, not another 1. If the kitchen reused 1, nobody would know whether you meant the front door or the first side dish.
+
+### Well-known menu
+
+**Definition:** A well-known menu is the portable numbered TTY membership of well-known CLI verbs, plus the category front rows and front Exit, shared across self-managed products that claim a CLI default interaction. It is the portable subset of a CLI main menu hierarchy table: front board 1 / 2 / 5 / 6 / 7 / 9 and self-management 61…67 under 6. Those integers stay reserved. Which rows a product prints follows the language consider table (shell column versus Python / pip column). Domain numbered rows belong on the full hierarchy table, not this catalog.
+
+**Human daily-life explanation:** A well-known menu is the shared café numbering every similar kitchen agrees on. The front chalkboard has rooms 1, 2, 5 when a sudoers family is claimed, 6 for self-care, and 7 when a language board is claimed, plus 9 to leave. The back-office list under 6 keeps the same dish numbers.
+
+**Daily-life example:** You walk into a shell shop in the family. 6 is self-care. 67 files this tool in the drawer. 61 stocks the pantry when that shop sells extra kits. You walk into a pip shop: 6 is still self-care, 64 and 65 ask the package counter to compare and refresh, and 61 is not "pip install this program."
 
 ## 7. Status history
 
 | Date | Status | Note |
 |------|--------|------|
+| 2026-10-14 | Active 1.2.0 | Front row **7**. Children **71**–**78**. English help names **77** Japanese and **78** Korean. The English front sample and the Traditional Chinese front sample print **1**, **5**, **6**, **7**, **9**. | Terminologies section added.
 | 2026-09-30 | Active 1.0.0 | Front **6**, eight codes, persistence leaf, `FOLDER_BACKUP_LANG`. Help and about translate the heading, menu sentence, catalog, title, and cache-used label. |
 | 2026-09-30 | Active 1.1.0 | Human `help` and human `about` follow `APP_LANG`. JSON about and argv `version` stay English. Sentences that contain `read` stay `case` arms. |
-| 2026-10-10 | Active 1.1.1 | Front worked samples use the not-available hide sentence. |
+| 2026-10-10 | Active 1.2.0 | Front worked samples use the not-available hide sentence. |
 
 ---
 
-**Last Updated**: 2026-10-10  
+**Last Updated**: 2026-10-14  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

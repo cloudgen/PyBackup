@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-shell-local-self-management.md  
-**Status**: Active (Version 1.3.2)  
+**Status**: Active (Version 1.3.3)  
 **Area**: shell  
 **Key**: `requirement-shell-local-self-management`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -8,7 +8,7 @@
 
 This requirement is the **project Single Source of Truth** for **local self-managed lifecycle** of the folder-backup POSIX shell CLI: **`install`**, **`uninstall`**, and **`where-is-me`**, plus the local diagnostics package contract for **`version`**, **`about`**, and **`help`** (wiring owned with CLI interface).
 
-**This file owns the local copy pair.** `install` copies the running file (mode **0755**). `uninstall` removes that managed binary. `where-is-me` reports paths. The channel verbs `self-install`, `version-check`, `self-update`, `self-uninstall`, and `self-management` are live and are owned by `requirement-shell-cli-interface` and `requirement-bootstrap-chain`. Do not alias `install` to `self-install`. A terminal with no command is the numbered boards. A pipe with no command is `self-install`, not this file’s `install`. On a terminal, `install` is also self-board row **81** (`requirement-shell-cli-default-interaction`). `uninstall` and `where-is-me` stay typed commands.
+**This file owns the local copy pair.** `install` copies the running file (mode **0755**). `uninstall` removes that managed binary. `where-is-me` reports paths. The channel verbs `self-install`, `version-check`, `self-update`, `self-uninstall`, and `self-management` are live and are owned by `requirement-shell-cli-interface` and `requirement-bootstrap-chain`. Do not alias `install` to `self-install`. A terminal with no command is the numbered boards. A pipe with no command is `self-install`, not this file’s `install`. On a terminal, `install` is also self-board row **61** (`requirement-shell-cli-default-interaction`). `uninstall` and `where-is-me` stay typed commands.
 
 ### 1.1 Human-facing
 
@@ -214,19 +214,40 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
 
+## Terminologies
+
+Copied substance for the words this requirement uses.
+
+### CLI main menu numbering
+
+**Definition:** CLI main menu numbering is the portable rule set for integers on a claimed CLI default interaction tree. A command number is unique in the whole tree: a child list must not reuse 1, 2, or 6, or any other parent token. A child command number must start with its parent's number as prefix: 11… under 1, 21… under 2, 51… under 5 when a sudoers family is claimed, 61… under 6, 71… under 7 when a language board is claimed, and 111… under 11. The front board uses small category integers plus Exit 9. Every submenu and data picker uses 0 to go back to the parent list. This term owns which integers, not ink and not the catalog of rows.
+
+**Human daily-life explanation:** CLI main menu numbering is how the café numbers dishes so 11 always means the same plate, even after you walk into a side room. The side-room specials do not start again at 1. They keep the front number as a prefix (11, 111). 0 is the door back to the previous board. 9 on the front board is leaving the café.
+
+**Daily-life example:** Front board 1, client side, opens a second board whose first dish is 11, not another 1. If the kitchen reused 1, nobody would know whether you meant the front door or the first side dish.
+
+### Well-known menu
+
+**Definition:** A well-known menu is the portable numbered TTY membership of well-known CLI verbs, plus the category front rows and front Exit, shared across self-managed products that claim a CLI default interaction. It is the portable subset of a CLI main menu hierarchy table: front board 1 / 2 / 5 / 6 / 7 / 9 and self-management 61…67 under 6. Those integers stay reserved. Which rows a product prints follows the language consider table (shell column versus Python / pip column). Domain numbered rows belong on the full hierarchy table, not this catalog.
+
+**Human daily-life explanation:** A well-known menu is the shared café numbering every similar kitchen agrees on. The front chalkboard has rooms 1, 2, 5 when a sudoers family is claimed, 6 for self-care, and 7 when a language board is claimed, plus 9 to leave. The back-office list under 6 keeps the same dish numbers.
+
+**Daily-life example:** You walk into a shell shop in the family. 6 is self-care. 67 files this tool in the drawer. 61 stocks the pantry when that shop sells extra kits. You walk into a pip shop: 6 is still self-care, 64 and 65 ask the package counter to compare and refresh, and 61 is not "pip install this program."
+
 ## 7. Status history
 
 | Date | Status | Note |
 |------|--------|------|
+| 2026-10-14 | Active 1.3.3 | `install` is self-board row **61**. | Terminologies section added.
 | 2026-08-03 | Active | Local-only lifecycle for folder-backup |
 | 2026-08-09 | Active 1.2.0 | §2.3.1 mode **0755** multi-user; ban `chmod +x`→`0711` trap; AC-6..8; TP-LC-09/10 |
 | 2026-08-28 | Active 1.2.1 | Empty-argv owner is default-interaction case 2; Type O fence unchanged |
 | 2026-09-30 | Active 1.3.0 | Channel verbs are live beside this pair. `install` stays the local copy. |
 | 2026-09-30 | Active 1.3.1 | Empty argv is the numbered boards. `install` is also self-board row **81**. `uninstall` and `where-is-me` stay typed. Version cell points at the ship unit. |
-| 2026-09-30 | Active 1.3.2 | A pipe with no command is `self-install`, not this file’s `install`. |
+| 2026-09-30 | Active 1.3.3 | A pipe with no command is `self-install`, not this file’s `install`. |
 
 ---
 
-**Last Updated**: 2026-09-30  
+**Last Updated**: 2026-10-14  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

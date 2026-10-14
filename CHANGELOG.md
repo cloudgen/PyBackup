@@ -5,6 +5,16 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.26.0] - 2026-10-14
+
+### Changed
+
+- **Front board numbers.** On a terminal the front board lists client-side (**1**), sudoers (**5**), self-management (**6**), language (**7**), and Exit (**9**). Server-side stays hidden as **2**. Sudoers prints **52** and **55**. Reserved numbers are **51**, **53**, and **54**. Self-management is **61**–**67**. Language is **71** English through **78** Korean.
+- **OS family labels.** Eight requirements name the same host families as sibling tn5250-cli: Windows Git Bash (Windows Command Prompt stays a peer in that file), Debian 12 and 13, Ubuntu 22.04, 24.04, and 26.04, other Linux, Alpine, Fedora and Red Hat Enterprise Linux, Termux, and macOS. This program does not install compiler packages. The live cache split remains `linux`, `gitbash`, and `mac`. It does not read `/etc/os-release` and does not refuse an unknown host.
+- **README boards.** Quick Installation shows the live terminal boards at this version: front, client-side, sudoers, self-management, and language.
+- **Suite.** `sh tests/run.sh`: PASS=610 FAIL=0 SKIP=2. Proof **TP-CLI-13**, **TP-CLI-24**, **TP-CLI-12**.
+- Law: **requirement-shell-cli-default-interaction** **1.13.0**, **requirement-shell-cli-language** **1.2.0**, **requirement-shell-cli-sudoers-submenu** **1.5.0**, **requirement-shell-cli-interface** **1.13.0**, **requirement-shell-local-self-management** **1.3.3**, **requirement-domain-folder-backup** **1.6.11**, **requirement-bootstrap-chain** **2.4.0**, and the eight family files at **1.0.0**.
+
 ## [1.25.0] - 2026-10-10
 
 ### Changed

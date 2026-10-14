@@ -27,7 +27,7 @@
 # Plus CIAO Protection Zones and "DO NOT MODIFY" rules.
 #
 # APP NAME: hard-assign APP_NAME="folder-backup"
-# VERSION: hard-assign VERSION="1.25.0"
+# VERSION: hard-assign VERSION="1.26.0"
 # SCRIPT_URL: composed from REPO_USER / REPO_NAME / SCRIPT_RELPATH (selfmanaged channel).
 #
 # =============================================================================
@@ -45,8 +45,8 @@ APP_NAME="folder-backup"
 : "${SHORT_DESCRIPTION:=${APP_DESC}}"
 : "${DESCRIPTION:=POSIX /bin/sh program: self-install, version-check, self-update, self-uninstall, local install, backup, restore, and the numbered boards.}"
 # Product version SSOT (semver). Extractors use: grep '^VERSION="'
-VERSION="1.25.0"
-: "${VERSION:=1.25.0}"
+VERSION="1.26.0"
+: "${VERSION:=1.26.0}"
 
 # Runtime flags (safe defaults)
 : "${QUIET:=0}"
@@ -356,7 +356,7 @@ out_menu_choice() {
 # =============================================================================
 util_app_ident() {
     : "${APP_NAME:=folder-backup}"
-    : "${VERSION:=1.25.0}"
+    : "${VERSION:=1.26.0}"
     : "${TTY:=0}"
     : "${JSON:=0}"
     if [ "${TTY}" -eq 1 ] && [ "${JSON}" -eq 0 ]; then
@@ -3006,7 +3006,7 @@ app_about() {
     : "${JSON:=0}"
     : "${QUIET:=0}"
     : "${APP_NAME:=folder-backup}"
-    : "${VERSION:=1.25.0}"
+    : "${VERSION:=1.26.0}"
     : "${REPO_USER:=cloudgen}"
     : "${REPO_NAME:=folder-backup}"
     : "${SCRIPT_URL:=}"
@@ -3230,7 +3230,7 @@ app_about() {
 
 app_version() {
     : "${APP_NAME:=folder-backup}"
-    : "${VERSION:=1.25.0}"
+    : "${VERSION:=1.26.0}"
     : "${JSON:=0}"
     if [ "${JSON}" -eq 1 ]; then
         # Same machine contract as historical app_main inline path
@@ -6548,17 +6548,17 @@ app_menu_text() {
             ;;
         sudoers_hide)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out='測試指令無法使用：請輸入 generate-sudoer-request、print-sudoers 或 print-sudoers-install-script。編號 71、73、74 保留。' ;;
-                es) _mt_out='los comandos de prueba no están disponibles: escriba generate-sudoer-request, print-sudoers o print-sudoers-install-script. Los números 71, 73 y 74 quedan reservados.' ;;
-                fr) _mt_out='les commandes de test ne sont pas disponibles : saisissez generate-sudoer-request, print-sudoers ou print-sudoers-install-script. Les numéros 71, 73 et 74 restent réservés.' ;;
-                de) _mt_out='Testbefehle sind nicht verfügbar: geben Sie generate-sudoer-request, print-sudoers oder print-sudoers-install-script ein. Die Nummern 71, 73 und 74 bleiben reserviert.' ;;
-                zh-Hans) _mt_out='测试命令无法使用：请输入 generate-sudoer-request、print-sudoers 或 print-sudoers-install-script。编号 71、73、74 保留。' ;;
-                ja) _mt_out='テスト用のコマンドは使えません。generate-sudoer-request、print-sudoers、print-sudoers-install-script と入力します。番号 71、73、74 は予約です。' ;;
-                ko) _mt_out='테스트 명령은 사용할 수 없습니다. generate-sudoer-request, print-sudoers 또는 print-sudoers-install-script 를 입력하세요. 번호 71, 73, 74 는 예약입니다.' ;;
-                *) _mt_out='test commands are not available: type generate-sudoer-request, print-sudoers, or print-sudoers-install-script. Numbers 71, 73, and 74 stay reserved.' ;;
+                zh-Hant) _mt_out='測試指令無法使用：請輸入 generate-sudoer-request、print-sudoers 或 print-sudoers-install-script。編號 51、53、54 保留。' ;;
+                es) _mt_out='los comandos de prueba no están disponibles: escriba generate-sudoer-request, print-sudoers o print-sudoers-install-script. Los números 51, 53 y 54 quedan reservados.' ;;
+                fr) _mt_out='les commandes de test ne sont pas disponibles : saisissez generate-sudoer-request, print-sudoers ou print-sudoers-install-script. Les numéros 51, 53 et 54 restent réservés.' ;;
+                de) _mt_out='Testbefehle sind nicht verfügbar: geben Sie generate-sudoer-request, print-sudoers oder print-sudoers-install-script ein. Die Nummern 51, 53 und 54 bleiben reserviert.' ;;
+                zh-Hans) _mt_out='测试命令无法使用：请输入 generate-sudoer-request、print-sudoers 或 print-sudoers-install-script。编号 51、53、54 保留。' ;;
+                ja) _mt_out='テスト用のコマンドは使えません。generate-sudoer-request、print-sudoers、print-sudoers-install-script と入力します。番号 51、53、54 は予約です。' ;;
+                ko) _mt_out='테스트 명령은 사용할 수 없습니다. generate-sudoer-request, print-sudoers 또는 print-sudoers-install-script 를 입력하세요. 번호 51, 53, 54 는 예약입니다.' ;;
+                *) _mt_out='test commands are not available: type generate-sudoer-request, print-sudoers, or print-sudoers-install-script. Numbers 51, 53, and 54 stay reserved.' ;;
             esac
             ;;
-        sudoers_72_long)
+        sudoers_52_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='把 JSON 授權交給核准佇列' ;;
                 es) _mt_out='Entregar la concesión JSON a la cola de aprobación' ;;
@@ -6570,7 +6570,7 @@ app_menu_text() {
                 *) _mt_out='Hand the JSON grant to the approval queue' ;;
             esac
             ;;
-        sudoers_75_long)
+        sudoers_55_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='只移除本機的授權草稿' ;;
                 es) _mt_out='Quitar solo el borrador local de la concesión' ;;
@@ -6606,7 +6606,7 @@ app_menu_text() {
                 *) _mt_out='Put an archive back onto the hard-disk projects tree' ;;
             esac
             ;;
-        self_81_long)
+        self_61_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='把這個程式複製到你的 bin 或 /usr/local/bin' ;;
                 es) _mt_out='Copiar este programa a su bin o a /usr/local/bin' ;;
@@ -6618,7 +6618,7 @@ app_menu_text() {
                 *) _mt_out='Copy this program into your bin or /usr/local/bin' ;;
             esac
             ;;
-        self_82_long)
+        self_62_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='顯示版本與詳細診斷（about）' ;;
                 es) _mt_out='Mostrar la versión y el diagnóstico (about)' ;;
@@ -6630,7 +6630,7 @@ app_menu_text() {
                 *) _mt_out='Show version and detailed diagnostics (about)' ;;
             esac
             ;;
-        self_83_long)
+        self_63_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='顯示診斷，包含 sudoers 信任層級' ;;
                 es) _mt_out='Mostrar el diagnóstico, incluido el nivel de confianza sudoers' ;;
@@ -6642,7 +6642,7 @@ app_menu_text() {
                 *) _mt_out='Show diagnostics including sudoers trust tier' ;;
             esac
             ;;
-        self_84_long)
+        self_64_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='把這個版本和通道上的版本比較' ;;
                 es) _mt_out='Comparar esta versión con el canal' ;;
@@ -6654,7 +6654,7 @@ app_menu_text() {
                 *) _mt_out='Compare this version with the channel' ;;
             esac
             ;;
-        self_85_long)
+        self_65_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='用通道上的檔案換掉已放置的程式' ;;
                 es) _mt_out='Sustituir el binario colocado desde el canal' ;;
@@ -6666,7 +6666,7 @@ app_menu_text() {
                 *) _mt_out='Replace the placed binary from the channel' ;;
             esac
             ;;
-        self_86_long)
+        self_66_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='移除由通道放置的程式' ;;
                 es) _mt_out='Quitar el binario colocado por el canal' ;;
@@ -6678,7 +6678,7 @@ app_menu_text() {
                 *) _mt_out='Remove the channel-placed binary' ;;
             esac
             ;;
-        self_87_long)
+        self_67_long)
             case "${_mt_lang}" in
                 zh-Hant) _mt_out='複製這個檔案；若殼層是管線則下載' ;;
                 es) _mt_out='Copiar este archivo, o descargarlo cuando el shell es una tubería' ;;
@@ -6692,14 +6692,14 @@ app_menu_text() {
             ;;
         unknown_front)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 1、6、7、8 或 9，或清單上的名稱。" ;;
-                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 1, 6, 7, 8 o 9, o un nombre de la lista." ;;
-                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 1, 6, 7, 8 ou 9, ou un nom de la liste." ;;
-                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 1, 6, 7, 8 oder 9 ein, oder einen Namen von der Liste." ;;
-                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 1、6、7、8 或 9，或清单上的名称。" ;;
-                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。1、6、7、8、9 のいずれかか、一覧の名前を入力してください。" ;;
-                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 1, 6, 7, 8, 9 또는 목록의 이름을 입력하세요." ;;
-                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 1, 6, 7, 8, or 9, or a listed name." ;;
+                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 1、5、6、7 或 9，或清單上的名稱。" ;;
+                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 1, 5, 6, 7 o 9, o un nombre de la lista." ;;
+                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 1, 5, 6, 7 ou 9, ou un nom de la liste." ;;
+                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 1, 5, 6, 7 oder 9 ein, oder einen Namen von der Liste." ;;
+                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 1、5、6、7 或 9，或清单上的名称。" ;;
+                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。1、5、6、7、9 のいずれかか、一覧の名前を入力してください。" ;;
+                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 1, 5, 6, 7, 9 또는 목록의 이름을 입력하세요." ;;
+                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 1, 5, 6, 7, or 9, or a listed name." ;;
             esac
             ;;
         unknown_client)
@@ -6716,38 +6716,38 @@ app_menu_text() {
             ;;
         unknown_sudoers)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 72、75 或 0，或清單上的指令名稱。" ;;
-                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 72, 75 o 0, o un nombre de comando de la lista." ;;
-                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 72, 75 ou 0, ou un nom de commande de la liste." ;;
-                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 72, 75 oder 0 ein, oder einen Befehlsnamen von der Liste." ;;
-                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 72、75 或 0，或清单上的命令名称。" ;;
-                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。72、75、0 のいずれかか、一覧のコマンド名を入力してください。" ;;
-                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 72, 75, 0 또는 목록의 명령 이름을 입력하세요." ;;
-                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 72, 75, or 0, or a listed command name." ;;
+                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 52、55 或 0，或清單上的指令名稱。" ;;
+                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 52, 55 o 0, o un nombre de comando de la lista." ;;
+                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 52, 55 ou 0, ou un nom de commande de la liste." ;;
+                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 52, 55 oder 0 ein, oder einen Befehlsnamen von der Liste." ;;
+                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 52、55 或 0，或清单上的命令名称。" ;;
+                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。52、55、0 のいずれかか、一覧のコマンド名を入力してください。" ;;
+                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 52, 55, 0 또는 목록의 명령 이름을 입력하세요." ;;
+                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 52, 55, or 0, or a listed command name." ;;
             esac
             ;;
         unknown_self)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 81-87、0 返回，或清單上的指令名稱。" ;;
-                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 81-87, 0 para volver, o un nombre de comando de la lista." ;;
-                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 81-87, 0 pour revenir, ou un nom de commande de la liste." ;;
-                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 81-87, 0 für Zurück, oder einen Befehlsnamen von der Liste ein." ;;
-                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 81-87、0 返回，或清单上的命令名称。" ;;
-                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。81-87、戻るなら 0、または一覧のコマンド名を入力してください。" ;;
-                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 81-87, 뒤로 가려면 0, 또는 목록의 명령 이름을 입력하세요." ;;
-                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 81-87, 0 back, or a listed command name." ;;
+                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 61-67、0 返回，或清單上的指令名稱。" ;;
+                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 61-67, 0 para volver, o un nombre de comando de la lista." ;;
+                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 61-67, 0 pour revenir, ou un nom de commande de la liste." ;;
+                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 61-67, 0 für Zurück, oder einen Befehlsnamen von der Liste ein." ;;
+                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 61-67、0 返回，或清单上的命令名称。" ;;
+                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。61-67、戻るなら 0、または一覧のコマンド名を入力してください。" ;;
+                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 61-67, 뒤로 가려면 0, 또는 목록의 명령 이름을 입력하세요." ;;
+                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 61-67, 0 back, or a listed command name." ;;
             esac
             ;;
         unknown_language)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 61-68 或 0。" ;;
-                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 61-68, o 0." ;;
-                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 61-68, ou 0." ;;
-                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 61-68 oder 0 ein." ;;
-                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 61-68 或 0。" ;;
-                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。61-68 または 0 を入力してください。" ;;
-                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 61-68 또는 0 을 입력하세요." ;;
-                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 61-68, or 0." ;;
+                zh-Hant) _mt_out="不是選單選項 '${_mt_extra}'。請輸入 71-78 或 0。" ;;
+                es) _mt_out="No es una opción de menú '${_mt_extra}'. Escriba 71-78, o 0." ;;
+                fr) _mt_out="Pas un choix de menu '${_mt_extra}'. Saisissez 71-78, ou 0." ;;
+                de) _mt_out="Keine Menüauswahl '${_mt_extra}'. Geben Sie 71-78 oder 0 ein." ;;
+                zh-Hans) _mt_out="不是菜单选项 '${_mt_extra}'。请输入 71-78 或 0。" ;;
+                ja) _mt_out="メニューの選択ではありません '${_mt_extra}'。71-78 または 0 を入力してください。" ;;
+                ko) _mt_out="메뉴 선택이 아닙니다 '${_mt_extra}'. 71-78 또는 0 을 입력하세요." ;;
+                *) _mt_out="Not a menu choice '${_mt_extra}'. Type 71-78, or 0." ;;
             esac
             ;;
         help_usage)
@@ -6776,14 +6776,14 @@ app_menu_text() {
             ;;
         help_lang_line)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out='語言 61 English、62 Traditional Chinese、63 Spanish、64 French、65 German、66 Simplified Chinese、67 Japanese、68 Korean。' ;;
-                es) _mt_out='Idioma 61 English, 62 Traditional Chinese, 63 Spanish, 64 French, 65 German, 66 Simplified Chinese, 67 Japanese, 68 Korean.' ;;
-                fr) _mt_out='Langue 61 English, 62 Traditional Chinese, 63 Spanish, 64 French, 65 German, 66 Simplified Chinese, 67 Japanese, 68 Korean.' ;;
-                de) _mt_out='Sprache 61 English, 62 Traditional Chinese, 63 Spanish, 64 French, 65 German, 66 Simplified Chinese, 67 Japanese, 68 Korean.' ;;
-                zh-Hans) _mt_out='语言 61 English、62 Traditional Chinese、63 Spanish、64 French、65 German、66 Simplified Chinese、67 Japanese、68 Korean。' ;;
-                ja) _mt_out='言語 61 English、62 Traditional Chinese、63 Spanish、64 French、65 German、66 Simplified Chinese、67 Japanese、68 Korean。' ;;
-                ko) _mt_out='언어 61 English, 62 Traditional Chinese, 63 Spanish, 64 French, 65 German, 66 Simplified Chinese, 67 Japanese, 68 Korean.' ;;
-                *) _mt_out='Language 61 English, 62 Traditional Chinese, 63 Spanish, 64 French, 65 German, 66 Simplified Chinese, 67 Japanese, 68 Korean.' ;;
+                zh-Hant) _mt_out='語言 71 English、72 Traditional Chinese、73 Spanish、74 French、75 German、76 Simplified Chinese、77 Japanese、78 Korean。' ;;
+                es) _mt_out='Idioma 71 English, 72 Traditional Chinese, 73 Spanish, 74 French, 75 German, 76 Simplified Chinese, 77 Japanese, 78 Korean.' ;;
+                fr) _mt_out='Langue 71 English, 72 Traditional Chinese, 73 Spanish, 74 French, 75 German, 76 Simplified Chinese, 77 Japanese, 78 Korean.' ;;
+                de) _mt_out='Sprache 71 English, 72 Traditional Chinese, 73 Spanish, 74 French, 75 German, 76 Simplified Chinese, 77 Japanese, 78 Korean.' ;;
+                zh-Hans) _mt_out='语言 71 English、72 Traditional Chinese、73 Spanish、74 French、75 German、76 Simplified Chinese、77 Japanese、78 Korean。' ;;
+                ja) _mt_out='言語 71 English、72 Traditional Chinese、73 Spanish、74 French、75 German、76 Simplified Chinese、77 Japanese、78 Korean。' ;;
+                ko) _mt_out='언어 71 English, 72 Traditional Chinese, 73 Spanish, 74 French, 75 German, 76 Simplified Chinese, 77 Japanese, 78 Korean.' ;;
+                *) _mt_out='Language 71 English, 72 Traditional Chinese, 73 Spanish, 74 French, 75 German, 76 Simplified Chinese, 77 Japanese, 78 Korean.' ;;
             esac
             ;;
         about_title)
@@ -6944,14 +6944,14 @@ app_menu_text() {
             ;;
         help_self_mgmt)
             case "${_mt_lang}" in
-                zh-Hant) _mt_out='在終端機上是編號的自我管理板（81-87）。沒有終端機就停止：self-management needs a terminal' ;;
-                es) _mt_out='En un terminal, tablero numerado de autogestión (81-87). Sin terminal, se detiene: self-management needs a terminal' ;;
-                fr) _mt_out='Sur un terminal, tableau numéroté d'\''autogestion (81-87). Sans terminal, arrêt : self-management needs a terminal' ;;
-                de) _mt_out='Am Terminal die nummerierte Selbstverwaltungs-Tafel (81-87). Ohne Terminal Stopp: self-management needs a terminal' ;;
-                zh-Hans) _mt_out='在终端上是编号的自我管理板（81-87）。没有终端就停止：self-management needs a terminal' ;;
-                ja) _mt_out='端末では番号付きの自己管理の板（81-87）。端末がなければ停止：self-management needs a terminal' ;;
-                ko) _mt_out='터미널에서는 번호가 있는 자기관리 판 (81-87). 터미널이 없으면 멈춤: self-management needs a terminal' ;;
-                *) _mt_out='On a terminal, numbered self-management board (81-87). Off a terminal, stops: self-management needs a terminal' ;;
+                zh-Hant) _mt_out='在終端機上是編號的自我管理板（61-67）。沒有終端機就停止：self-management needs a terminal' ;;
+                es) _mt_out='En un terminal, tablero numerado de autogestión (61-67). Sin terminal, se detiene: self-management needs a terminal' ;;
+                fr) _mt_out='Sur un terminal, tableau numéroté d'\''autogestion (61-67). Sans terminal, arrêt : self-management needs a terminal' ;;
+                de) _mt_out='Am Terminal die nummerierte Selbstverwaltungs-Tafel (61-67). Ohne Terminal Stopp: self-management needs a terminal' ;;
+                zh-Hans) _mt_out='在终端上是编号的自我管理板（61-67）。没有终端就停止：self-management needs a terminal' ;;
+                ja) _mt_out='端末では番号付きの自己管理の板（61-67）。端末がなければ停止：self-management needs a terminal' ;;
+                ko) _mt_out='터미널에서는 번호가 있는 자기관리 판 (61-67). 터미널이 없으면 멈춤: self-management needs a terminal' ;;
+                *) _mt_out='On a terminal, numbered self-management board (61-67). Off a terminal, stops: self-management needs a terminal' ;;
             esac
             ;;
         help_h_care)
@@ -8379,11 +8379,11 @@ app_menu_text() {
 }
 
 # =============================================================================
-# app_cmd_menu_language() - Language board under front 6
+# app_cmd_menu_language() - Language board under front 7
 # =============================================================================
 #
-# 61 stores en. 62 stores zh-Hant. 63 stores es. 64 stores fr.
-# 65 stores de. 66 stores zh-Hans. 67 stores ja. 68 stores ko.
+# 71 stores en. 72 stores zh-Hant. 73 stores es. 74 stores fr.
+# 75 stores de. 76 stores zh-Hans. 77 stores ja. 78 stores ko.
 # Each returns to the front board. 0 / empty / EOF is Back and does
 # not write the file. The choice is a current-shell input builtin.
 #
@@ -8395,14 +8395,14 @@ app_cmd_menu_language() {
     while true; do
         app_menu_draw_on
         out_info "$(util_app_ident) — $(app_menu_text cat_language)"
-        out_menu_choice 61 English "$(app_menu_text lang_en_long)"
-        out_menu_choice 62 "繁體中文" "$(app_menu_text lang_zh_long)"
-        out_menu_choice 63 "Español" "$(app_menu_text lang_es_long)"
-        out_menu_choice 64 "Français" "$(app_menu_text lang_fr_long)"
-        out_menu_choice 65 "Deutsch" "$(app_menu_text lang_de_long)"
-        out_menu_choice 66 "简体中文" "$(app_menu_text lang_zh_hans_long)"
-        out_menu_choice 67 "日本語" "$(app_menu_text lang_ja_long)"
-        out_menu_choice 68 "한국어" "$(app_menu_text lang_ko_long)"
+        out_menu_choice 71 English "$(app_menu_text lang_en_long)"
+        out_menu_choice 72 "繁體中文" "$(app_menu_text lang_zh_long)"
+        out_menu_choice 73 "Español" "$(app_menu_text lang_es_long)"
+        out_menu_choice 74 "Français" "$(app_menu_text lang_fr_long)"
+        out_menu_choice 75 "Deutsch" "$(app_menu_text lang_de_long)"
+        out_menu_choice 76 "简体中文" "$(app_menu_text lang_zh_hans_long)"
+        out_menu_choice 77 "日本語" "$(app_menu_text lang_ja_long)"
+        out_menu_choice 78 "한국어" "$(app_menu_text lang_ko_long)"
         out_menu_choice 0 "$(app_menu_text word_back)"
         out_msg_n "$(app_menu_text line_prompt)"
         if ! read -r _prompt_line; then
@@ -8411,28 +8411,28 @@ app_cmd_menu_language() {
             return 0
         fi
         case "${_prompt_line}" in
-            61|english|en|English)
+            71|english|en|English)
                 _ls_code=en
                 ;;
-            62|traditional-chinese|zh-hant|zh-Hant|繁體中文)
+            72|traditional-chinese|zh-hant|zh-Hant|繁體中文)
                 _ls_code=zh-Hant
                 ;;
-            63|spanish|es|Español|español)
+            73|spanish|es|Español|español)
                 _ls_code=es
                 ;;
-            64|french|fr|Français|français)
+            74|french|fr|Français|français)
                 _ls_code=fr
                 ;;
-            65|german|de|Deutsch|deutsch)
+            75|german|de|Deutsch|deutsch)
                 _ls_code=de
                 ;;
-            66|simplified-chinese|zh-hans|zh-Hans|简体中文)
+            76|simplified-chinese|zh-hans|zh-Hans|简体中文)
                 _ls_code=zh-Hans
                 ;;
-            67|japanese|ja|日本語)
+            77|japanese|ja|日本語)
                 _ls_code=ja
                 ;;
-            68|korean|ko|한국어)
+            78|korean|ko|한국어)
                 _ls_code=ko
                 ;;
             0|back|Back|""|exit|quit|Exit|QUIT|q|Q|返回|Atrás|Retour|Zurück|戻る|뒤로)
@@ -8457,11 +8457,11 @@ app_cmd_menu_language() {
 
 
 # =============================================================================
-# app_cmd_menu_sudoers() - Grant board under front 7
+# app_cmd_menu_sudoers() - Grant board under front 5
 # =============================================================================
 #
-# Operational rows only: 72 submit, 75 remove. Test-purpose numbers
-# 71, 73, and 74 stay reserved. 0 / empty / EOF / exit returns to
+# Operational rows only: 52 submit, 55 remove. Test-purpose numbers
+# 51, 53, and 54 stay reserved. 0 / empty / EOF / exit returns to
 # the front. A leaf returns 2 so the front board redisplays.
 # Copy follows APP_LANG. Leaf shorts stay the English verbs.
 #
@@ -8475,8 +8475,8 @@ app_cmd_menu_sudoers() {
         app_menu_draw_on
         out_info "$(util_app_ident) — $(app_menu_text sudoers_header)"
         out_info "$(app_menu_text sudoers_hide)"
-        out_menu_choice 72 submit-sudoer-request "$(app_menu_text sudoers_72_long)"
-        out_menu_choice 75 remove-project-sudoers "$(app_menu_text sudoers_75_long)"
+        out_menu_choice 52 submit-sudoer-request "$(app_menu_text sudoers_52_long)"
+        out_menu_choice 55 remove-project-sudoers "$(app_menu_text sudoers_55_long)"
         out_menu_choice 0 "$(app_menu_text word_back)"
         out_msg_n "$(app_menu_text line_prompt)"
         if ! read -r _prompt_line; then
@@ -8489,13 +8489,13 @@ app_cmd_menu_sudoers() {
                 unset _pick _a
                 return 0
                 ;;
-            72|submit-sudoer-request)
+            52|submit-sudoer-request)
                 app_menu_draw_off
                 app_menu_run_leaf submit-sudoer-request "${_a}"
                 unset _pick _a
                 return 2
                 ;;
-            75|remove-project-sudoers)
+            55|remove-project-sudoers)
                 app_menu_draw_off
                 app_menu_run_leaf remove-project-sudoers "${_a}"
                 unset _pick _a
@@ -8512,7 +8512,7 @@ app_cmd_menu_sudoers() {
 # =============================================================================
 #
 # 11 backup, 12 restore, 0 Back. A leaf returns 2. Back returns 0.
-# Sudoers is front row 7, not a row on this board.
+# Sudoers is front row 5, not a row on this board.
 # Copy follows APP_LANG. Leaf shorts stay the English verbs.
 #
 # ALIGNMENT:
@@ -8559,10 +8559,10 @@ app_cmd_menu_client() {
 }
 
 # =============================================================================
-# app_cmd_menu_self() - Self-management board under front 8
+# app_cmd_menu_self() - Self-management board under front 6
 # =============================================================================
 #
-# Dual place: 81 install is the local copy. 84-87 are the channel.
+# Dual place: 61 install is the local copy. 64-67 are the channel.
 # 86 is self-uninstall. Local uninstall and where-is-me stay typed
 # commands. A leaf returns 2. 0 / empty / EOF returns to the caller.
 # Copy follows APP_LANG. Leaf shorts stay the English verbs.
@@ -8575,13 +8575,13 @@ app_cmd_menu_self() {
     while true; do
         app_menu_draw_on
         out_info "$(util_app_ident) — $(app_menu_text cat_self)"
-        out_menu_choice 81 install "$(app_menu_text self_81_long)"
-        out_menu_choice 82 version "$(app_menu_text self_82_long)"
-        out_menu_choice 83 about "$(app_menu_text self_83_long)"
-        out_menu_choice 84 version-check "$(app_menu_text self_84_long)"
-        out_menu_choice 85 self-update "$(app_menu_text self_85_long)"
-        out_menu_choice 86 self-uninstall "$(app_menu_text self_86_long)"
-        out_menu_choice 87 self-install "$(app_menu_text self_87_long)"
+        out_menu_choice 61 install "$(app_menu_text self_61_long)"
+        out_menu_choice 62 version "$(app_menu_text self_62_long)"
+        out_menu_choice 63 about "$(app_menu_text self_63_long)"
+        out_menu_choice 64 version-check "$(app_menu_text self_64_long)"
+        out_menu_choice 65 self-update "$(app_menu_text self_65_long)"
+        out_menu_choice 66 self-uninstall "$(app_menu_text self_66_long)"
+        out_menu_choice 67 self-install "$(app_menu_text self_67_long)"
         out_menu_choice 0 "$(app_menu_text word_back)"
         out_msg_n "$(app_menu_text line_prompt)"
         if ! read -r _prompt_line; then
@@ -8593,25 +8593,25 @@ app_cmd_menu_self() {
                 unset _pick
                 return 0
                 ;;
-            81|install)
+            61|install)
                 _verb=install
                 ;;
-            82|version)
+            62|version)
                 _verb=version
                 ;;
-            83|about)
+            63|about)
                 _verb=about
                 ;;
-            84|version-check)
+            64|version-check)
                 _verb=version-check
                 ;;
-            85|self-update)
+            65|self-update)
                 _verb=self-update
                 ;;
-            86|self-uninstall)
+            66|self-uninstall)
                 _verb=self-uninstall
                 ;;
-            87|self-install)
+            67|self-install)
                 _verb=self-install
                 ;;
             *)
@@ -8643,7 +8643,7 @@ app_cmd_menu_self() {
 # - requirement-shell-cli-language.md
 # - requirement-shell-interactive-vs-noninteractive.md
 #
-# Last updated: 2026-09-30
+# Last updated: 2026-10-14
 # =============================================================================
 app_cmd_menu() {
     : "${TTY:=0}"
@@ -8666,9 +8666,9 @@ app_cmd_menu() {
         out_info "$(util_app_ident) — $(app_menu_text front_title)"
         out_info "$(app_menu_text front_hide)"
         out_menu_choice 1 "$(app_menu_text cat_client)" "$(app_menu_text front_client_long)"
-        out_menu_choice 6 "$(app_menu_text cat_language)" "$(app_menu_text front_language_long)"
-        out_menu_choice 7 sudoers "$(app_menu_text front_sudoers_long)"
-        out_menu_choice 8 "$(app_menu_text cat_self)" "$(app_menu_text front_self_long)"
+        out_menu_choice 5 sudoers "$(app_menu_text front_sudoers_long)"
+        out_menu_choice 6 "$(app_menu_text cat_self)" "$(app_menu_text front_self_long)"
+        out_menu_choice 7 "$(app_menu_text cat_language)" "$(app_menu_text front_language_long)"
         out_menu_choice 9 "$(app_menu_text word_exit)"
         if [ -n "${_argv_pick}" ]; then
             _pick="${_argv_pick}"
@@ -8694,19 +8694,19 @@ app_cmd_menu() {
                 _argv_b=""
                 continue
                 ;;
-            6|language|語言|语言|idioma|langue|Sprache|sprache|言語|언어)
+            7|language|語言|语言|idioma|langue|Sprache|sprache|言語|언어)
                 app_cmd_menu_language
                 _argv_a=""
                 _argv_b=""
                 continue
                 ;;
-            7|sudoers)
+            5|sudoers)
                 app_cmd_menu_sudoers "${_argv_a}"
                 _argv_a=""
                 _argv_b=""
                 continue
                 ;;
-            8|self-management|自我管理|autogestión|autogestion|Selbstverwaltung|selbstverwaltung|自己管理|자기관리)
+            6|self-management|自我管理|autogestión|autogestion|Selbstverwaltung|selbstverwaltung|自己管理|자기관리)
                 app_cmd_menu_self
                 _argv_a=""
                 _argv_b=""

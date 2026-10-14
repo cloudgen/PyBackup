@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-domain-folder-backup.md  
-**Status**: Active (Version 1.6.10)  
+**Status**: Active (Version 1.6.11)  
 **Area**: domain  
 **Key**: `requirement-domain-folder-backup`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -191,7 +191,7 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 5. Create a second Active `requirement-domain-*` without superseding this one.  
 6. Document inbound as `sudoer-approving` (home dropbox) as the preferred dest.  
 7. Let Type 0 `mkdir` `/var/sudoer-cli/sudoer-request`.  
-8. Mix test-purpose grant-emit verbs (`print-sudoers`, `print-sudoers-install-script`, `generate-sudoer-request`) into operational help grouping, or put them on any numbered board (they stay typed commands; numbers **71**, **73**, and **74** stay reserved on the sudoers board). The language board is front **6** and does not list those verbs.
+8. Mix test-purpose grant-emit verbs (`print-sudoers`, `print-sudoers-install-script`, `generate-sudoer-request`) into operational help grouping, or put them on any numbered board (they stay typed commands; numbers **51**, **53**, and **54** stay reserved on the sudoers board). The language board is front **7** and does not list those verbs.
 
 **Violating this rule is a critical domain regression.**
 
@@ -246,10 +246,31 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
 
+## Terminologies
+
+Copied substance for the words this requirement uses.
+
+### CLI main menu numbering
+
+**Definition:** CLI main menu numbering is the portable rule set for integers on a claimed CLI default interaction tree. A command number is unique in the whole tree: a child list must not reuse 1, 2, or 6, or any other parent token. A child command number must start with its parent's number as prefix: 11… under 1, 21… under 2, 51… under 5 when a sudoers family is claimed, 61… under 6, 71… under 7 when a language board is claimed, and 111… under 11. The front board uses small category integers plus Exit 9. Every submenu and data picker uses 0 to go back to the parent list. This term owns which integers, not ink and not the catalog of rows.
+
+**Human daily-life explanation:** CLI main menu numbering is how the café numbers dishes so 11 always means the same plate, even after you walk into a side room. The side-room specials do not start again at 1. They keep the front number as a prefix (11, 111). 0 is the door back to the previous board. 9 on the front board is leaving the café.
+
+**Daily-life example:** Front board 1, client side, opens a second board whose first dish is 11, not another 1. If the kitchen reused 1, nobody would know whether you meant the front door or the first side dish.
+
+### Well-known menu
+
+**Definition:** A well-known menu is the portable numbered TTY membership of well-known CLI verbs, plus the category front rows and front Exit, shared across self-managed products that claim a CLI default interaction. It is the portable subset of a CLI main menu hierarchy table: front board 1 / 2 / 5 / 6 / 7 / 9 and self-management 61…67 under 6. Those integers stay reserved. Which rows a product prints follows the language consider table (shell column versus Python / pip column). Domain numbered rows belong on the full hierarchy table, not this catalog.
+
+**Human daily-life explanation:** A well-known menu is the shared café numbering every similar kitchen agrees on. The front chalkboard has rooms 1, 2, 5 when a sudoers family is claimed, 6 for self-care, and 7 when a language board is claimed, plus 9 to leave. The back-office list under 6 keeps the same dish numbers.
+
+**Daily-life example:** You walk into a shell shop in the family. 6 is self-care. 67 files this tool in the drawer. 61 stocks the pantry when that shop sells extra kits. You walk into a pip shop: 6 is still self-care, 64 and 65 ask the package counter to compare and refresh, and 61 is not "pip install this program."
+
 ## 7. Status history
 
 | Date | Status | Note |
 |------|--------|------|
+| 2026-10-14 | Active 1.6.11 | Sudoers board is front **5**. Language board is front **7**. Reserved test-purpose numbers are **51**, **53**, and **54**. | Terminologies section added.
 | 2026-08-03 | Active 1.0.0 | Domain SSOT: folder tar.gz backup + sudoers deposit |
 | 2026-08-03 | Active 1.1.0 | Verification rules (later moved to backup ops REQ) |
 | 2026-08-03 | Active 1.2.0 | **Thin domain surface**; ops SSOT → `requirement-folder-archive-backup` |
@@ -268,10 +289,10 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 | 2026-09-30 | Active 1.6.7 | Test-purpose grant-emit verbs stay off every numbered board. Operational submit and remove stay on the sudoers board. |
 | 2026-09-30 | Active 1.6.8 | Reserved sudoers numbers follow the front **7** parent: **71** / **73** / **74**. |
 | 2026-09-30 | Active 1.6.9 | Front **6** is the language board. Grant verbs stay off that board. Reserved **71** / **73** / **74** unchanged. |
-| 2026-09-30 | Active 1.6.10 | English help headings stay **Work commands:** and **Grant and draft setup (tests and review):**. Other codes translate those headings. |
+| 2026-09-30 | Active 1.6.11 | English help headings stay **Work commands:** and **Grant and draft setup (tests and review):**. Other codes translate those headings. |
 
 ---
 
-**Last Updated**: 2026-09-30  
+**Last Updated**: 2026-10-14  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

@@ -2,14 +2,14 @@
 
 Authoritative specialized product law for **folder-backup** lives here.
 
-**Current state (2026-09-30):** Specialized **software-development** product. Left genesis. Bootstrap parent is sibling **selfmanaged**. Channel verbs stay (`self-install`, `version-check`, `self-update`, `self-uninstall`). A terminal with no command is the numbered boards. A pipe with no command is `self-install`. Domain extend: folder archive backup. Registry is populated — see `index.md`.
+**Current state (2026-10-14):** Specialized **software-development** product. Left genesis. Bootstrap parent is sibling **selfmanaged**. Channel verbs stay (`self-install`, `version-check`, `self-update`, `self-uninstall`). A terminal with no command is the numbered boards. Front rows are client-side **1**, sudoers **5**, self-management **6**, language **7**, and Exit **9**. A pipe with no command is `self-install`. Domain extend: folder archive backup. Eight OS family labels cite sibling tn5250-cli and do not add a compiler install. Registry is populated — see `index.md`.
 
 ## Product identity (summary)
 
 | Field | Value |
 |-------|--------|
 | Product / `APP_NAME` | `folder-backup` |
-| Version SSOT | `1.25.0` (ship unit hard-assign) |
+| Version SSOT | `1.26.0` (ship unit hard-assign) |
 | Ship unit | `src/folder-backup` |
 | Default install | `~/.local/bin/folder-backup` |
 | Install mode | **Dual.** `install` copies this file (mode `0755`). A pipe with no command, and `self-install`, place the CLI (local `0700`, global `0755`). A terminal with no command is the boards. |

@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-shell-cli-interface.md  
-**Status**: Active (Version 1.12.1)  
+**Status**: Active (Version 1.13.0)  
 **Area**: shell  
 **Key**: `requirement-shell-cli-interface`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -119,18 +119,18 @@ In JSON mode, help **MUST NOT** dump long human text; return a short structured 
 | `version-check` | Type 0 | `ver_check` | Compare local `VERSION` with the channel. Needs a reachable `SCRIPT_URL`. |
 | `self-update` | Type 0 | `inst_self_update` | Replace the managed binary from the channel. |
 | `self-uninstall` | Type 0 | `inst_self_uninstall` | Remove the channel-managed binary. Off-TTY without `--force` fails closed when a binary exists. |
-| `self-management` | Type 0 | `app_default_self_loop` → `app_cmd_menu_self` | TTY opens the self board (**81**–**87**). Off a terminal, stops: `self-management needs a terminal`. Front row **8** opens the same board and returns to the front. The argv verb ends after a leaf or Back. |
+| `self-management` | Type 0 | `app_default_self_loop` → `app_cmd_menu_self` | TTY opens the self board (**61**–**67**). Off a terminal, stops: `self-management needs a terminal`. Front row **6** opens the same board and returns to the front. The argv verb ends after a leaf or Back. |
 | `version` | Type 0 | `app_version` | Local `VERSION` only; no network |
 | `about` | Type 0 | `app_about` | Diagnostics: install presence, paths, user, shell, TTY, **Cache folder used**, **Cache folder (preferred)**, **Cache folder (1st fallback)**, **Cache folder (2nd fallback)** when this host has one, **Persistence storage** `${HOME}/.local/folder-backup`, channel `script_url`, backup defaults |
 | `help` | Type 0 | `app_help` | Full usage in human mode; short JSON note in JSON mode |
 | `backup` | Type 0 (+ Type 1 deposit step) | `fb_backup` (domain) | **Operational.** Tar gzip source folder; stage; elevated copy into `/var/backup/${BACKUP_NOTATION}/` |
 | `restore` | Type 0 (+ Type 1 stage fetch) | `fb_restore` (domain) | **Operational.** Put an archive back onto the hard-disk projects tree |
-| `print-sudoers` | Type 0 | `fb_print_sudoers` (domain) | **Test-purpose.** Emit sudoers fragment for admin to install under `/etc/sudoers.d/` — **does not** write `/etc` itself. Listed apart in help; **off every numbered board**; number **73** stays reserved. Live CLI verb |
-| `print-sudoers-install-script` | Type 0 | `fb_print_sudoers_install_script` (domain) | **Test-purpose.** Write admin handoff script under `/dev/shm` or temp — **does not** write `/etc`. Listed apart in help; **off every numbered board**; number **74** stays reserved. Live CLI verb |
-| `remove-project-sudoers` | Type 0 | `fb_remove_project_sudoers` (domain) | **Operational.** Remove the local grant draft only (not `/etc`). Sudoers board row **75**. Live CLI verb |
-| `generate-sudoer-request` | Type 0 | `fb_generate_sudoer_request` (domain) | **Test-purpose.** **Independent** generate: write JSON grant to a dest tests/review can read without sudo (compact; verify both verbs; sibling convert when present) — **does not** write `/etc` or inbound. Listed apart in help; **off every numbered board**; number **71** stays reserved. Live CLI verb |
-| `submit-sudoer-request` | Type 0 | `fb_submit_sudoer_request` (domain) | **Operational.** Detect sudoer-cli + sudoer-adm + public inbound; **update** if this user’s `/etc/sudoers.d` fragment exists else **add**; `--add`/`--update` override — **does not** write `/etc` or `mkdir` inbound. Sudoers board row **72**. Live CLI verb |
-| `menu` | Type 0 | `app_cmd_menu` | Numbered boards: front **1** client-side, **6** language, hidden **2**, **7** sudoers, **8** self-management, **9** Exit (`requirement-shell-cli-default-interaction`, `requirement-shell-cli-language`). Same boards as interactive empty argv. Off a terminal, stops: `menu needs a terminal`. **`sudoers` is not a command. `language` is not a command** |
+| `print-sudoers` | Type 0 | `fb_print_sudoers` (domain) | **Test-purpose.** Emit sudoers fragment for admin to install under `/etc/sudoers.d/` — **does not** write `/etc` itself. Listed apart in help; **off every numbered board**; number **53** stays reserved. Live CLI verb |
+| `print-sudoers-install-script` | Type 0 | `fb_print_sudoers_install_script` (domain) | **Test-purpose.** Write admin handoff script under `/dev/shm` or temp — **does not** write `/etc`. Listed apart in help; **off every numbered board**; number **54** stays reserved. Live CLI verb |
+| `remove-project-sudoers` | Type 0 | `fb_remove_project_sudoers` (domain) | **Operational.** Remove the local grant draft only (not `/etc`). Sudoers board row **55**. Live CLI verb |
+| `generate-sudoer-request` | Type 0 | `fb_generate_sudoer_request` (domain) | **Test-purpose.** **Independent** generate: write JSON grant to a dest tests/review can read without sudo (compact; verify both verbs; sibling convert when present) — **does not** write `/etc` or inbound. Listed apart in help; **off every numbered board**; number **51** stays reserved. Live CLI verb |
+| `submit-sudoer-request` | Type 0 | `fb_submit_sudoer_request` (domain) | **Operational.** Detect sudoer-cli + sudoer-adm + public inbound; **update** if this user’s `/etc/sudoers.d` fragment exists else **add**; `--add`/`--update` override — **does not** write `/etc` or `mkdir` inbound. Sudoers board row **52**. Live CLI verb |
+| `menu` | Type 0 | `app_cmd_menu` | Numbered boards: front **1** client-side, **7** language, hidden **2**, **5** sudoers, **6** self-management, **9** Exit (`requirement-shell-cli-default-interaction`, `requirement-shell-cli-language`). Same boards as interactive empty argv. Off a terminal, stops: `menu needs a terminal`. **`sudoers` is not a command. `language` is not a command** |
 | `main` | Type 0 | `app_cmd_menu` | Alias of `menu`. **MUST NOT** appear as a choice on its own board. |
 
 #### Global flags (normative wiring)
@@ -208,7 +208,7 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 6. Put full domain archive semantics only here and omit the domain SSOT.  
 7. Add a second submit verb (`submit-sudoer`) without routing + help, or invent inbound `mkdir` as this CLI’s job.  
 8. Route a non-interactive zero-cli-verb to help, or drop `menu`/`main` routing.  
-9. Mix test-purpose verbs (`print-sudoers`, `print-sudoers-install-script`, `generate-sudoer-request`) into operational help grouping, or put them on any numbered board (they stay typed commands and help rows; numbers **71**, **73**, and **74** stay reserved).  
+9. Mix test-purpose verbs (`print-sudoers`, `print-sudoers-install-script`, `generate-sudoer-request`) into operational help grouping, or put them on any numbered board (they stay typed commands and help rows; numbers **51**, **53**, and **54** stay reserved).  
 10. Wire `sudoers` as a live dispatcher token, or drop a grant/draft setup verb from the dispatcher.
 
 **Violating this rule is a critical CLI interface regression.**
@@ -222,13 +222,13 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 | AC-1 | All **Implemented** commands in the table are routed and listed in help |
 | AC-2 | Global flags wire QUIET/JSON/DEBUG/FORCE as specified |
 | AC-3 | Interactive zero-cli-verb is the numbered boards; non-interactive zero-cli-verb is `inst_self_install`; never local `install` |
-| AC-4 | Channel verbs are routed and listed in help; they are self-board rows **84**–**87** (and `self-management` opens that board), not front rows |
+| AC-4 | Channel verbs are routed and listed in help; they are self-board rows **64**–**67** (and `self-management` opens that board), not front rows |
 | AC-5 | Domain verbs point to domain requirement for deep semantics |
 | AC-6 | `submit-sudoer-request` is Type 0, routed, listed in help; does not write `/etc` or create inbound |
 | AC-7 | `generate-sudoer-request` is Type 0, routed, listed in help; independent of submit; dest is invoking-user readable; does not write `/etc` or inbound |
 | AC-8 | `menu` and `main` are routed and listed in help; interactive empty argv opens the same boards (`requirement-shell-cli-default-interaction`) |
 | AC-9 | Help lists test-purpose `print-sudoers`, `print-sudoers-install-script`, and `generate-sudoer-request` **apart** from operational verbs; those three are **not** on any numbered board. English headings `Work commands:` and `Grant and draft setup (tests and review):` stay exact. Other codes translate the headings and keep the split. **have** |
-| AC-10 | Five grant/draft setup verbs remain routed live CLI commands; operational submit and remove are sudoers rows **72** and **75**; `sudoers` is **not** a dispatcher token |
+| AC-10 | Five grant/draft setup verbs remain routed live CLI commands; operational submit and remove are sudoers rows **52** and **55**; `sudoers` is **not** a dispatcher token |
 
 ---
 
@@ -238,7 +238,7 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 |-----|--------------|
 | `requirement-shell-cli-zero-arguments` | **Active** — non-interactive zero-cli-verb is `inst_self_install` |
 | `requirement-shell-cli-default-interaction` | Case 2 empty argv + claimed `menu`/`main` numbered boards |
-| `requirement-shell-cli-sudoers-submenu` | Front **7** sudoers board; **72**/**75** printed; test-purpose reserved; `sudoers` not dispatched |
+| `requirement-shell-cli-sudoers-submenu` | Front **5** sudoers board; **52**/**55** printed; test-purpose reserved; `sudoers` not dispatched |
 | `requirement-shell-local-self-management` | install/uninstall/where-is-me |
 | `requirement-shell-output-requirements` | `out_*` catalog |
 | `requirement-domain-folder-backup` | Domain four pillars |
@@ -258,10 +258,31 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
 
+## Terminologies
+
+Copied substance for the words this requirement uses.
+
+### CLI main menu numbering
+
+**Definition:** CLI main menu numbering is the portable rule set for integers on a claimed CLI default interaction tree. A command number is unique in the whole tree: a child list must not reuse 1, 2, or 6, or any other parent token. A child command number must start with its parent's number as prefix: 11… under 1, 21… under 2, 51… under 5 when a sudoers family is claimed, 61… under 6, 71… under 7 when a language board is claimed, and 111… under 11. The front board uses small category integers plus Exit 9. Every submenu and data picker uses 0 to go back to the parent list. This term owns which integers, not ink and not the catalog of rows.
+
+**Human daily-life explanation:** CLI main menu numbering is how the café numbers dishes so 11 always means the same plate, even after you walk into a side room. The side-room specials do not start again at 1. They keep the front number as a prefix (11, 111). 0 is the door back to the previous board. 9 on the front board is leaving the café.
+
+**Daily-life example:** Front board 1, client side, opens a second board whose first dish is 11, not another 1. If the kitchen reused 1, nobody would know whether you meant the front door or the first side dish.
+
+### Well-known menu
+
+**Definition:** A well-known menu is the portable numbered TTY membership of well-known CLI verbs, plus the category front rows and front Exit, shared across self-managed products that claim a CLI default interaction. It is the portable subset of a CLI main menu hierarchy table: front board 1 / 2 / 5 / 6 / 7 / 9 and self-management 61…67 under 6. Those integers stay reserved. Which rows a product prints follows the language consider table (shell column versus Python / pip column). Domain numbered rows belong on the full hierarchy table, not this catalog.
+
+**Human daily-life explanation:** A well-known menu is the shared café numbering every similar kitchen agrees on. The front chalkboard has rooms 1, 2, 5 when a sudoers family is claimed, 6 for self-care, and 7 when a language board is claimed, plus 9 to leave. The back-office list under 6 keeps the same dish numbers.
+
+**Daily-life example:** You walk into a shell shop in the family. 6 is self-care. 67 files this tool in the drawer. 61 stocks the pantry when that shop sells extra kits. You walk into a pip shop: 6 is still self-care, 64 and 65 ask the package counter to compare and refresh, and 61 is not "pip install this program."
+
 ## 7. Status history
 
 | Date | Status | Note |
 |------|--------|------|
+| 2026-10-14 | Active 1.13.0 | Family sudoers is front **5** and is not dispatched. Front **7** language is not dispatched. Self board is front **6**, rows **61**–**67**. | Terminologies section added.
 | 2026-08-03 | Active 1.0.0 | CLI surface for local-only folder-backup + domain backup |
 | 2026-08-15 | Active 1.1.0 | `submit-sudoer-request` listed as Type 0 JSON submit into sibling public inbound |
 | 2026-08-17 | Active 1.2.0 | `--add` / `--update`; default submit action from host `/etc/sudoers.d` probe |
@@ -281,10 +302,10 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 | 2026-09-30 | Active 1.10.1 | Named `menu` and `self-management` off a terminal stop. They do not print help. |
 | 2026-09-30 | Active 1.11.0 | Sudoers board is front **7**. Printed rows **72** and **75**. Reserved **71** / **73** / **74**. |
 | 2026-09-30 | Active 1.12.0 | Front **6** is language. `language` is not dispatched. |
-| 2026-09-30 | Active 1.12.1 | English help headings in AC-9 stay exact. Other codes translate those headings and keep the split. |
+| 2026-09-30 | Active 1.13.0 | English help headings in AC-9 stay exact. Other codes translate those headings and keep the split. |
 
 ---
 
-**Last Updated**: 2026-09-30  
+**Last Updated**: 2026-10-14  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

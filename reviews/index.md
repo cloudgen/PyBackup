@@ -1,9 +1,10 @@
 # Review reports index — folder-backup
 
-**Current product (2026-10-10):** VERSION **1.25.0**. The front board and the sudoers board say what is not available, in the same sentence shape. Archive files are regular-file members. Bootstrap parent is **selfmanaged**. A terminal with no command is the numbered boards. Front rows are client-side (**1**), language (**6**), sudoers (**7**), self-management (**8**), and Exit (**9**). Sudoers children are submit (**72**) and remove (**75**). A pipe, or `--quiet` / `--json` with no command, is CLI self-install. Naming `menu` or `self-management` off a terminal stops. An empty line on the front leaves. Row **82** on a board runs `about`. `install` is the local copy and self row **81**. The table below is the report index; older rows stay as written.
+**Current product (2026-10-14):** VERSION **1.26.0**. Front rows are client-side (**1**), sudoers (**5**), self-management (**6**), language (**7**), and Exit (**9**). Language children are **71**–**78**. Sudoers children are submit (**52**) and remove (**55**). Self-management is **61**–**67**. Eight OS family labels cite sibling tn5250-cli and do not add a compiler install. A pipe, or `--quiet` / `--json` with no command, is CLI self-install. Naming `menu` or `self-management` off a terminal stops. An empty line on the front leaves. Row **62** on a board runs `about`. `install` is the local copy and self row **61**. The table below is the report index; older rows stay as written.
 
 | Date | Report | Scope | Verdict | Suite |
 |------|--------|-------|---------|-------|
+| 2026-10-14 | `reports/2026-10-14-requirement-coverage-menu-and-os.md` | Front **5**/**6**/**7** and eight OS family labels | Sufficient with Gaps | 1.26.0 PASS=610 FAIL=0 SKIP=2 |
 | 2026-09-30 | `reports/2026-09-30-requirement-coverage-menu-contract.md` | C-menu after named menu off a terminal stops, empty front leaves, and row 82 runs about | Sufficient with Gaps | 1.20.0 PASS=473 FAIL=0 SKIP=2 |
 | 2026-09-30 | `reports/2026-09-30-requirement-coverage-zero-cli-verb.md` | C-full-product after non-interactive zero-cli-verb became self-install | Sufficient with Gaps | 1.19.0 PASS=455 FAIL=0 SKIP=2 |
 | 2026-09-30 | `reports/2026-09-30-requirement-coverage-main-menu.md` | C-full-product after the numbered-board menu | Sufficient with Gaps | 1.18.0 PASS=436 FAIL=0 SKIP=2 |

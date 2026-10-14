@@ -1,0 +1,165 @@
+**file**: docs/requirements/requirement-ubuntu.md
+**Status**: Active (Version 1.0.0)
+**Area**: shell
+**Key**: `requirement-ubuntu`
+**ID**: RQ-UBUNTU
+**Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
+
+## 1. Purpose
+
+This requirement owns the Ubuntu family label for folder-backup: Ubuntu 22.04 (jammy), 24.04 (noble), and 26.04 (resolute).
+
+Family labels cite detection pairs from sibling project tn5250-cli. Those pairs name the host. They do not import that project's compiler install, CMake build, or payload copy. folder-backup backs up and restores folder archives. It does not build a curses client.
+
+The ship unit's live host split is `util_cache_host_kind` in `src/folder-backup`. It returns `linux`, `gitbash`, or `mac`. Force with `FOLDER_BACKUP_CACHE_HOST` or `SELFMANAGED_CACHE_HOST`. Git Bash for that function is a non-empty `MSYSTEM`, or `uname -s` matching `MINGW*` or `MSYS*`. Mac is `uname -s` `Darwin`. Every other `uname` returns `linux`, including Termux, Debian, Ubuntu, Alpine, Fedora, Red Hat Enterprise Linux, other Linux, and a BSD `uname`. The function does not read `/etc/os-release` and does not read `TERMUX_VERSION`. It does not refuse a host. Cache paths stay on `docs/requirements/requirement-shell-cli-storage.md`. This file must not invent a second chain. This product does not compile a C payload, does not install compiler packages, and does not report `payload_platform`.
+
+### 1.1 Human-facing
+
+**In one sentence:** This requirement owns the Ubuntu family label for folder-backup: Ubuntu 22.04 (jammy), 24.04 (noble), and 26.04 (resolute).
+
+| Box | Meaning | Example |
+|-----|---------|---------|
+| You / this login | The person running `folder-backup` on this family | `folder-backup about` |
+| The other role | An admin on a Linux host who installs the narrow deposit grant | The grant file is still installed by hand |
+| Not this file | Cache folder paths, and the archive deposit workflow | Those stay on the storage and privilege requirements |
+
+| Includes | Excludes |
+|----------|----------|
+| Which host this family name means, and what folder-backup does on it | A second cache chain; a C compiler install; a hard stop that lists every platform |
+
+| Surface | What you open | What for |
+|---------|---------------|----------|
+| `folder-backup` | the ship unit | backup, restore, and the numbered boards |
+| `folder-backup about` | storage lines | the cache folder this process chose |
+
+| You do… | What it means | What you type |
+|---------|---------------|---------------|
+| Back up a folder | The archive is staged in this login's cache, then deposited when this host's privilege law allows it | `folder-backup backup /path/to/project` |
+| See the cache | about names the folder in use, the preferred folder, and the fallbacks | `folder-backup about` |
+
+## 2. Core Rules / Requirements (Mandatory)
+
+1. This file is the only folder-backup owner of the Ubuntu family label. Debian, other Linux, Alpine, Fedora, Red Hat Enterprise Linux, Termux, macOS, and Git Bash stay on their own requirements.
+2. The cited detect, from sibling project tn5250-cli, requirement `requirement-ubuntu.md`, accepts the host when `/etc/os-release` has `ID=ubuntu` and one of these pairs: `VERSION_ID=22.04` with `VERSION_CODENAME=jammy`, `VERSION_ID=24.04` with `VERSION_CODENAME=noble`, or `VERSION_ID=26.04` with `VERSION_CODENAME=resolute`. In that sibling the check runs after Debian and before Alpine. `uname -s` reporting `Linux` does not by itself select Ubuntu.
+3. In that sibling, a mismatch stops and does not fall through to other Linux. A mismatch is `ID=ubuntu` together with a supported `VERSION_ID` whose `VERSION_CODENAME` is not the pair, or a supported `VERSION_CODENAME` whose `VERSION_ID` is not the pair. This product does not implement that stop.
+4. `ID_LIKE` containing `ubuntu` does not select Ubuntu. Ubuntu 20.04 and interim releases are other Linux (`requirement-other-linux`) when the sibling's mismatch rule does not stop them.
+5. On a host that is this family, the cache chain is the Linux chain, because `util_cache_host_kind` returns `linux`.
+6. Narrow admin deposit into `/var/backup/folder-backup` stays `requirement-three-layer-privilege-model`. This file does not add `apt-get`. The ship unit does not branch that deposit on the Ubuntu pair.
+7. This situation must not call Termux `pkg`, `apk`, `brew`, `dnf`, `pacman`, or `zypper`.
+
+### 2.1 Implementation Notes (this product)
+
+| Item | Value |
+|------|--------|
+| **Product** | `folder-backup` |
+| **Family** | Ubuntu 22.04 jammy, 24.04 noble, 26.04 resolute |
+| **Cited detect** | `ID=ubuntu` with `22.04`+`jammy`, `24.04`+`noble`, or `26.04`+`resolute` |
+| **Ship unit today** | Does not read `/etc/os-release`. Cache kind `linux` |
+| **Cache** | Linux chain on `requirement-shell-cli-storage` |
+| **Deposit** | `/var/backup/folder-backup` when the three-layer grant applies. Not branched on this pair |
+| **Package managers** | None. No `apt-get` |
+| **Honesty** | Label is law. os-release branching is not implemented |
+
+### 2.2 Why This Requirement Exists (CIAO)
+
+- **Principle 2 – Intentional**: The three Ubuntu LTS pairs have one name.
+- **Principle 13 – Multi environment**: The same pairs the sibling uses on 2026-10-07.
+- **Principle 9 – Privilege layers**: No `apt-get` wrap in this backup tool.
+
+## Under command line for normal user only
+
+This family is a Linux host, not a command line for normal user only.
+
+**This requirement:** folder-backup does not call `apt-get` on Ubuntu. It does not call `pkg`. Archive deposit stays the three-layer requirement. Dedicated system user privilege stays unused. The ship unit does not detect the Ubuntu pair.
+
+## 3. Design Principles (CIAO / CIAO-Lite)
+
+- **Caution:** The family name is a label. The ship unit's live split stays the three cache kinds.
+- **Intentional:** Detection pairs are cited from the sibling so two products name the same host the same way.
+- **Anti-fragile:** A host that matches no family still runs. This file does not add a refuse path.
+- **Over-protect:** Cache paths stay on the storage requirement. Deposit stays on the privilege requirement.
+- **Principle 21 – Dual policies**: Ubuntu package versions from the sibling stay in that project.
+
+## 4. Protection Rule (Sacred)
+
+**Future AI assistants or maintainers MUST NOT**:
+
+1. Copy the sibling's compiler install, CMake configure, or payload copy into this product.
+2. Replace `util_cache_host_kind` with the sibling's detect pair. That function is a reusable cache classifier.
+3. Add a second cache chain in this file.
+4. Add `payload_platform` to `about` or `--json about`.
+5. Exit non-zero with a platform list when no family matches, unless that stop is implemented and tested. It is not implemented.
+6. Write this product's rules into sibling project tn5250-cli.
+7. Treat `ID_LIKE` as a selector for Debian, Ubuntu, Alpine, Fedora, or Red Hat Enterprise Linux.
+8. Call `apt-get` from folder-backup because the sibling installs compiler packages that way.
+
+**Violating this rule mixes a compiler product into a backup tool, or invents a host stop the ship unit does not have.**
+
+## 5. Related artifacts (versioned surface only)
+
+| Artifact | Role |
+|----------|------|
+| `docs/requirements/index.md` | Registry |
+| `docs/requirements/requirement-shell-cli-storage.md` | Cache chain and persistence (`requirement-shell-cli-storage`) |
+| `docs/requirements/requirement-three-layer-privilege-model.md` | Narrow archive deposit on a Linux host (`requirement-three-layer-privilege-model`) |
+| `docs/requirements/requirement-folder-archive-backup.md` | Backup and restore operations |
+| `src/folder-backup` | Ship unit. `util_cache_host_kind` is the live host split |
+| Sibling project tn5250-cli, requirement `requirement-ubuntu.md` | Ubuntu 22.04, 24.04, and 26.04 detection pairs. Not this product's backup behavior |
+| `docs/requirements/requirement-debian.md` | Debian pairs. Ubuntu is not selected by `ID_LIKE=debian` |
+| `docs/requirements/requirement-other-linux.md` | Ubuntu 20.04 and interim releases |
+
+## Design-time verification
+
+| TP family / ID | What it proves | Status |
+|----------------|----------------|--------|
+| TP-CLI-12 | Linux cache chain when the kind is `linux` | have — the Ubuntu pair itself is not asserted |
+| RQ-UBUNTU os-release | Ship unit does not branch on `ID=ubuntu` | law only — not a test gate |
+
+**Matrix:** `reviews/requirement-test-matrix.md`
+**Map:** `reviews/test-plan.md`
+
+## Terminologies
+
+Copied substance for the words this requirement uses. No harness paths.
+
+### Command line for normal user only
+
+**Definition:** A command line for normal user only is a POSIX-like shell whose privilege ceiling is normal user privilege. Typical instances are Termux, Git Bash, and Windows cmd. There is no usable root or sudo host change and no dedicated system account for this login. When the ship unit detects this kind of shell, it must not implement admin privilege or dedicated system user privilege: no in-tool sudo, no apt or dnf wrap, no /etc destination, no useradd, and no switch to a dedicated system user.
+
+**Human daily-life explanation:** A command line for normal user only is a keyboard that only has your keys. Termux on a phone, Git Bash on Windows, and Windows cmd / Command Prompt are this kind of room: you can tidy your own drawer; you cannot borrow the building site key or put on a dedicated-operator badge.
+
+**Daily-life example:** On Termux you run pkg as yourself. On Git Bash you run git as yourself. On Windows cmd you type as yourself. None of those rooms should grow a sudo apt or a hidden system-user switch.
+
+### Git Bash
+
+**Definition:** Git Bash is an instance of command line for normal user only: the MSYS/MINGW POSIX shell shipped with Git for Windows. Primary glossary detect is the directory /c/ or /c (Windows C: as Git Bash mounts it; default drive /c/). Secondary: MSYSTEM is MINGW* / MSYS* / UCRT* / CLANG*, or uname -s is MINGW* / MSYS*. Exclude WSL (WSL_DISTRO_NAME). On detect, admin privilege and dedicated system user privilege stay unused. Git Bash has no Termux pkg.
+
+**Human daily-life explanation:** Git Bash is a Windows drawer that only opens with your keys. It looks like a Unix shell; it is not a Linux superintendent desk.
+
+**Daily-life example:** You run git and this program as yourself. The program must not grow sudo apt or a dedicated system-user switch because you opened Git Bash.
+
+### Termux
+
+**Definition:** Termux is an instance of command line for normal user only: Android userspace POSIX with this-login PREFIX. Workshop detect stays PREFIX / TERMUX_VERSION / Termux usr tree. On detect, admin privilege and dedicated system user privilege stay unused. Named pkg as this login stays normal user privilege.
+
+**Human daily-life explanation:** Termux is a phone drawer that only opens with your keys.
+
+**Daily-life example:** pkg install as the Termux login is that phone's own package tool. sudo apt and a hidden system-user switch are not.
+
+### Windows cmd
+
+**Definition:** Windows cmd is an instance of command line for normal user only: the Windows-native console family, Command Prompt (cmd.exe) and the same Windows command-line, including PowerShell when it is not Git Bash, Cygwin, or WSL. Typical detect: OS is Windows_NT, or COMSPEC names cmd.exe, after excluding Git Bash (MSYSTEM / MINGW / MSYS), Cygwin (uname CYGWIN*), and WSL (WSL_DISTRO_NAME or uname Linux). On detect, admin privilege and dedicated system user privilege stay unused. Windows cmd has no Termux pkg and no Unix sudo or apt.
+
+**Human daily-life explanation:** Windows cmd is a Windows drawer that only opens with your keys. It is the ordinary Command Prompt / Windows command-line. It is not a Linux superintendent desk and it is not Git Bash.
+
+**Daily-life example:** You type commands in Command Prompt or PowerShell as yourself. The program must not grow sudo apt or a dedicated system-user switch because you opened Windows cmd.
+
+## 6. Status history
+
+| Date | Status | Notes |
+|------|--------|-------|
+| 2026-10-14 | Active 1.0.0 | Family label for folder-backup. Detection pairs cited from sibling project tn5250-cli, requirement `requirement-ubuntu.md`. No payload build. Cache chain stays on the storage requirement. |
+
+**Last Updated**: 2026-10-14
+**Owner**: project maintainers
+**Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).
