@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-domain-folder-backup.md  
-**Status**: Active (Version 1.6.11)  
+**Status**: Active (Version 1.6.13)  
 **Area**: domain  
 **Key**: `requirement-domain-folder-backup`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -150,6 +150,37 @@ folder-backup submit-sudoer-request
 | **Worked queued basename** | `sudoer-20260815-folder-backup-{{USERNAME}}-add-1.json` |
 | **Bootstrap** | Specialized from **selfmanaged**. Channel verbs stay Type 0. Domain stays on this product. |
 
+### 2.5.1 Python ship unit (`py-backup`, current command)
+
+The table above stays the record of `src/folder-backup`. The live Python command does not open a second domain file. Where the two disagree, `py-backup` follows this subsection and `requirement-python-tui`.
+
+| Item | Value |
+|------|--------|
+| **Product / APP_NAME** | `PyBackup` |
+| **Command** | `py-backup` |
+| **Domain modules** | `archive`, `sudoers`, `storage` under `src/PyBackup` (no `fb_` prefix) |
+| **Ship unit** | `src/PyBackup` |
+| **VERSION** | `1.0.0` in `src/PyBackup/__init__.py` and `pyproject.toml` |
+| **Install** | `python -m pip install --user` (console script `py-backup`). No `curl` pipe. |
+| **Deposit** | `/var/backup/PyBackup` (`BACKUP_ROOT` + `BACKUP_NOTATION`, both overridable) |
+| **Detect** | `normal_user_only()` in `src/PyBackup/storage.py` |
+| **Menu** | Front **1** client-side, **3** system-log, **4** language, **5** sudoers, **8** self-management, **9** Exit. Client **11**/**12**. Sudoers **52**/**55**. |
+| **Bootstrap** | HelloTui architecture. Do not edit HelloTui. Do not reverse-copy. |
+
+Python invocation samples (the CLI requirement names the same tokens):
+
+```text
+py-backup backup /path/to/project
+py-backup restore alpha --disk
+py-backup submit-sudoer-request
+py-backup remove-project-sudoers --force
+py-backup generate-sudoer-request --allow-test-local
+py-backup print-sudoers
+py-backup print-sudoers-install-script --allow-test-local
+```
+
+`backup` and `restore` steps stay on `requirement-folder-archive-backup`. The JSON body stays on `requirement-sudoer-json-file`.
+
 ### 2.6 Why This Requirement Exists (CIAO)
 
 - **Principle 2 – Intentional**: Domain surface is explicit (four pillars) and not mixed with full ops law.  
@@ -169,7 +200,7 @@ When this program runs on Termux, Git Bash, Windows Command Prompt, or the same 
 
 Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` is set. Git Bash — `MSYSTEM` is `MINGW*` / `MSYS*`. Windows cmd — `OS=Windows_NT` and `COMSPEC` names `cmd.exe` after excluding Git Bash, Cygwin, and WSL.
 
-**Implementation Notes:** ship unit has **no detect helper yet** (Gap).
+**Implementation Notes:** `src/folder-backup` has **no detect helper yet** (Gap for that file). `src/PyBackup/storage.py` `normal_user_only()` detects Termux, Git Bash, and Windows cmd. `backup()` and `restore()` raise `DomainError` before work on that class and do not wrap `sudo`.
 
 ## 3. Design Principles (CIAO / CIAO-Lite)
 
@@ -194,6 +225,8 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 8. Mix test-purpose grant-emit verbs (`print-sudoers`, `print-sudoers-install-script`, `generate-sudoer-request`) into operational help grouping, or put them on any numbered board (they stay typed commands; numbers **51**, **53**, and **54** stay reserved on the sudoers board). The language board is front **7** and does not list those verbs.
 
 **Violating this rule is a critical domain regression.**
+
+Python note (2026-10-22): do not edit HelloTui, and do not copy `py-backup` back onto it. Shell menu numbers in this file stay the record of `src/folder-backup`. The Python menu numbers live in `requirement-python-tui`.
 
 ---
 
@@ -271,6 +304,8 @@ Copied substance for the words this requirement uses.
 | Date | Status | Note |
 |------|--------|------|
 | 2026-10-14 | Active 1.6.11 | Sudoers board is front **5**. Language board is front **7**. Reserved test-purpose numbers are **51**, **53**, and **54**. | Terminologies section added.
+| 2026-10-22 | Active 1.6.12 | Python ship subsection for `py-backup` / `src/PyBackup`. Shell pillars stay. `normal_user_only()` closes the detect Gap for the Python command only. |
+| 2026-10-22 | Active 1.6.13 | Python invocation samples for the domain verbs. Shell table stays. |
 | 2026-08-03 | Active 1.0.0 | Domain SSOT: folder tar.gz backup + sudoers deposit |
 | 2026-08-03 | Active 1.1.0 | Verification rules (later moved to backup ops REQ) |
 | 2026-08-03 | Active 1.2.0 | **Thin domain surface**; ops SSOT → `requirement-folder-archive-backup` |
@@ -293,6 +328,6 @@ Copied substance for the words this requirement uses.
 
 ---
 
-**Last Updated**: 2026-10-14  
+**Last Updated**: 2026-10-22  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

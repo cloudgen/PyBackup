@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-sudoer-json-file.md  
-**Status**: Active (Version 1.4.0)  
+**Status**: Active (Version 1.4.2)  
 **Area**: architecture  
 **Key**: `requirement-sudoer-json-file`  
 **Optional RQ-ID**: `RQ-SUDOER-JSON-FILE`  
@@ -204,6 +204,91 @@ Sibling (or this product) **MAY** decode then re-encode the grant when convertin
 | **Privilege / workflow peer** | `requirement-three-layer-privilege-model` |
 | **Ship unit emit** | Text dual **1.11.0** has `--json` lines. Compact JSON **Gap vs 1.4.0** until `fb_sudoers_json_text` / `_compact` include the `--json` objects. Host `/etc` is admin-installed (not Type 0). |
 
+### 2.8.1 Python emit (`src/PyBackup`, closes the compact-JSON gap for `py-backup` only)
+
+The shell gap in the table above stays. `grant_commands` in `src/PyBackup/sudoers.py` emits all four objects. Compact and pretty JSON are both produced with `json.dumps`. The shell sample in §2.6 stays the record of `folder-backup`.
+
+| Item | Value |
+|------|--------|
+| **`service`** | `PyBackup` |
+| **Console in `purpose`** | `py-backup` |
+| **Elevated path** | `$GLOBAL_BIN/py-backup` (default `/usr/local/bin/py-backup`) |
+| **Allowed args** | `["backup","*"]`, `["restore","*"]`, `["--json","backup","*"]`, `["--json","restore","*"]` |
+| **Generate dest** | `~/.config/PyBackup/sudoer-request-{{USERNAME}}.json` (`id -un`; do not freeze a live login) |
+| **Admin script basename** | `py-backup-{{USERNAME}}-sudoers-admin.sh` (workflow stays on `requirement-three-layer-privilege-model`) |
+| **Ship unit** | `src/PyBackup/sudoers.py` |
+| **Host fragment names probed** | `PyBackup-<user>`, `py-backup-<user>`, legacy `folder-backup-<user>` |
+
+Python add sample:
+
+```json
+{
+  "schema_version": 1,
+  "purpose": "Allow {{USERNAME}} to run py-backup backup and restore as root.",
+  "username": "{{USERNAME}}",
+  "service": "PyBackup",
+  "action": "add",
+  "commands": [
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["backup", "*"]},
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["restore", "*"]},
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["--json", "backup", "*"]},
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["--json", "restore", "*"]}
+  ]
+}
+```
+
+Python update sample (same four commands; `action` is `update` only):
+
+```json
+{
+  "schema_version": 1,
+  "purpose": "Allow {{USERNAME}} to run py-backup backup and restore as root.",
+  "username": "{{USERNAME}}",
+  "service": "PyBackup",
+  "action": "update",
+  "commands": [
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["backup", "*"]},
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["restore", "*"]},
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["--json", "backup", "*"]},
+    {"runas": "root", "tags": ["NOPASSWD"], "path": "/usr/local/bin/py-backup", "args": ["--json", "restore", "*"]}
+  ]
+}
+```
+
+Python text dual of that same grant:
+
+```text
+# Purpose: Allow {{USERNAME}} to run py-backup backup and restore as root.
+{{USERNAME}} ALL=(root) NOPASSWD: /usr/local/bin/py-backup backup *
+{{USERNAME}} ALL=(root) NOPASSWD: /usr/local/bin/py-backup restore *
+{{USERNAME}} ALL=(root) NOPASSWD: /usr/local/bin/py-backup --json backup *
+{{USERNAME}} ALL=(root) NOPASSWD: /usr/local/bin/py-backup --json restore *
+```
+
+Worked local draft: `~/.config/PyBackup/sudoer-request-{{USERNAME}}.json`.
+
+```python
+def grant_commands(path):
+    rows = (
+        ["backup", "*"],
+        ["restore", "*"],
+        ["--json", "backup", "*"],
+        ["--json", "restore", "*"],
+    )
+    return [
+        {"runas": "root", "tags": ["NOPASSWD"], "path": path, "args": list(args)}
+        for args in rows
+    ]
+```
+
+```text
+py-backup generate-sudoer-request --allow-test-local
+py-backup submit-sudoer-request
+py-backup print-sudoers
+py-backup print-sudoers-install-script --allow-test-local
+py-backup remove-project-sudoers --force
+```
+
 ### 2.9 Why This Requirement Exists (Direct CIAO Alignment)
 
 - **CIAO Principle 10 – Least privilege**: The grant is one managed binary and two verbs — not a catalog of root `cp`/`mkdir`/`rm`.  
@@ -231,7 +316,7 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 - **Intentional:** `service` and `path` basename are the same name: `{{PRJ_NAME}}`.  
 - **Anti-fragile:** Paths and archive names stay in Config; changing `BACKUP_ROOT` must not require a new sudoers JSON.  
 - **Over-protect:** Verb-bound `backup *` / `restore *`; no bare-binary grant; no `USER_BIN` path; no verb-only exact argv.  
-- **Stay-honest:** compact JSON emit is **Gap** vs 1.4.0 until it includes `--json` twins; inbound after submit must still list both verbs **and** those twins; `"*"` must not glob; do not revive OS-tool Cmnds.  
+- **Stay-honest:** shell compact JSON emit is **Gap** vs 1.4.0 until `src/folder-backup` includes `--json` twins. Python `grant_commands` already emits those four objects for `py-backup`. Inbound after submit must still list both verbs **and** those twins; `"*"` must not glob; do not revive OS-tool Cmnds.  
 - **Anti-fragile (codec):** Re-encode is lossy unless proven; pretty JSON is legal input.
 
 ---
@@ -304,10 +389,29 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 | **TP-FOLDER-BACKUP-22f** | same | **have** — stub inbound body still contains both verbs (not file-count only) |
 | **TP-FOLDER-BACKUP-24 / 24d** | same | **have** — independent generate dest; suite reads file without sudo |
 | **TP-FOLDER-BACKUP-26 / 26b** | same | **have** — JSON `args` include `*` after each verb; verb-only **Fail** (do not reuse TP-25) |
-| **TP-FOLDER-BACKUP-27** *(map from TP-SUDOER-JSON-21)* | same | **todo** — compact/pretty JSON includes `--json` twins; text dual matches; `"*"` not cwd names |
+| **TP-FOLDER-BACKUP-27** *(map from TP-SUDOER-JSON-21)* | same | **todo** for `src/folder-backup` — compact/pretty JSON includes `--json` twins; text dual matches; `"*"` not cwd names |
+| **Python generate** | `tests/test_pybackup.py` `test_generate_has_four_commands_and_refuses_etc` | **have** for `py-backup` — four command objects, service `PyBackup`, path ends with `py-backup` |
 
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
+
+## Terminologies
+
+### Operational verb
+
+**Definition:** An operational verb is a CLI routed-verb that runs the product. `submit-sudoer-request` and `remove-project-sudoers` are operational verbs. `generate-sudoer-request`, `print-sudoers`, and `print-sudoers-install-script` are test-purpose verbs and stay off numbered boards.
+
+**Human daily-life explanation:** Submit hands the letter to the office. Generate writes a draft you can read at your desk. Print shows the text of the grant. None of those commands write `/etc`.
+
+**Daily-life example:** You type `py-backup generate-sudoer-request --allow-test-local` and read `~/.config/PyBackup/sudoer-request-{{USERNAME}}.json`. You do not open `/etc`.
+
+### Test-purpose verb
+
+**Definition:** A test-purpose verb is a CLI routed-verb whose only job is a unit test or a review draft. Its target is a local file this login can read. It must not write `/etc` and it must not create the inbound directory.
+
+**Human daily-life explanation:** A test-purpose verb is a practice draft on your own desk.
+
+**Daily-life example:** `py-backup print-sudoers` prints four lines. It does not install them.
 
 ## 7. Status history
 
@@ -319,9 +423,11 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 | 2026-08-17 | Active 1.2.0 | §2.7 item 5 independent generate to a dest tests/review can read; AC-10; TP-24d |
 | 2026-08-23 | Active 1.3.0 | `args` **MUST** be verb plus `*`; verb-only withdrawn; AC-3/AC-8 |
 | 2026-08-23 | Active 1.4.0 | Maximum JSON **MUST** include `--json` twins; AC-3/AC-8; emit Gap until compact JSON matches |
+| 2026-10-22 | Active 1.4.1 | §2.8.1: Python emit closes the four-object gap for `py-backup` only. Shell sample and shell Gap stay. |
+| 2026-10-22 | Active 1.4.2 | Full Python update object, text dual, local draft basename, and `grant_commands`. Shell §2.6 stays. |
 
 ---
 
-**Last Updated**: 2026-08-23  
+**Last Updated**: 2026-10-22  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

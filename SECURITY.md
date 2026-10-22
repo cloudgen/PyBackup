@@ -4,7 +4,8 @@
 
 | Version | Supported |
 |---------|-----------|
-| 1.26.0 (current) | Yes |
+| 1.0.0 (current Python command `py-backup`) | Yes |
+| 1.26.0 (shell record `src/folder-backup`) | Behavioral record; not the `py-backup` command |
 | 1.25.0 | Yes |
 | 1.24.0 | Yes |
 | 1.23.0 | Yes |
@@ -53,7 +54,7 @@ This project follows **[CIAO](https://github.com/cloudgen/ciao)** / **[CIAO-Lite
 | **C** | **Caution** | Fail closed without working allowlisted sudo for deposit; restore dest **whitelist** (W-ETC-USER `/etc/{{username}}`; never `/etc/passwd`); validate sources and archives. |
 | **I** | **Intentional** | Type 0 archive create vs Type 1 deposit/restore-stage copy are separate; `print-sudoers` never writes `/etc`. |
 | **A** | **Anti-fragile** | Staging + traps; clear admin install path; hard-disk default restore dest avoids accidental RAM-only recovery assumptions. |
-| **O** | **Over-protect** | Narrow Cmnds only (no `NOPASSWD: ALL`); Protection Zones; count/size verification before success. A companion digest that does not match aborts the download. |
+| **O** | **Over-protect** | Narrow command objects only (no `NOPASSWD: ALL`); count and size verification before success. `py-backup` does not download a shell script. On the shell record, a companion digest that does not match aborts that download. |
 
 Full principles: [CIAO](https://github.com/cloudgen/ciao) · [CIAO-Lite](https://github.com/cloudgen/ciao-lite).
 
@@ -61,7 +62,11 @@ This section is **design posture**, not a third-party certification claim.
 
 ## Install integrity and trust
 
-`self-install` and `self-update` download from the channel in [`README.md`](./README.md). When `CHECKSUM` is unset, the program fetches the companion `${SCRIPT_URL}.sha256` (published as `src/folder-backup.sha256`).
+Public repository: https://github.com/cloudgen/PyBackup (`git@github.com:cloudgen/PyBackup.git`).
+
+The command `py-backup` installs with `python -m pip`. It does not download a shell script and it does not fetch a companion digest. Production trust for a grant is an executable `py-backup` on `GLOBAL_BIN` (default `/usr/local/bin`). A user-writable `~/.local/bin/py-backup` is test-local only.
+
+The shell file `src/folder-backup` is the 1.26.0 behavioral record. Its historical channel still uses the companion `src/folder-backup.sha256`. That check is not the `py-backup` install path. When `CHECKSUM` is unset, that shell file fetches `${SCRIPT_URL}.sha256`. The table below is that shell record.
 
 | Fact | Honest statement |
 |------|------------------|
@@ -77,9 +82,11 @@ Operator steps stay in the README. Local `install` copies the file you are runni
 
 ## Scope notes
 
-- Elevation is limited to allowlisted deposit and restore-stage operations under product law.  
-- Operators must admin-install sudoers fragments after review (`visudo -c`, mode `0440`).  
-- **Install trust tiers for elevation:**
+- Elevation for `py-backup` is limited to deposit and restore after an admin installs the grant. The program does not write `/etc`.
+- Operators must admin-install sudoers fragments after review (`visudo -c`, mode `0440`).
+- **Install trust for `py-backup`:** production is an executable `/usr/local/bin/py-backup` (or `GLOBAL_BIN/py-backup`). Test-local is `~/.local/bin/py-backup`, which this login can rewrite. Generate and print refuse test-local unless `--allow-test-local` is set. `remove-project-sudoers` deletes a local draft only.
+- The bullets below are the **shell record** `src/folder-backup` 1.26.0. They are not the `py-backup` install path.
+- **Install trust tiers for the shell record:**
   - **Production:** global managed binary (`/usr/local/bin/folder-backup`, typically root-owned). Prefer `sudo folder-backup install` before durable sudoers.  
   - **Test mode only:** local `~/.local/bin/folder-backup` is **user-rewritable**. A local user can change the CLI and stage content after a review; do **not** treat local-only sudoers as production-secure.  
   - `print-sudoers` refuses non-production tiers unless `--allow-test-local` / `ALLOW_TEST_LOCAL_SUDOERS=1`, and embeds **TEST MODE / uninstall soon** warnings.  

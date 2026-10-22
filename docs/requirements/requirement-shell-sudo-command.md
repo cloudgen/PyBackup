@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-shell-sudo-command.md  
-**Status**: Active (Version 1.0.0)  
+**Status**: Active (Version 1.0.1)  
 **Area**: shell  
 **Key**: `requirement-shell-sudo-command`  
 **Optional RQ-ID**: `RQ-SHELL-SUDO-COMMAND`  
@@ -82,6 +82,26 @@ Study evidence: `print-sudoers` stdout (ship unit `fb_print_sudoers` / `fb_sudoe
 | **Emit checklists** | Product **does** emit fragments (`print-sudoers`) — security review of emit stays on three-layer |
 | **This CLI writes `/etc`?** | **No** (Type 0 print/submit only) |
 
+### 2.5 Python ship unit (`py-backup`) — studied, not a second grant
+
+Study evidence: `print_sudoers` in `src/PyBackup/sudoers.py` (four NOPASSWD lines) and the installed-fragment string in that same function: `/etc/sudoers.d/PyBackup-<user>`. Host probes also look for `py-backup-<user>` and legacy `folder-backup-<user>`. `<user>` is `id -un`. This subsection does not guess a dest.
+
+| Binary | Verb | Operand | Fragment dest | NOPASSWD? | This wrap? | Study evidence |
+|--------|------|---------|---------------|-----------|------------|----------------|
+| `${GLOBAL_BIN}/py-backup` (default `/usr/local/bin/py-backup`) | `backup` | `*` | `/etc/sudoers.d/PyBackup-<username>` | yes | **no** — the Python program does not re-exec itself | `print_sudoers` line `… backup *` |
+| same | `restore` | `*` | same | yes | **no** | `print_sudoers` line `… restore *` |
+| same | `--json backup` | `*` | same | yes | **no** | `print_sudoers` line `… --json backup *` |
+| same | `--json restore` | `*` | same | yes | **no** | `print_sudoers` line `… --json restore *` |
+| `mkdir` / `install` / `cp` / `chmod` / `tar -tzf` / `rm` | (various) | deposit or stage paths | **not** on the JSON grant | residual | **no** (inner `sudo -n` — Gap) | `src/PyBackup/archive.py` deposit and verify |
+
+The shell table in §2.2 stays the record of `src/folder-backup`. Inner OS-tool `sudo -n` on the Python deposit path stays **Gap**. It is not marked Implemented. Termux, Git Bash, and Windows cmd fail `backup` and `restore` closed before that wrap (`normal_user_only()`).
+
+```text
+py-backup print-sudoers
+py-backup backup /path/to/project
+py-backup restore alpha --disk
+```
+
 ## Under command line for normal user only
 
 When this program runs on Termux, Git Bash, Windows Command Prompt, or the same class, **admin privilege** and **dedicated system user privilege** stay unused. **This requirement:** in-tool `sudo` **MUST NOT** run on that class — fail closed with an operator-readable next step.
@@ -93,7 +113,7 @@ When this program runs on Termux, Git Bash, Windows Command Prompt, or the same 
 
 Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` is set. Git Bash — `MSYSTEM` is `MINGW*` / `MSYS*`. Windows cmd — `OS=Windows_NT` and `COMSPEC` names `cmd.exe` after excluding Git Bash, Cygwin, and WSL.
 
-**Implementation Notes:** ship unit has **no detect helper yet** (Gap).
+**Implementation Notes:** `src/folder-backup` has **no detect helper yet** (Gap for that file). `src/PyBackup` `normal_user_only()` detects the class and `backup()` / `restore()` raise before work.
 
 ---
 
@@ -142,6 +162,31 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 
 **Design-time verification:** TP-FOLDER-BACKUP-01 / 01c / 26 (text dual); **TP-FOLDER-BACKUP-27** todo (compact `--json` twins). Inner OS-tool sudo is residual Gap (no TP claiming wrap complete).
 
-**Last Updated**: 2026-09-06  
+## Terminologies
+
+### Sudo-wrapping function
+
+**Definition:** A sudo-wrapping function is the only place the program invokes in-tool sudo. It must check before sudo. If this login already can do the job, it runs the tool without sudo. A chmod example probes whether this login owns the path and must not sudo chmod when this login owns the path.
+
+**Human daily-life explanation:** A sudo-wrapping function is the one hallway where the tool may ask for the site key. First it checks whether your own keys already open that door. If you already own the drawer, it must not bother the site key.
+
+**Daily-life example:** Before calling the superintendent to relabel a box, the helper looks: “Is this already my box?” If yes, it just writes the new label itself.
+
+### Operational verb
+
+**Definition:** An operational verb is a CLI routed-verb that runs the product. `backup` and `restore` are operational. The JSON grant names those verbs. The Python program does not re-exec them through sudo today.
+
+**Human daily-life explanation:** The grant is permission to run the pack command as root. The live Python deposit still calls smaller tools with sudo. That smaller call is a gap, not the grant.
+
+**Daily-life example:** The posted notice says you may run `py-backup backup *`. The program still asks for `mkdir` and `cp` on its own. That ask is not the notice.
+
+## 7. Status history
+
+| Date | Status | Notes |
+|------|--------|-------|
+| 2026-09-06 | Active 1.0.0 | Shell allow table for `folder-backup`. Wrap Gap. |
+| 2026-10-22 | Active 1.0.1 | Python studied table. Dest `/etc/sudoers.d/PyBackup-<user>`. Inner OS-tool sudo stays Gap. |
+
+**Last Updated**: 2026-10-22  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

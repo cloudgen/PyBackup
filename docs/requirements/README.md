@@ -1,23 +1,27 @@
 # Requirements
 
-Authoritative specialized product law for **folder-backup** lives here.
+Authoritative specialized product law for **PyBackup** lives here.
 
-**Current state (2026-10-14):** Specialized **software-development** product. Left genesis. Bootstrap parent is sibling **selfmanaged**. Channel verbs stay (`self-install`, `version-check`, `self-update`, `self-uninstall`). A terminal with no command is the numbered boards. Front rows are client-side **1**, sudoers **5**, self-management **6**, language **7**, and Exit **9**. A pipe with no command is `self-install`. Domain extend: folder archive backup. Eight OS family labels cite sibling tn5250-cli and do not add a compiler install. Registry is populated — see `index.md`.
+**Current state (2026-10-22):** Specialized **software-development** product. Left genesis. Bootstrap parent for the Python ship unit is **HelloTui**. The command is `py-backup`. A terminal with no command opens the numbered boards. Front rows are client-side **1**, system-log **3**, language **4**, sudoers **5**, self-management **8**, and Exit **9**. No terminal with no command prints help and returns 0. Pip lifecycle is `python -m pip` (rows **82**–**87**). There is no `curl | sh` channel on `py-backup`. Domain extend: folder archive backup. Public repository: `https://github.com/cloudgen/PyBackup`. Registry is populated — see `index.md`.
+
+The shell file `src/folder-backup` release **1.26.0** remains the behavioral record. Its front board is client-side **1**, sudoers **5**, self-management **6**, language **7**, and Exit **9**, and a pipe with no command is `self-install`. Where a shell row disagrees with a `requirement-python-*` row, **`py-backup` follows the Python row**.
 
 ## Product identity (summary)
 
 | Field | Value |
 |-------|--------|
-| Product / `APP_NAME` | `folder-backup` |
-| Version SSOT | `1.26.0` (ship unit hard-assign) |
-| Ship unit | `src/folder-backup` |
-| Default install | `~/.local/bin/folder-backup` |
-| Install mode | **Dual.** `install` copies this file (mode `0755`). A pipe with no command, and `self-install`, place the CLI (local `0700`, global `0755`). A terminal with no command is the boards. |
+| Product / `APP_NAME` | `PyBackup` |
+| Command | `py-backup` |
+| Version SSOT | `1.0.0` (`src/PyBackup/__init__.py` and `pyproject.toml`) |
+| Ship unit | `src/PyBackup` |
+| Public repository | `https://github.com/cloudgen/PyBackup` |
+| Install | `python -m pip install --user -e .` from a checkout, or `python -m pip install --user PyBackup` when the package index lists it |
+| Shell record | `src/folder-backup` **1.26.0** (not the `py-backup` command) |
 | Backup ops | `requirement-folder-archive-backup` — create / name / deposit / verify / restore |
 | Retention total | `requirement-folder-archive-backup-retention-total` — max **30** per basename |
 | Retention daily | `requirement-folder-archive-backup-retention-daily` — max **5** per basename per day |
-| Domain surface | `requirement-domain-folder-backup` — four pillars; ops deferred |
-| JSON sudoer file | `requirement-sudoer-json-file` — grant is `folder-backup` only; no `cp`/`mkdir` |
+| Domain surface | `requirement-domain-folder-backup` — sole domain SSOT |
+| JSON sudoer file | `requirement-sudoer-json-file` — four command objects for `py-backup`; no OS-tool paths |
 
 ## Class requirement gate
 

@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-bootstrap-chain.md  
-**Status**: Active (Version 2.4.0)  
+**Status**: Active (Version 2.5.0)  
 **Area**: architecture  
 **Key**: `requirement-bootstrap-chain`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -150,6 +150,8 @@ B **MUST** inherit A’s structural contracts:
 
 **Violating this rule is a critical bootstrap-direction regression.**
 
+Python note (2026-10-22): do not reverse-copy `PyBackup` onto HelloTui. Do not treat the shell channel in §2.4 as the install path of `py-backup`. That command uses `python -m pip` (`requirement-python-cli-interface`).
+
 ---
 
 ## 5. Acceptance criteria
@@ -161,6 +163,7 @@ B **MUST** inherit A’s structural contracts:
 | AC-3 | B identity retarget complete (`APP_NAME=folder-backup`, `VERSION` matches the ship unit hard-assign, this product’s `SCRIPT_URL`) |
 | AC-4 | Domain SSOT present for backup surface |
 | AC-5 | `install` is local copy mode 0755; `self-install` is the channel verb |
+| AC-6 | The Python command follows §6b (HelloTui → PyBackup, pip, empty off-terminal is help). AC-1 through AC-5 stay the record of `src/folder-backup` |
 
 ---
 
@@ -209,6 +212,21 @@ Copied substance for the words this requirement uses.
 
 **Daily-life example:** You walk into a shell shop in the family. 6 is self-care. 67 files this tool in the drawer. 61 stocks the pantry when that shop sells extra kits. You walk into a pip shop: 6 is still self-care, 64 and 65 ask the package counter to compare and refresh, and 61 is not "pip install this program."
 
+## 6b. Python chain (`py-backup`, user order 2026-10-22)
+
+Sections 2.1 through 2.6 still describe `src/folder-backup` and the selfmanaged channel. They stay. The live Python command is a second hop. It does not delete that shell chain.
+
+| Item | Value |
+|------|--------|
+| **A** | HelloTui (sibling workspace). Do not edit A. Do not reverse-copy B onto A. |
+| **B** | PyBackup. Command `py-backup`. Ship unit `src/PyBackup`. Version `1.0.0`. |
+| **Channel** | `python -m pip`. No `SCRIPT_URL`. No `curl` pipe. |
+| **Empty argv** | A terminal opens the text menu. No terminal prints help and returns 0. Not `self-install`. |
+| **Front rows** | **1** client-side, **3** system-log, **4** language, **5** sudoers, **8** self-management, **9** Exit. Row **2** stays omitted. |
+| **Self rows** | **82** version, **83** about, **84** version-check, **85** self-update, **86** self-uninstall, **87** self-install |
+| **Domain** | `requirement-domain-folder-backup` §2.5.1 and `requirement-python-tui` |
+| **Shell file** | `src/folder-backup` release 1.26.0 remains the behavioral record of the channel chain |
+
 ## 7. Status history
 
 | Date | Status | Note |
@@ -220,9 +238,10 @@ Copied substance for the words this requirement uses.
 | 2026-09-30 | Active 2.2.0 | User ordered A=`selfmanaged` again. Channel verbs kept. Empty argv stays case 2. `install` stays the local copy. |
 | 2026-09-30 | Active 2.2.1 | Self board is front row **8**. Empty argv wording is numbered boards. Version cell and AC-3 point at the ship unit. |
 | 2026-09-30 | Active 2.4.0 | Non-interactive zero-cli-verb is `inst_self_install`. Interactive line stays the boards. Local `install` stays the 0755 copy. |
+| 2026-10-22 | Active 2.5.0 | Python chain §6b: A=HelloTui → B=PyBackup. Pip, not the shell channel. Empty argv off a terminal is help. Shell AC-1 through AC-5 unchanged. |
 
 ---
 
-**Last Updated**: 2026-10-14  
+**Last Updated**: 2026-10-22  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-folder-archive-backup.md  
-**Status**: Active (Version 1.3.0)  
+**Status**: Active (Version 1.3.1)  
 **Area**: backup  
 **Key**: `requirement-folder-archive-backup`  
 **Optional RQ-ID**: `RQ-FOLDER-ARCHIVE-BACKUP`  
@@ -344,6 +344,28 @@ Errors **MUST** use structured error emission with stable codes when feasible (e
 | **Suite** | `tests/test_domain_folder_backup.sh` (TP-FOLDER-BACKUP-*) |
 | **Primary TP map** | `reviews/test-plan.md` · `reviews/requirement-test-matrix.md` |
 
+### 2.10.1 Python ship unit code example
+
+The table above stays the record of `src/folder-backup` at VERSION `1.24.0`. `py-backup` uses the same next-N rule. `N` starts at 1. An existing basename is not overwritten.
+
+```python
+def next_archive_name(source_name, day, taken):
+    n = 1
+    while True:
+        name = "{0}-{1}-{2}.tar.gz".format(source_name, day, n)
+        if name not in taken:
+            return name
+        n += 1
+```
+
+Worked Python basename shape: `alpha-20260803-1.tar.gz`. Deposit directory for `py-backup` is `/var/backup/PyBackup`. Scratch leaf is `cache-PyBackup-{{USERNAME}}-<pid>` (parents: `TMPDIR`, then `/dev/shm`, then the temp directory). Do not follow a symlink while counting the source tree. Do not pass tar `-h`.
+
+```text
+py-backup backup /path/to/project
+py-backup restore alpha --disk
+py-backup restore alpha --force
+```
+
 ### 2.11 Why This Requirement Exists (CIAO)
 
 - **Principle 12 – Right Backup & Restore Strategy**: Dated numbered archives; no silent overwrite; recoverability for folder trees.  
@@ -459,6 +481,16 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 **Matrix:** `reviews/requirement-test-matrix.md`  
 **Map:** `reviews/test-plan.md`
 
+## Terminologies
+
+### Operational verb
+
+**Definition:** An operational verb is a CLI routed-verb that runs the product. `backup` and `restore` are operational verbs. They pack or unpack a folder. They are not unit-test verbs.
+
+**Human daily-life explanation:** An operational verb does the job. Backup puts the folder in a dated archive. Restore puts that archive back.
+
+**Daily-life example:** “Pack the alpha folder” is `py-backup backup /path/to/project`. “Quiz the doorbell” is not this verb.
+
 ## 7. Status history
 
 | Date | Status | Note |
@@ -468,9 +500,10 @@ Detect (typical): Termux — `PREFIX` contains `com.termux` or `TERMUX_VERSION` 
 | 2026-08-12 | Active 1.2.0 | Restore dest **whitelist** §2.6b.2a: **W-ETC-USER** = `/etc/{{username}}` (invoker); hard-deny `/etc` and **`/etc/passwd`** (INC-20260812-001) |
 | 2026-09-27 | Active 1.2.1 | Stage root follows per-login per-process cache (`requirement-shell-cli-storage` 1.4.0) |
 | 2026-10-08 | Active 1.3.0 | Archive files are verbose regular-file members (type `-` and hard-link type `h`). Symlinks stay in the archive and in the member check. `tar -tzf` non-directory lines are not the file tally |
+| 2026-10-22 | Active 1.3.1 | Python `next_archive_name` sample beside the shell table. Shell VERSION row stays. |
 
 ---
 
-**Last Updated**: 2026-10-08  
+**Last Updated**: 2026-10-22  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; INC-20260812-001; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

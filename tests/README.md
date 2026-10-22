@@ -1,41 +1,34 @@
-# Tests — folder-backup
+# Tests — PyBackup
 
-## Run
+The live command is `py-backup`. The suite under this folder that proves it is Python.
+
+## Run the Python suite
 
 ```sh
-./tests/run.sh
-# or
 sh tests/run.sh
 ```
 
-Exit **0** when all assertions pass; **1** on failure; **2** if ship unit missing.
+`tests/run.sh` runs `python3 -m unittest discover -s tests`. Exit **0** when every test passes.
+
+Observed on 2026-10-22: **24** tests, **OK**, about 0.16s, with `PYTHONPATH=src`. Stderr lines that start with `ERROR:` during `test_cli_backup` and `test_unknown_and_force_and_sudoers_word` are the product’s fail-closed messages. Those tests expect them.
+
+## Shell reference runner
+
+```sh
+sh tests/run-shell.sh
+```
+
+`tests/run-shell.sh` is the runner that used to live at `tests/run.sh` for `src/folder-backup` 1.26.0. It was restored from git so that file can still be exercised. It was **not** executed for the 1.0.0 Python release. Do not cite an older shell PASS count as proof of `py-backup`.
 
 ## Layout
 
-| File | Focus | TP families |
-|------|--------|-------------|
-| `run.sh` | Entrypoint | — |
-| `helpers.sh` | Asserts + isolated HOME | — |
-| `test_cli.sh` | CLI surface, case 2 empty argv, numbered-list look, help grant-emit heading split, offline online-reject | **TP-CLI-*** (incl. **TP-CLI-17** heading · **TP-CLI-18** look) |
-| `test_local_lifecycle.sh` | install / uninstall / where-is-me | **TP-LC-*** |
-| `test_domain_folder_backup.sh` | backup ops + domain surface + sudoers print + JSON grant + submit inbound detect | **TP-FOLDER-BACKUP-*** (ops → `requirement-folder-archive-backup`; grant → `requirement-sudoer-json-file`; submit → three-layer §2.3.3c) |
+| File | Focus |
+|------|--------|
+| `run.sh` | Python unittest entry |
+| `run-shell.sh` | Shell reference entry for `src/folder-backup` |
+| `test_pybackup.py` | Menu rows, backup, restore, retention, grant JSON, submit fail-closed |
+| `test_cli.sh` and `test_domain_folder_backup.sh` | Shell reference cases. They target `src/folder-backup`. |
 
 ## Isolation
 
-- Temp `HOME` + `USER_BIN` for CLI and install tests (`ci_isolated_env` at the start of the CLI suite)  
-- **No** public network  
-- **No** write to `/etc/sudoers.d` (suite never installs sudoers)  
-- **No** enqueue into live `/var/sudoer-cli/sudoer-request` (isolated `SUDOER_CLI` + temp queue trio; runner snapshot). If that inbound dir is **absent**, the fence records SKIP rather than a proof.  
-- Deposit **fail-closed** forced with a PATH-local fake `sudo` (stays valid when host sudoers is installed)  
-- Deposit **success** when root **or** allowlisted `sudo -n mkdir -p /var/backup/folder-backup` works (admin privilege escalate); otherwise SKIP 07/08 — those cases write live `/var/backup/folder-backup`  
-
-PASS/FAIL/SKIP counts are **per assertion**, not per TP-ID. TTY menu cases (TP-CLI-13/14/16/18) SKIP without `python3`. Compact JSON `--json` twins remain **todo** (**TP-FOLDER-BACKUP-27**).
-
-## Ship unit under test
-
-`src/folder-backup`
-
-## Maps
-
-Product TP map: `reviews/test-plan.md`  
-RTM: `reviews/requirement-test-matrix.md`
+Python tests set `BACKUP_ROOT`, `HOME`, and `SUDOER_PUBLIC_ROOT` under a temp directory. They do not create `/var/sudoer-cli`. They do not write `/etc`. A missing backup operand is forced off a terminal so the text menu is not opened.

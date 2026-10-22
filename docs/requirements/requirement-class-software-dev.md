@@ -1,5 +1,5 @@
 **file**: docs/requirements/requirement-class-software-dev.md  
-**Status**: Active (Version 1.1.5 – origin selfmanaged; channel verbs kept)  
+**Status**: Active (Version 1.1.6 – shell residual kept; Python ship unit uses setuptools)  
 **Area**: class  
 **Key**: `requirement-class-software-dev`  
 **Philosophy**: CIAO **v2.10.2** / CIAO-Lite (Caution • Intentional • Anti-fragile • Over-engineered / Over-protect)
@@ -12,7 +12,7 @@ This file is **class law + residual SSOT**, not a second copy of Type 0 lifecycl
 
 ### 1.1 Human-facing
 
-This file says the workspace is a **shippable program** (folder-backup) — **project nature** software-development — and records leftover stack facts that no other requirement already owns.
+This file says the workspace is a **shippable program**. The live command is `py-backup` (PyBackup). The shell file `folder-backup` remains the 1.26.0 record. **Project nature** is software-development. This file records leftover stack facts that no other requirement already owns.
 
 | You | Another role | Not this |
 |-----|--------------|----------|
@@ -104,6 +104,25 @@ This file says the workspace is a **shippable program** (folder-backup) — **pr
 | **Product version SSOT** | ship unit `VERSION=` in `src/folder-backup` (do not pin a stale number here) |
 | **Bootstrap origin** | sibling product **selfmanaged** (`{{PROJECTS_ROOT}}/selfmanaged`) — channel verbs kept; domain extend on B; interactive zero-cli-verb is the boards; non-interactive is `self-install` |
 
+### 2.7.1 Python ship unit (current command)
+
+The table above stays the residual for `src/folder-backup`. The live command uses this row. Packaging detail stays on `requirement-python-packaging`. Do not delete the shell row.
+
+| Field | Value (PyBackup) |
+|-------|------------------|
+| **Project display name** | `PyBackup` |
+| **Command** | `py-backup` |
+| **Primary language** | Python |
+| **Execution model** | interpreted |
+| **Interpreter floor** | `requires-python` in `pyproject.toml` (`>=2.7`, excluding 3.0 through 3.4) |
+| **Package tool** | setuptools (`pyproject.toml`) |
+| **Lockfile** | not used |
+| **Test runner** | `sh tests/run.sh` runs `python3 -m unittest discover -s tests`. `tests/run-shell.sh` is the shell reference runner and was not the proof of this command. |
+| **Ship unit** | `src/PyBackup` |
+| **Product version SSOT** | `1.0.0` in `src/PyBackup/__init__.py` and `pyproject.toml` |
+| **Bootstrap origin** | HelloTui → PyBackup. Pip lifecycle. Empty argv off a terminal is help. Do not edit HelloTui. |
+| **Shell residual** | `src/folder-backup` 1.26.0 keeps the channel verbs recorded above |
+
 **Residual ownership table:**
 
 | Topic | Owner | Notes |
@@ -130,7 +149,9 @@ This file says the workspace is a **shippable program** (folder-backup) — **pr
 | Domain surface (verbs, help, about) | `requirement-domain-folder-backup` | Four pillars only; ops pointer |
 | Actor / role / subject / approver | **this file** (residual) | **considered — no dest approver and no approval subject**. This product has no dest approval machine. **MUST NOT** invent an approver. |
 | Dest fence conditions | **this file** (residual) | **considered — no dest fence conditions**. No dest Fence table. **MUST NOT** invent a dest fence. |
-| Channel verbs / `SCRIPT_URL` | `requirement-bootstrap-chain` and `requirement-shell-cli-interface` | Kept from selfmanaged. Empty argv is not install. |
+| Channel verbs / `SCRIPT_URL` | `requirement-bootstrap-chain` and `requirement-shell-cli-interface` | Shell file only. `py-backup` uses pip (`requirement-python-cli-interface`). Empty argv off a terminal is help. |
+| Python command language and package | §2.7.1 and `requirement-python-packaging` | Live command. The posix-sh rows above record `src/folder-backup`. |
+| Python menu and verbs | `requirement-python-tui` and `requirement-python-cli-interface` | HelloTui rows 3, 4, 8, 9 stay. Folder-backup domain is front 1 and 5. |
 
 ---
 
@@ -181,6 +202,7 @@ This file says the workspace is a **shippable program** (folder-backup) — **pr
 | AC-5 | No class file conflict with `requirement-class-server-maintenance` |
 | AC-6 | Ship unit identity (posix-sh single-file, local install) consistent with peer shell REQs |
 | AC-7 | Channel verbs are recorded on the bootstrap chain and the CLI interface; non-interactive zero-cli-verb is `self-install` |
+| AC-8 | The Python ship unit is recorded in §2.7.1 (setuptools, `src/PyBackup`, HelloTui origin). AC-6 and AC-7 stay the shell residual |
 
 ---
 
@@ -223,9 +245,10 @@ This file says the workspace is a **shippable program** (folder-backup) — **pr
 | 2026-09-30 | Active (1.1.3) | Origin is selfmanaged again. Channel verbs kept. Empty argv stays case 2. |
 | 2026-09-30 | Active (1.1.4) | Product version cell points at the ship unit hard-assign. |
 | 2026-09-30 | Active (1.1.5) | Non-interactive zero-cli-verb is CLI self-install. Interactive line stays the boards. |
+| 2026-10-22 | Active (1.1.6) | §2.7.1 records the Python ship unit. The shell residual table stays. |
 
 ---
 
-**Last Updated**: 2026-09-30  
+**Last Updated**: 2026-10-22  
 **Owner**: project maintainers  
 **Alignment**: Registry `docs/requirements/index.md`; **CIAO** (https://github.com/cloudgen/ciao); CIAO-Lite (https://github.com/cloudgen/ciao-lite).

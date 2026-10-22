@@ -1,9 +1,12 @@
-# Review reports index — folder-backup
+# Review reports index — PyBackup
 
-**Current product (2026-10-14):** VERSION **1.26.0**. Front rows are client-side (**1**), sudoers (**5**), self-management (**6**), language (**7**), and Exit (**9**). Language children are **71**–**78**. Sudoers children are submit (**52**) and remove (**55**). Self-management is **61**–**67**. Eight OS family labels cite sibling tn5250-cli and do not add a compiler install. A pipe, or `--quiet` / `--json` with no command, is CLI self-install. Naming `menu` or `self-management` off a terminal stops. An empty line on the front leaves. Row **62** on a board runs `about`. `install` is the local copy and self row **61**. The table below is the report index; older rows stay as written.
+**Current product (2026-10-22):** PyBackup **1.0.0**, command `py-backup`, ship unit `src/PyBackup`. Front rows are client-side (**1**), system-log (**3**), language (**4**), sudoers (**5**), self-management (**8**), and Exit (**9**). Findings for that command are `docs/reviews/2026-10-22-pybackup-bootstrap-review.md` (Revise: open P2, no P0/P1). Python suite: 24 tests, OK.
+
+**Shell record (2026-10-14):** `src/folder-backup` VERSION **1.26.0**. Front rows were client-side (**1**), sudoers (**5**), self-management (**6**), language (**7**), and Exit (**9**). The table below is that shell series. Older rows stay as written. They are not proof of `py-backup`.
 
 | Date | Report | Scope | Verdict | Suite |
 |------|--------|-------|---------|-------|
+| 2026-10-22 | `docs/reviews/2026-10-22-pybackup-bootstrap-review.md` | HelloTui → PyBackup; folder backup on the text menu and on argv | Revise (open P2, no P0/P1) | 1.0.0 Python 24 tests OK. Shell runner not run. |
 | 2026-10-14 | `reports/2026-10-14-requirement-coverage-menu-and-os.md` | Front **5**/**6**/**7** and eight OS family labels | Sufficient with Gaps | 1.26.0 PASS=610 FAIL=0 SKIP=2 |
 | 2026-09-30 | `reports/2026-09-30-requirement-coverage-menu-contract.md` | C-menu after named menu off a terminal stops, empty front leaves, and row 82 runs about | Sufficient with Gaps | 1.20.0 PASS=473 FAIL=0 SKIP=2 |
 | 2026-09-30 | `reports/2026-09-30-requirement-coverage-zero-cli-verb.md` | C-full-product after non-interactive zero-cli-verb became self-install | Sufficient with Gaps | 1.19.0 PASS=455 FAIL=0 SKIP=2 |
