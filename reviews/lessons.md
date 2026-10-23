@@ -1,11 +1,11 @@
-# Lessons — folder-backup
+# Lessons — PyBackup
 
 Durable failure modes. **Always re-check on product review.**
 
 | ID | Mode | Prevention | Status |
 |----|------|------------|--------|
-| L-MENU-LANG-01 | Language file stored in the cache or under `/var/backup`, `FOLDER_BACKUP_LANG` reloaded after a pick so it covers the choice just saved, or `language` wired as a CLI verb | Persistence leaf `${HOME}/.local/folder-backup/language`; `app_lang_load` once at `app_main` start; env does not write the file; `language` is not dispatched; TP-CLI-24 | open watch |
-| L-MENU-SUDOERS-01 | Family token `sudoers` wired as a live command, or operational grant verbs dropped from the dispatcher, or test-purpose verbs put back on a numbered board | Family row is menu-only (front **7**); **72**/**75** stay on the sudoers board; **71**/**73**/**74** stay reserved; five names stay live CLI commands; TP-CLI-13 | open watch |
+| L-MENU-LANG-01 | Language file stored in the cache or under `/var/backup`, `PYBACKUP_LANG` reloaded after a pick so it covers the choice just saved, or `language` wired as a CLI verb | Persistence leaf `~/.local/PyBackup/language`; `PYBACKUP_LANG` wins for one run and does not write the file; `language` is not a command | open watch |
+| L-MENU-SUDOERS-01 | Family token `sudoers` wired as a live command, or operational grant verbs dropped from the dispatcher, or test-purpose verbs put back on a numbered board | Family row is menu-only (front **5**); **52** and **55** stay on the sudoers board; **51**, **53**, and **54** stay reserved; test commands stay typed | open watch |
 | L-MENU-TTY-01 | Named `menu` / `self-management` off a terminal prints help, an empty line on the front retries, or row **82** prints only the thin version line | `requirement-shell-cli-default-interaction` 1.9.0; off-terminal stop; empty front leaves; row **82** runs `about`; argv `version` stays thin; TP-CLI-15 · TP-CLI-21 | open watch |
 | L-TYPE-N-01 | Non-interactive zero-cli-verb prints help, or places through local `install` (mode 0755), or a terminal with no command places | `requirement-shell-cli-zero-arguments` 1.2.1; interactive boards; non-interactive `inst_self_install`; TP-CLI-07 · TP-CLI-23 | open watch |
 | L-CASE2-01 | Empty argv on TTY stays help after case 2 (always-help leak) | `requirement-shell-cli-default-interaction` 1.9.0; TP-CLI-13 empty argv | open watch |
@@ -32,4 +32,4 @@ Durable failure modes. **Always re-check on product review.**
 | L-TEST-REVIEW-01 | Green emit TP-22 + stub TP-20 + S14 Pass miss sibling decode drop | Assert inbound after **real** sudoer-cli; pretty + compact fixtures; do not treat `tests/run.sh` PASS as grant fidelity; INC-20260817-001 | open watch |
 | L-SAFE-RM-01 | Host `safe-rm` success text lands inside sudoer-cli `$(sr_render_sudoers)` and visudo rejects line 4 | Tests that call real sudoer-cli put a quiet `rm` first on `PATH`. The guard still runs. Production submit on this host fails the same way until sudoer-cli stops capturing `rm` stdout. | open watch |
 
-**Bootstrap parent is selfmanaged (2026-09-30).** Keep its output SSOT, no basename gate, storage leaf, and channel verbs. A terminal with no command stays the folder-backup numbered boards. A pipe, or `--quiet` / `--json` with no command, calls `inst_self_install`. Local `install` stays the mode 0755 copy and self-board row **81**.
+**Bootstrap parent is HelloTui.** A terminal with no command opens the text menu. Front rows are **1**, **3**, **4**, **5**, **8**, and **9**. No terminal with no command prints help and returns 0. Lifecycle is `python -m pip`.

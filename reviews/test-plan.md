@@ -1,11 +1,13 @@
-# Test plan — folder-backup
+# Test plan — PyBackup
 
-Maps **TP-*** coverage to `tests/`.  
-**Suite entry:** `./tests/run.sh`  
-**Ship unit:** `src/folder-backup`  
-**Product VERSION:** 1.26.0  
-**Last plan update:** 2026-10-14  
-**Last suite run:** `sh tests/run.sh` (1.26.0: PASS=610 FAIL=0 SKIP=2)
+The Python suite is `tests/test_pybackup.py`, run with `sh tests/run.sh`.  
+**Suite entry:** `sh tests/run.sh`  
+**Ship unit:** `src/PyBackup`  
+**Product VERSION:** 1.0.0  
+**Last plan update:** 2026-10-23  
+**Last suite run:** `sh tests/run.sh` (1.0.0: 24 tests, OK)
+
+The TP-* rows below are the previous shell suite (`sh tests/run-shell.sh`). They are not the proof map for `py-backup`.
 
 Status: **have** = automated today · **todo** = needed · **optional** · **n/a** · **skip** (environment)
 

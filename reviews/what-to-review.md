@@ -1,11 +1,11 @@
-# What to review — folder-backup
+# What to review — PyBackup
 
-**Living checklist** (review plan). Product: **folder-backup** local self-managed CLI + domain backup/restore + narrow sudo deposit.  
-**Class:** software-development · domain SSOT present · channel verbs kept from selfmanaged · a terminal with no command is the numbered boards; a pipe or `--quiet` / `--json` with no command is CLI self-install.  
+**Living checklist** (review plan). Product: **PyBackup**, command `py-backup`. It packs a folder into a dated gzip archive and can restore it.  
+**Class:** software-development. A terminal with no command opens the numbered boards. No terminal with no command prints help and returns 0.  
 **Always load first:** `reviews/lessons.md`
 
-**Last plan update:** 2026-10-14  
-**Ship unit VERSION:** 1.26.0  
+**Last plan update:** 2026-10-23  
+**Ship unit:** `src/PyBackup` **1.0.0**  
 **Suite baseline:** see `reviews/test-plan.md` (1.26.0: PASS=610 FAIL=0 SKIP=2; front **1**/**5** sudoers/**6** self-management/**7** language/**9** Exit; language children **71**–**78**; sudoers **52**/**55**; self **61**–**67**; eight OS family labels cite sibling tn5250-cli and do not add a compiler install; archive files are regular-file members, **TP-FOLDER-BACKUP-28**; compact JSON `--json` twins still todo)
 
 ---
@@ -15,7 +15,7 @@
 | # | Check | Notes |
 |---|--------|--------|
 | P1 | Read `docs/requirements/index.md` | Class + architecture + shell + domain + three-layer |
-| P2 | Confirm ship unit `src/folder-backup` | `APP_NAME` / `VERSION` hard-assign (**1.9.0+**) |
+| P2 | Confirm ship unit `src/PyBackup` | `__version__` and `pyproject.toml` are **1.0.0**. Command is `py-backup` |
 | P3 | Load `reviews/lessons.md` and re-check every open L-* | Mandatory (esp. **L-SUDOERS-01/02** · **L-SUDOERS-06** · **L-OUTPUT-01** · **L-TEST-REVIEW-01**) |
 | P4 | Run `./tests/run.sh` | Record PASS/FAIL/SKIP in report; **must include TP-22e/22f** (not emit-only 22) **and TP-24*/25*** when generate/submit copy is in scope |
 | P5 | Confirm the zero-cli-verb split and that channel verbs stay explicit | A terminal with no command is the numbered boards (front **1**/**5**/**6**/**7**/**9**). A pipe, `--quiet`, or `--json` with no command calls `inst_self_install`. Named `menu` and `self-management` off a terminal stop. `install` is the local copy and self row **61**. |
@@ -36,7 +36,7 @@
 | Bootstrap chain | `requirement-bootstrap-chain.md` | A=selfmanaged → B; channel kept; terminal boards / non-interactive self-install |
 | Project folder | `requirement-project-folder.md` | `src/`, bins, `/var/backup` |
 | **Privilege / sudoers** | `requirement-three-layer-privilege-model.md` | Type 0/1; **trust tiers S13**; print-sudoers; **install-script**; **remove-project-sudoers**; **generate-sudoer-request** (§2.3.2a / AC-23/24); **submit-sudoer-request** public inbound; **inbound fidelity AC-21**; **host-probe add/update AC-22**; no ALL ALL |
-| **JSON sudoer file** | `requirement-sudoer-json-file.md` | `folder-backup` backup/**and** restore; §2.7a re-encode; pretty JSON legal; **independent generate dest AC-10** |
+| **JSON sudoer file** | `requirement-sudoer-json-file.md` | `py-backup` backup and restore, plus the `--json` twins |
 | **Operator-readable error** | `requirement-operator-readable-error.md` | Blocking `[ERROR]` what-happened + next step; no jargon-only |
 | CLI interface | `requirement-shell-cli-interface.md` | Commands, flags, dispatch (incl. **generate-sudoer-request**); test-purpose grant-emit listed **apart** |
 | Default interaction | `requirement-shell-cli-default-interaction.md` | Interactive zero-cli-verb = numbered boards; front **1**/**5**/**6**/**7**/**9**; hidden **2**; client **11**/**12**; sudoers **52**/**55**; self **61**–**67**; test-purpose off every board; named `menu` off a terminal stops |
@@ -46,7 +46,7 @@
 | Modular design | `requirement-shell-modular-function-design.md` | `fb_*` domain prefix |
 | Idempotency | `requirement-shell-idempotency.md` | Re-install; next-N archives |
 | Interactive modes | `requirement-shell-interactive-vs-noninteractive.md` | Uninstall / remove-project-sudoers confirm |
-| CLI storage | `requirement-shell-cli-storage.md` | Per-login per-process cache (**1.4.0**) **and** persistence `${HOME}/.local/folder-backup/` |
+| CLI storage | `requirement-python-project-structure.md` | Per-login per-process scratch `cache-PyBackup-<login>-<pid>` and persistence `~/.local/PyBackup/` |
 | Domain | `requirement-domain-folder-backup.md` | Four pillars; sudoers verbs |
 | Ops backup | `requirement-folder-archive-backup.md` | backup/restore/verify |
 

@@ -1,5 +1,6 @@
 # =============================================================================
 # Scratch storage and operator errors for PyBackup.
+# requirement-python-cli-storage — scratch leaf and persistence.
 # requirement-folder-archive-backup — stage under the per-run cache.
 # requirement-python-error-handling — one error shape.
 # =============================================================================

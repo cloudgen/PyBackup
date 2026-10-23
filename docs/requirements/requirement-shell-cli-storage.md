@@ -6,7 +6,9 @@
 
 ## 1. Purpose
 
-This requirement is the **project Single Source of Truth** for **shell CLI storage** of folder-backup. **Storage** means **two** classes:
+This file records the shell cache. The live command `py-backup` follows `requirement-python-cli-storage`.
+
+This requirement is the shell record for **shell CLI storage** of folder-backup. **Storage** means **two** classes:
 
 | Class | Role | Survives reboot |
 |-------|------|-----------------|

@@ -39,9 +39,9 @@ Project nature: a command-line program whose menu can change language. `language
 1. Codes **MUST** be 41 English, 42 简体中文 (`zh-Hans`), 43 繁體中文 (`zh-Hant`), 44 Español (`es`), 45 العربية (`ar`), 46 Français (`fr`), 47 Português (`pt`), 48 Русский (`ru`), 49 Deutsch (`de`), 50 日本語 (`ja`), 51 한국어 (`ko`), 52 Nederlands (`nl`), 53 Ελληνικά (`el`).
 2. The leaf **MUST** be `~/.local/PyBackup/language`, one code, mode 0600. The directory mode is 0700. `LANG` **MUST NOT** select the menu language.
 3. `PYBACKUP_LANG`, when it is one of the thirteen codes, **MUST** win for that process and **MUST NOT** write the leaf.
-4. HelloTui translations for system-log, language, self-management, Exit, Back, and the pip rows **MUST** stay. The welcome sentence **MUST NOT** stay. Client-side, sudoers, backup, restore, submit, remove, and the two not-available sentences **MUST** use the folder-backup catalog for `en`, `zh-Hans`, `zh-Hant`, `es`, `fr`, `de`, `ja`, and `ko`. `ar`, `pt`, `ru`, `nl`, and `el` **MAY** fall back to English for those domain sentences.
+4. HelloTui translations for system-log, language, self-management, Exit, Back, and the pip rows **MUST** stay. The welcome sentence **MUST NOT** stay. Client-side, sudoers, backup, restore, submit, remove, and the two not-available sentences **MUST** use the domain catalog for `en`, `zh-Hans`, `zh-Hant`, `es`, `fr`, `de`, `ja`, and `ko`. `ar`, `pt`, `ru`, `nl`, and `el` **MAY** fall back to English for those domain sentences.
 5. English front and sudoers band sentences **MUST** stay the exact sentences in `requirement-python-tui`. The backup sentence names `/var/backup/PyBackup`.
-6. English help headings **MUST** stay exact. The other seven folder-backup codes translate the two headings.
+6. English help headings **MUST** stay exact. The other seven codes that have a translation translate the two headings.
 7. The path value and the clock **MUST NOT** be translated. English path label is `Path`. `zh-Hant` path label is `路徑`.
 8. `language` is not an argv verb.
 

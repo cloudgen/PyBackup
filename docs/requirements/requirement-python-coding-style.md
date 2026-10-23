@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-Style for the Python program in `src/PyBackup`. Without this requirement, portable learned lessons arrive raw and get treated as this product’s law. The shell file `src/folder-backup` keeps `requirement-shell-script-coding`.
+Style for the Python program in `src/PyBackup`. Without this requirement, portable learned lessons arrive raw and get treated as this product’s law.
 
 Project nature: a command-line program. This file is the adopted writing sheet for that program.
 
@@ -17,7 +17,7 @@ Project nature: a command-line program. This file is the adopted writing sheet f
 | Box | Meaning | Example |
 |-----|---------|---------|
 | You / this login | You read the style when you change `src/PyBackup` | A stage file is mode 0600 |
-| The other role | The shell file keeps its own style sheet | `src/folder-backup` |
+| The other role | Another file’s style sheet is not this one | `src/PyBackup` |
 | Not this file | Class homes, the verb list, and tar member rules | Those requirements own those topics |
 
 | Includes | Excludes |

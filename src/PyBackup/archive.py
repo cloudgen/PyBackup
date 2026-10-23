@@ -1,6 +1,8 @@
 # =============================================================================
 # Folder archive backup and restore.
 # requirement-folder-archive-backup — create, name, deposit, verify, restore.
+# requirement-python-idempotency — next archive number does not overwrite.
+# requirement-python-sudo-command — writable first, then sudo -n. Inner OS-tool sudo stays Gap.
 # requirement-folder-archive-backup-retention-daily — cap 5.
 # requirement-folder-archive-backup-retention-total — cap 30.
 # requirement-domain-folder-backup — verbs backup and restore.

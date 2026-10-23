@@ -1,8 +1,11 @@
-# Requirement ↔ test matrix — folder-backup
+# Requirement ↔ test matrix — PyBackup
 
-**Updated:** 2026-10-14 (1.26.0)  
-**Product VERSION:** 1.26.0  
-**Suite:** `tests/run.sh` (1.26.0: PASS=610 FAIL=0 SKIP=2)
+**Updated:** 2026-10-23  
+**Product:** PyBackup **1.0.0**  
+**Command:** `py-backup`  
+**Suite:** `sh tests/run.sh` (1.0.0: 24 tests, OK)
+
+The TP families below are the previous shell suite (`sh tests/run-shell.sh`). They are not the proof map for `py-backup`. The Python suite is `tests/test_pybackup.py`.
 
 | Requirement key | Area | TP families | Coverage notes |
 |-----------------|------|-------------|----------------|

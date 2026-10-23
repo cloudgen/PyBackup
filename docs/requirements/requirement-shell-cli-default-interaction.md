@@ -7,7 +7,9 @@
 
 ## 1. Purpose
 
-This requirement is the **product Single Source of Truth** for folder-backup’s **claimed default interactive main menu**.
+This file records the shell menu. The live command `py-backup` follows `requirement-python-cli-default-interaction`.
+
+This requirement is the shell record for folder-backup’s **claimed default interactive main menu**.
 
 Channel verbs exist (`self-install`, `version-check`, `self-update`, `self-uninstall`, `self-management`). **Case 2** applies to the **interactive** zero-cli-verb: on a real terminal, with quiet and json off, a bare `folder-backup` run opens the numbered boards. A **non-interactive** zero-cli-verb (no TTY, or `--quiet` / `--json` with no command) is CLI self-install, owned by **`requirement-shell-cli-zero-arguments`**. This file does not replace that path. Named commands **`menu`** and **`main`** open the same boards. Off a terminal those named commands stop: `menu needs a terminal`. The sudoers **board body** is owned by **`requirement-shell-cli-sudoers-submenu`**. **`sudoers` is not a live dispatcher token.**
 

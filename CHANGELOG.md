@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- **Python command `py-backup`.** The ship unit is the `PyBackup` package under `src/PyBackup`. It is specialized from HelloTui. HelloTui is not modified. The shell file `src/folder-backup` stays as the behavioral record of 1.26.0 and is not the `py-backup` command.
+- **Python command `py-backup`.** The ship unit is the `PyBackup` package under `src/PyBackup`. It is specialized from HelloTui. HelloTui is not modified.
+- **Docs.** The user documents name this program PyBackup and the command `py-backup`.
+- **Python law (2026-10-23).** Empty argv, scratch storage, the next archive number, and in-tool sudo for `py-backup` are `requirement-python-cli-default-interaction`, `requirement-python-cli-storage`, `requirement-python-idempotency`, and `requirement-python-sudo-command`. The matching shell files stay as the record of the earlier program. Deposit `sudo -n` for OS tools stays a Gap. Product version stays 1.0.0.
 - **Text menu.** Front rows are **1** client-side, **3** system-log, **4** language, **5** sudoers, **8** self-management, and **9** Exit. Row **2** stays unprinted. Client-side is **11** backup and **12** restore. Sudoers prints **52** and **55**. Language is **41**–**53**. Self-management is **82**–**87** and uses `python -m pip`. A terminal with no command opens that menu. No terminal with no command prints help and returns 0.
 - **Backup and restore.** Deposit default is `/var/backup/PyBackup/`. Names are `SOURCE-YYYYMMDD-N.tar.gz`. Regular files are tar types `-` and `h`. Symlinks stay in the archive and are not archive files. Daily cap 5, total cap 30. Termux, Git Bash, and Windows cmd fail closed and do not wrap sudo.
 - **Grant.** `generate-sudoer-request` writes four command objects, including the `--json` twins, for `py-backup`. Submit does not create the inbound directory and does not write `/etc`.

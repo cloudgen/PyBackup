@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-The product README is the user document for `py-backup`. It is not the shell 1.26.0 document.
+The product README is the user document for `py-backup`.
 
 Project nature: a command-line program. The README is the page a person reads before they install.
 
@@ -17,7 +17,7 @@ Project nature: a command-line program. The README is the page a person reads be
 | Box | Meaning | Example |
 |-----|---------|---------|
 | You / this login | You follow the install line and then run the command | `python -m pip install --user PyBackup` |
-| The other role | The shell 1.26.0 document is not this page | `src/folder-backup` stays a reference |
+| The other role | Help lists the same commands | `py-backup help` |
 | Not this file | The law of each verb | The requirement that owns that verb |
 
 | Includes | Excludes |

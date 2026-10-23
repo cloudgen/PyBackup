@@ -6,7 +6,9 @@
 
 ## 1. Purpose
 
-This requirement is the **project Single Source of Truth** for **idempotency (re-run safety)** of state-changing operations in the folder-backup POSIX shell CLI.
+This file records the shell re-run rules. The live command `py-backup` follows `requirement-python-idempotency`.
+
+This requirement is the shell record for **idempotency (re-run safety)** of state-changing operations in the folder-backup POSIX shell CLI.
 
 **Informal formula:** for ensure-style operation *f* and system state *x*, **f(f(x)) ≈ f(x)** for the **desired outcome** (logs and timestamps may differ).
 

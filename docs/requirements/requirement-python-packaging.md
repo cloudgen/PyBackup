@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-The installable unit is a setuptools package. Version **1.0.0** is the first Python release. It does not continue the shell number 1.26.0.
+The installable unit is a setuptools package. Version **1.0.0** is the release of `py-backup`.
 
 Project nature: a command-line program people install with pip for their own login.
 

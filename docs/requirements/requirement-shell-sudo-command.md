@@ -7,7 +7,9 @@
 
 ## 1. Purpose
 
-This requirement is the **product Single Source of Truth** for **in-tool sudo**: one wrapping function, check before sudo, and a **studied sudo allow table** (dest + argv — no guessing).
+This file records the shell sudo table. The live command `py-backup` follows `requirement-python-sudo-command`. Inner OS-tool sudo on `py-backup` stays Gap.
+
+This requirement is the shell record for **in-tool sudo**: one wrapping function, check before sudo, and a **studied sudo allow table** (dest + argv — no guessing).
 
 JSON grant **body** stays on `requirement-sudoer-json-file`. Emit / install **workflow** stays on `requirement-three-layer-privilege-model`. Coding-style **points** here.
 

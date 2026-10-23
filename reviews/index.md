@@ -2,7 +2,7 @@
 
 **Current product (2026-10-22):** PyBackup **1.0.0**, command `py-backup`, ship unit `src/PyBackup`. Front rows are client-side (**1**), system-log (**3**), language (**4**), sudoers (**5**), self-management (**8**), and Exit (**9**). Findings for that command are `docs/reviews/2026-10-22-pybackup-bootstrap-review.md` (Revise: open P2, no P0/P1). Python suite: 24 tests, OK.
 
-**Shell record (2026-10-14):** `src/folder-backup` VERSION **1.26.0**. Front rows were client-side (**1**), sudoers (**5**), self-management (**6**), language (**7**), and Exit (**9**). The table below is that shell series. Older rows stay as written. They are not proof of `py-backup`.
+Older rows in the table are earlier reviews of this repository. The current command is `py-backup`.
 
 | Date | Report | Scope | Verdict | Suite |
 |------|--------|-------|---------|-------|

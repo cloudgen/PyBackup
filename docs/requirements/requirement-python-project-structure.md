@@ -8,7 +8,7 @@
 
 Where the Python program lives in this tree, and where one run keeps its scratch folder.
 
-Project nature: a command-line program. The program people run is `src/PyBackup`. The shell file stays beside it as a reference.
+Project nature: a command-line program. The program people run is `src/PyBackup`.
 
 ### 1.1 Human-facing
 
@@ -17,13 +17,13 @@ Project nature: a command-line program. The program people run is `src/PyBackup`
 | Box | Meaning | Example |
 |-----|---------|---------|
 | You / this login | Scratch is yours for this process, mode 0700 | `cache-PyBackup-{{USERNAME}}-<pid>` |
-| The other role | The shell file is not the command | `src/folder-backup` |
+| The other role | Another login runs the same package | `py-backup version` |
 | Not this file | How the archive is named and verified | The backup requirement |
 
 | Includes | Excludes |
 |----------|----------|
 | Package path, test runners, scratch leaf, config, persistence | A home path of a live login |
-| Parents: `TMPDIR`, then `/dev/shm`, then the temp directory | The shell cache path `/dev/shm/cache/cache-folder-backup-…` |
+| Parents: `TMPDIR`, then `/dev/shm`, then the temp directory | A scratch folder shared with another login |
 
 | Surface | What you open | What for |
 |---------|---------------|----------|
@@ -32,13 +32,13 @@ Project nature: a command-line program. The program people run is `src/PyBackup`
 
 | You do… | What it means | What you type |
 |---------|---------------|---------------|
-| Run the suite | `tests/run.sh` runs the Python tests. `tests/run-shell.sh` runs the shell reference. | `sh tests/run.sh` |
+| Run the suite | `tests/run.sh` runs the Python tests. | `sh tests/run.sh` |
 
 ## 2. Core Rules (Mandatory)
 
 1. Import package **MUST** be `src/PyBackup`. Entry is `python -m PyBackup` and the console script `py-backup`.
-2. `src/folder-backup` and `src/folder-backup.sha256` **MUST** remain as the shell reference. They are not the `py-backup` command.
-3. Tests for the Python command live in `tests/test_pybackup.py`. `tests/run.sh` runs that suite. `tests/run-shell.sh` runs the shell reference suite.
+2. The console command **MUST** be `py-backup`. The package people run is `src/PyBackup`.
+3. Tests for the Python command live in `tests/test_pybackup.py`. `tests/run.sh` runs that suite.
 4. Scratch for a backup is not the repository. The leaf is `cache-PyBackup-<login>-<pid>`. `<login>` is `id -un` at runtime. Parents, in order: `TMPDIR` when set, then `/dev/shm` when it is a directory, then the process temp directory. The leaf mode is 0700.
 5. Config drafts are `~/.config/PyBackup`. Persistence is `~/.local/PyBackup`.
 

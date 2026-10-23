@@ -2,9 +2,9 @@
 
 Authoritative specialized product law for **PyBackup** lives here.
 
-**Current state (2026-10-22):** Specialized **software-development** product. Left genesis. Bootstrap parent for the Python ship unit is **HelloTui**. The command is `py-backup`. A terminal with no command opens the numbered boards. Front rows are client-side **1**, system-log **3**, language **4**, sudoers **5**, self-management **8**, and Exit **9**. No terminal with no command prints help and returns 0. Pip lifecycle is `python -m pip` (rows **82**–**87**). There is no `curl | sh` channel on `py-backup`. Domain extend: folder archive backup. Public repository: `https://github.com/cloudgen/PyBackup`. Registry is populated — see `index.md`.
+**Current state (2026-10-23):** Specialized **software-development** product. Left genesis. Bootstrap parent is **HelloTui**. The command is `py-backup`. A terminal with no command opens the numbered boards. Front rows are client-side **1**, system-log **3**, language **4**, sudoers **5**, self-management **8**, and Exit **9**. No terminal with no command prints help and returns 0. Pip lifecycle is `python -m pip` (rows **82**–**87**). There is no `curl | sh` channel on `py-backup`. Domain extend: folder archive backup. Public repository: `https://github.com/cloudgen/PyBackup`. Registry is populated — see `index.md`.
 
-The shell file `src/folder-backup` release **1.26.0** remains the behavioral record. Its front board is client-side **1**, sudoers **5**, self-management **6**, language **7**, and Exit **9**, and a pipe with no command is `self-install`. Where a shell row disagrees with a `requirement-python-*` row, **`py-backup` follows the Python row**.
+`py-backup` follows `requirement-python-cli-default-interaction` (empty argv), `requirement-python-cli-storage` (scratch and persistence), `requirement-python-idempotency` (next archive number), and `requirement-python-sudo-command` (writable first, then `sudo -n`; inner OS-tool sudo stays Gap). The matching `requirement-shell-*` files record the earlier program.
 
 ## Product identity (summary)
 
@@ -16,7 +16,6 @@ The shell file `src/folder-backup` release **1.26.0** remains the behavioral rec
 | Ship unit | `src/PyBackup` |
 | Public repository | `https://github.com/cloudgen/PyBackup` |
 | Install | `python -m pip install --user -e .` from a checkout, or `python -m pip install --user PyBackup` when the package index lists it |
-| Shell record | `src/folder-backup` **1.26.0** (not the `py-backup` command) |
 | Backup ops | `requirement-folder-archive-backup` — create / name / deposit / verify / restore |
 | Retention total | `requirement-folder-archive-backup-retention-total` — max **30** per basename |
 | Retention daily | `requirement-folder-archive-backup-retention-daily` — max **5** per basename per day |

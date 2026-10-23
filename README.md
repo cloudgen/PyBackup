@@ -18,7 +18,7 @@
 
 | You do… | What it means | What you type |
 |---------|---------------|---------------|
-| Install | Places the `py-backup` command for this login. | `python -m pip install PyBackup` |
+| Install | Places the `py-backup` command for this login from a checkout. | `python -m pip install --user -e .` |
 | Open the menu | On a terminal, a bare run shows client-side, system-log, language, sudoers, self-management, and Exit. Server-side is not available. | `py-backup` |
 | Pack a folder | Copies the archive into `/var/backup/PyBackup/` when that directory is writable, or asks sudo only for the deposit when it is not. | `py-backup backup /path/to/project` |
 
@@ -137,7 +137,6 @@ py-backup about
 ## Related Projects
 
 - [HelloTui](https://github.com/cloudgen/HelloTui) is the text-menu architecture this program keeps: system log, language, pip self-management, and Exit.
-- The shell program that used to live at `src/folder-backup` remains in this tree as the behavioral record of release 1.26.0. The command you run is `py-backup`.
 
 ## Contributing
 
@@ -149,4 +148,4 @@ MIT. See [LICENSE.md](LICENSE.md). Copyright (c) 2026 cloudgen.
 
 ## Last Update
 
-2026-10-22. Package version 1.0.0. Public repository https://github.com/cloudgen/PyBackup. The shell history is in CHANGELOG.md under 1.26.0 and earlier.
+2026-10-23. Package version 1.0.0. Public repository https://github.com/cloudgen/PyBackup. The command is `py-backup`.
